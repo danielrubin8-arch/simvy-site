@@ -10,14 +10,14 @@
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:title" content="מי אנחנו · Simvy">
-<meta property="og:description" content="למה בנינו את Simvy: להנגיש את הידע של שוק ההון לכל מי שמוכן ללמוד. חינוך, לא ייעוץ.">
-<meta property="og:image" content="https://simvy.app/og-image.jpg">
+<meta property="og:description" content="למה בנינו את Simvy: להנגיש את הידע של שוק ההון לכל מי שמוכן ללמוד.">
+<meta property="og:image" content="https://simvy.app/about-hero.webp">
 <style>
 @font-face { font-family:'Assistant'; font-weight:400; src:url('/fonts/assistant-400.ttf') format('truetype'); font-display:swap; }
 @font-face { font-family:'Assistant'; font-weight:700; src:url('/fonts/assistant-700.ttf') format('truetype'); font-display:swap; }
 @font-face { font-family:'Assistant'; font-weight:800; src:url('/fonts/assistant-800.ttf') format('truetype'); font-display:swap; }
 *{ box-sizing:border-box; margin:0; padding:0; }
-html{ direction:rtl; }
+html{ direction:rtl; scroll-behavior:smooth; }
 body{
   background: radial-gradient(100% 40% at 50% -6%, rgba(190,237,217,.12), transparent 60%), #131C18;
   color:#F2F6F3; font-family:'Assistant',system-ui,sans-serif; font-size:17.5px; line-height:1.65;
@@ -25,70 +25,117 @@ body{
 }
 a{ color:#BEEDD9; text-decoration:none; }
 a:hover{ color:#7FCBAE; }
-.container{ max-width:820px; margin:0 auto; padding:0 22px; width:100%; }
+.container{ max-width:860px; margin:0 auto; padding:0 22px; width:100%; }
+/* lesson-style progress bar */
+#lessonbar{ position:fixed; top:0; right:0; height:3px; width:0%; background:#BEEDD9; z-index:60; box-shadow:0 0 12px rgba(190,237,217,.6); transition:width .12s linear; }
 header.site{ position:sticky; top:0; z-index:50; background:rgba(19,28,24,.87); backdrop-filter:blur(12px); border-bottom:1px solid rgba(190,237,217,.17); }
 .nav{ display:flex; align-items:center; justify-content:space-between; padding:12px 0; gap:12px; }
 .brand{ display:flex; align-items:center; gap:10px; color:#F2F6F3; }
 .brand img{ width:34px; height:34px; border-radius:9px; }
 .brand b{ font-size:17px; letter-spacing:.03em; }
 .nav .cta{ background:#BEEDD9; color:#07372A; font-weight:700; font-size:14px; border-radius:99px; padding:8px 18px; white-space:nowrap; }
-main{ flex:1; padding:48px 0 64px; }
-h1{ font-size:clamp(30px,6vw,42px); font-weight:800; line-height:1.12; letter-spacing:-.015em; margin-bottom:10px; }
+/* hero */
+.hero{ position:relative; overflow:hidden; }
+.hero img{ display:block; width:100%; max-height:64vh; object-fit:cover; object-position:center 30%; }
+.hero .scrim{ position:absolute; inset:0; background:linear-gradient(to bottom, rgba(19,28,24,.14), rgba(19,28,24,0) 40%, rgba(19,28,24,.9) 84%, #131C18 100%); }
+.hero .copy{ position:absolute; bottom:0; right:0; left:0; padding:0 22px 26px; max-width:860px; margin:0 auto; }
+.kicker{ display:inline-block; background:rgba(19,28,24,.72); border:1px solid rgba(190,237,217,.34); color:#BEEDD9; border-radius:99px; padding:5px 14px; font-size:12.5px; font-weight:700; letter-spacing:.04em; margin-bottom:12px; backdrop-filter:blur(4px); }
+h1{ font-size:clamp(30px,6vw,44px); font-weight:800; line-height:1.1; letter-spacing:-.015em; }
+main{ flex:1; padding:38px 0 64px; }
 .lede{ color:#CBD6CF; font-size:19px; max-width:32em; }
-h2{ font-size:clamp(21px,3.6vw,26px); font-weight:800; margin:34px 0 10px; }
+/* lesson parts */
+.part{ display:flex; align-items:center; gap:12px; margin:40px 0 12px; }
+.part .chip{ flex:0 0 auto; background:rgba(190,237,217,.13); border:1px solid rgba(190,237,217,.3); color:#BEEDD9; font-weight:800; font-size:13px; border-radius:10px; padding:5px 12px; }
+.part h2{ font-size:clamp(21px,3.8vw,27px); font-weight:800; letter-spacing:-.01em; }
+.part .rule{ flex:1; height:1px; background:rgba(190,237,217,.17); }
 p{ color:#CBD6CF; margin:0 0 14px; max-width:38em; }
-p b, li b{ color:#F2F6F3; }
-ul{ margin:0 0 14px; padding-inline-start:22px; color:#CBD6CF; }
-li{ margin-bottom:6px; }
-.hl{ background:#1B2622; border:1px solid rgba(190,237,217,.28); border-radius:16px; padding:18px 20px; margin:20px 0; color:#BEEDD9; font-weight:700; font-size:18px; max-width:38em; }
-.cta-block{ margin-top:36px; }
+p b{ color:#F2F6F3; }
+.hl{ background:#1B2622; border:1px solid rgba(190,237,217,.3); border-radius:16px; padding:18px 20px; margin:18px 0; color:#BEEDD9; font-weight:800; font-size:19px; max-width:38em; }
+/* teacher note */
+.note{ position:relative; background:#F6F8F6; color:#16211C; border-radius:18px; padding:24px 24px 20px; max-width:40em; margin:16px 0 0; transform:rotate(-.6deg); box-shadow:0 18px 44px rgba(0,0,0,.4); }
+.note::before{ content:''; position:absolute; top:-9px; right:34px; width:74px; height:20px; background:rgba(190,237,217,.85); border-radius:3px; transform:rotate(2deg); }
+.note p{ color:#2A3A32; }
+.note .sig{ display:flex; align-items:center; gap:10px; margin-top:14px; }
+.note .sig img{ width:34px; height:34px; border-radius:9px; }
+.note .sig b{ color:#0E1512; font-size:15px; }
+.note .sig span{ color:#5C6E64; font-size:13px; }
+/* quiz */
+.quiz{ margin-top:44px; border:1px solid rgba(190,237,217,.3); border-radius:20px; overflow:hidden; max-width:44em; }
+.quiz .qhead{ background:#1B2622; padding:16px 20px; display:flex; justify-content:space-between; align-items:center; gap:10px; }
+.quiz .qhead b{ font-size:17px; }
+.quiz .qhead span{ font-size:12px; color:#7FCBAE; font-weight:700; }
+.quiz .qbody{ padding:18px 20px 20px; display:grid; gap:9px; }
+.opt{ display:flex; align-items:center; gap:12px; border:1px solid rgba(190,237,217,.2); background:#1B2622; border-radius:13px; padding:13px 16px; cursor:pointer; font:inherit; color:#F2F6F3; text-align:start; transition:border-color .15s, background .15s; }
+.opt:hover{ border-color:rgba(190,237,217,.5); }
+.opt .letter{ flex:0 0 30px; height:30px; border-radius:9px; border:1px solid rgba(190,237,217,.34); display:grid; place-items:center; font-weight:800; color:#BEEDD9; font-size:14px; }
+.opt.correct{ border-color:#66BB6A; background:rgba(76,175,80,.13); }
+.opt.wrong{ border-color:#EF5350; background:rgba(244,67,54,.1); }
+#qresult{ display:none; margin:4px 20px 20px; border-radius:13px; padding:14px 16px; font-size:15.5px; }
+#qresult.good{ display:block; background:rgba(76,175,80,.13); border:1px solid #66BB6A; color:#CDEBCE; }
+#qresult.bad{ display:block; background:rgba(244,67,54,.1); border:1px solid rgba(239,83,80,.6); color:#F3CBc9; color:#F3CBC9; }
+#qresult a{ font-weight:800; }
+.cta-block{ margin-top:40px; }
 .btn{ display:inline-block; background:#BEEDD9; color:#07372A; font-weight:800; font-size:16.5px; border-radius:99px; padding:14px 30px; box-shadow:0 0 28px rgba(190,237,217,.28); }
 .micro{ margin-top:9px; font-size:13.5px; color:rgba(203,214,207,.62); }
 footer.site{ border-top:1px solid rgba(190,237,217,.17); padding:26px 0 34px; font-size:13.5px; color:rgba(203,214,207,.62); }
 .flinks{ display:flex; flex-wrap:wrap; gap:8px 16px; margin-bottom:14px; font-size:14px; }
 .flinks a{ color:#CBD6CF; }
-.cards{ display:grid; gap:14px; margin-top:26px; }
-.card{ border:1px solid rgba(190,237,217,.17); border-radius:20px; padding:22px; background:linear-gradient(165deg, rgba(190,237,217,.05), rgba(190,237,217,0) 45%), #1B2622; }
-.card .meta{ font-size:13.5px; color:#7FCBAE; font-weight:700; margin-bottom:6px; }
-.card h3{ font-size:20px; font-weight:800; margin-bottom:6px; }
-.card p{ font-size:15px; margin:0; }
-.badge{ display:inline-block; margin-inline-start:8px; background:rgba(190,237,217,.14); color:#BEEDD9; border-radius:99px; padding:2px 10px; font-size:12px; font-weight:700; vertical-align:middle; }
 </style>
 </head>
 <body>
+<div id="lessonbar"></div>
 <header class="site"><div class="container nav">
   <a class="brand" href="/"><img src="/email-icon.png" alt="Simvy"><b>simvy</b></a>
   <a class="cta" href="/#waitlist">לגישה מוקדמת</a>
 </div></header>
-<main><div class="container">
 
-<h1>למה בנינו את Simvy</h1>
+<div class="hero">
+  <img src="/about-hero.webp" alt="הכיתה של Simvy: המדריך מסביר על הלוח איך כסף הופך לידע">
+  <div class="scrim"></div>
+  <div class="copy container">
+    <span class="kicker">שיעור מספר אפס · הסיפור שלנו</span>
+    <h1>למה בנינו את Simvy</h1>
+  </div>
+</div>
+
+<main><div class="container">
 <p class="lede"><b>כי הידע על שוק ההון צריך להיות נגיש כמו האפליקציה של הבנק.</b></p>
 
-<h2>הבעיה שראינו</h2>
+<div class="part"><span class="chip">חלק א׳</span><h2>הבעיה שראינו</h2><span class="rule"></span></div>
 <p>שוק ההון הישראלי צומח בקצב מסחרר. בשנה אחת נפתחו 161 אלף חשבונות מסחר חדשים, פי שלושה מהשנה שלפניה. אבל הידע לא צמח באותו קצב: רק 45% מהישראלים עוברים את רף האוריינות הפיננסית המינימלי של ה-OECD.</p>
 <p>התוצאה מתסכלת. אנשים נכנסים לשוק בלי ניסיון, מפסידים כסף אמיתי, ולומדים את השיעור בדרך הכי יקרה שיש. ומי שמנסה ללמוד קודם מגלה שקורס מסחר עולה אלפי שקלים, שבפורומים מתנשאים, ושחצי מהתוכן ברשת מנסה למכור לו משהו.</p>
 <p>חינוך פיננסי זול, נגיש ובעברית פשוט לא היה. אז בנינו אותו.</p>
 
-<h2>מה אנחנו מאמינים</h2>
+<div class="part"><span class="chip">חלק ב׳</span><h2>מה אנחנו מאמינים</h2><span class="rule"></span></div>
 <div class="hl">אי אפשר ללמוד לשחות מהרצפה. צריך להיכנס למים, עם מצופים.</div>
 <p>בגלל זה Simvy היא לא עוד ספר על שוק ההון. היא בריכה: שיעורים קצרים בעברית שנותנים את הידע, וסימולטור בכסף וירטואלי על נתוני שוק אמיתיים. מקום שבו מותר לטעות, להפסיד, לנסות שוב, ולהבין למה. כי לקבל ידע זה מעולה, אבל מקום לתרגל אותו משנה את כל המשוואה.</p>
 <p>המטרה שלנו אחת: שתבין איך השוק עובד. לא שתסחר כמו מישהו אחר, ולא שתקנה מה שאומרים לך. שתבין מספיק טוב כדי שההחלטות שלך יהיו באמת שלך.</p>
 
-<h2>מה אנחנו לא</h2>
-<p>לא ניתן לך "טיפים חמים". לא נבטיח תשואה. לא נגיד לך מה לקנות או מה למכור, אף פעם.</p>
-<p><b>ההבטחות יקרות. הידע זול.</b> אנחנו בצד של הידע: Simvy היא אפליקציית חינוך פיננסי, לא ייעוץ השקעות.</p>
+<div class="part"><span class="chip">חלק ג׳</span><h2>מי מאחורי זה</h2><span class="rule"></span></div>
+<div class="note">
+  <p>אני דניאל, המייסד של Simvy. הגעתי מהצד של מי שחיפש דרך ללמוד את שוק ההון, וגילה שהברירה היא קורס באלפי שקלים או ללמוד לבד בשיטת הניסוי והטעייה. בדרך ראיתי יותר מדי אנשים שנופלים בצעדים הראשונים ומפסידים אלפי שקלים. לא כי הם לא חכמים, אלא כי אף אחד לא לימד אותם את הבסיס.</p>
+  <p><b>Simvy היא האפליקציה שהייתי רוצה שתהיה לי אז.</b></p>
+  <div class="sig"><img src="/email-icon.png" alt=""><div><b>דניאל</b><br><span>מייסד Simvy</span></div></div>
+</div>
 
-<h2>מי מאחורי זה</h2>
-<p>אני דניאל, המייסד של Simvy. הגעתי מהצד של מי שחיפש דרך ללמוד את שוק ההון, וגילה שהברירה היא קורס באלפי שקלים או ללמוד לבד בשיטת הניסוי והטעייה. בדרך ראיתי יותר מדי אנשים שנופלים בצעדים הראשונים ומפסידים אלפי שקלים. לא כי הם לא חכמים, אלא כי אף אחד לא לימד אותם את הבסיס.</p>
-<p><b>Simvy היא האפליקציה שהייתי רוצה שתהיה לי אז.</b></p>
+<div class="part"><span class="chip">בוחן</span><h2>שאלה אחת, ברוח הבית</h2><span class="rule"></span></div>
+<div class="quiz">
+  <div class="qhead"><b>מה Simvy תעשה בשבילך?</b><span>שאלה 1 מתוך 1</span></div>
+  <div class="qbody" id="qbody">
+    <button class="opt" data-ok="0"><span class="letter">א</span>תגיד לי איזו מניה לקנות</button>
+    <button class="opt" data-ok="0"><span class="letter">ב</span>תבטיח לי תשואה</button>
+    <button class="opt" data-ok="1"><span class="letter">ג</span>תלמד אותי להבין את השוק בעצמי</button>
+    <button class="opt" data-ok="0"><span class="letter">ד</span>תשלח לי טיפים חמים בוואטסאפ</button>
+  </div>
+  <div id="qresult"></div>
+</div>
 
 <div class="cta-block">
-  <h2>בוא ללמוד איתנו</h2>
   <a class="btn" href="/#waitlist">אני רוצה גישה מוקדמת</a>
   <div class="micro">הקורס הראשון חינם. בלי כרטיס אשראי.</div>
 </div>
 </div></main>
+
 <footer class="site"><div class="container">
   <div class="flinks">
     <a href="/">דף הבית</a>
@@ -102,5 +149,31 @@ footer.site{ border-top:1px solid rgba(190,237,217,.17); padding:26px 0 34px; fo
   </div>
   Simvy היא אפליקציית חינוך פיננסי. התכנים אינם ייעוץ השקעות; המסחר באפליקציה מתבצע בכסף וירטואלי בלבד.
 </div></footer>
+
+<script>
+(function () {
+  var bar = document.getElementById('lessonbar');
+  function onScroll() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+  }
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var result = document.getElementById('qresult');
+  document.querySelectorAll('.opt').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var ok = btn.getAttribute('data-ok') === '1';
+      document.querySelectorAll('.opt').forEach(function (b) { b.classList.remove('correct', 'wrong'); });
+      btn.classList.add(ok ? 'correct' : 'wrong');
+      result.className = ok ? 'good' : 'bad';
+      result.innerHTML = ok
+        ? '✓ בדיוק. זה כל הסיפור. <a href="/#waitlist">הקורס הראשון חינם ←</a>'
+        : '✗ ממש לא. זה בדיוק מה שאנחנו לא עושים. נסו שוב.';
+    });
+  });
+})();
+</script>
 </body>
 </html>
