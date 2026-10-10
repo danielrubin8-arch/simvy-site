@@ -54,12 +54,17 @@ footer.site{ border-top:1px solid rgba(190,237,217,.17); padding:26px 0 34px; fo
 .card h3{ font-size:20px; font-weight:800; margin-bottom:6px; }
 .card p{ font-size:15px; margin:0; }
 .badge{ display:inline-block; margin-inline-start:8px; background:rgba(190,237,217,.14); color:#BEEDD9; border-radius:99px; padding:2px 10px; font-size:12px; font-weight:700; vertical-align:middle; }
+.nav .links{ display:flex; gap:16px; margin-inline-start:auto; font-size:14.5px; font-weight:700; }
+.nav .links a{ color:#CBD6CF; white-space:nowrap; }
+.nav .links a:hover{ color:#BEEDD9; }
+@media (max-width:420px){ .brand b{ display:none; } .nav .links{ gap:12px; font-size:14px; } .nav .cta{ padding:8px 14px; } }
 </style>
   <script defer src="/t.js"></script>
 </head>
 <body>
 <header class="site"><div class="container nav">
   <a class="brand" href="/"><img src="/email-icon.png" alt="Simvy"><b>simvy</b></a>
+  <nav class="links" aria-label="ניווט"><a href="/simulator.html">הסימולטור</a><a href="/pricing.html">תמחור</a></nav>
   <a class="cta" href="/#download">להורדה</a>
 </div></header>
 <main><div class="container">
@@ -92,6 +97,8 @@ footer.site{ border-top:1px solid rgba(190,237,217,.17); padding:26px 0 34px; fo
     <a href="/">דף הבית</a>
     <a href="/about.html">מי אנחנו</a>
     <a href="/courses.html">הקורסים</a>
+    <a href="/simulator.html">הסימולטור</a>
+    <a href="/pricing.html">תמחור</a>
     <a href="/disclaimer.html">גילוי נאות</a>
     <a href="/accessibility.html">הצהרת נגישות</a>
     <a href="https://legal.simvy.app/privacy.html">מדיניות פרטיות</a>

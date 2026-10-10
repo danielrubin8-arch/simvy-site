@@ -30,8 +30,21 @@ campaign token (`app-store:site-home-hero`).
 ## אחרי ייצוא מחדש של הקנבס: מה להחזיר
 
 ייצוא מחדש של `index.html` מ-Claude Design דורס את כל הקובץ, וכל מה שבסעיף
-הזה נעלם בשקט: הדף נראה תקין לגמרי. דפי המשנה (`about.html`, `courses.html`,
-`thanks.html`) הם לא ייצוא, ושם השינויים נשארים.
+הזה נעלם בשקט: הדף נראה תקין לגמרי.
+
+**דפי המשנה הם קבצים סטטיים, לא ייצוא מהקנבס**, וייצוא מחדש לא נוגע בהם:
+`pricing.html` (תמחור ושאלות נפוצות), `simulator.html` (הסימולטור, היומן
+והחדשות), `courses.html` (הסילבוס), `about.html` (אודות), `thanks.html`,
+`disclaimer.html`, `accessibility.html` ו-`404.html`. בכל אחד מהם יש בכותרת
+העליונה קישורים ל"הסימולטור" ול"תמחור", ובפוטר את כל העמודים. הטקסט של ארבעת
+הראשונים הועתק מילה במילה מהטיוטה שדניאל אישר ב-10.10
+(`DRAFT_site-pages_2026-10-10.md` בריפו האפליקציה). עמוד חדש מעתיקים מאחד
+מהקיימים (head, ניווט, פוטר, `t.js`, תג חכם), ומוסיפים אותו ל-`sitemap.xml`
+ולפוטר של כל הדפים.
+
+**0. קישורים בפוטר של `index.html`:** אחרי "הקורסים" יש קישורים ל-`/simulator.html`
+("הסימולטור") ול-`/pricing.html` ("תמחור"), באותו `style` של שאר הקישורים בפוטר
+של התבנית.
 
 **1. שורת המונה** ב-`<head>` הסטטי: `<script defer src="/t.js"></script>` (ראו
 למעלה).
@@ -47,6 +60,8 @@ campaign token (`app-store:site-home-hero`).
 | פוטר | `site-home-footer` |
 | `about.html` | `site-about-cta` |
 | `courses.html` | `site-courses-cta` |
+| `pricing.html` | `site-pricing-cta` |
+| `simulator.html` | `site-simulator-cta` |
 | `thanks.html` | `site-thanks-card` |
 
 - App Store: `https://apps.apple.com/il/app/id6797081307?pt=129081401&ct=<ערך>&mt=8`
@@ -88,12 +103,12 @@ campaign token (`app-store:site-home-hero`).
 # אף קישור לחנות בלי ייחוס: 0 בכל קובץ, בשתי השורות
 grep -c 'id6797081307"\|id6797081307\\"' *.html
 grep -c 'com\.simvy\.app"\|com\.simvy\.app\\"' *.html
-# הערכים: אחד לכל מקום (8 לאפל, 8 ל-Play)
+# הערכים: אחד לכל מקום (10 לאפל, 10 ל-Play)
 grep -o 'id6797081307?pt=129081401&\(amp;\)\?ct=[a-z0-9-]*&\(amp;\)\?mt=8' *.html
 grep -o 'utm_campaign%3D[a-z0-9-]*' *.html
 # קישור לאפל בלי pt: 0 בכל קובץ
 grep -c 'id6797081307?ct=' *.html
-# תג חכם: 2 ב-index.html, 1 ב-about/courses/thanks
+# תג חכם: 2 ב-index.html, 1 ב-about/courses/pricing/simulator/thanks
 grep -c 'apple-itunes-app' *.html
 # המונה: 1 בכל דף
 grep -c 'src="/t.js"' *.html
