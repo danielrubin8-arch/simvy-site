@@ -27,12 +27,46 @@
   var ENDPOINT = 'https://aaxlawvhoxexeojtkkxn.supabase.co/functions/v1/track-visit';
   var last = {}; // label -> timestamp, for the de-duplication below
 
+  /*
+   * Campaign attribution, privacy first. The query string is where a campaign
+   * says who sent the visitor (?utm_source=instagram), and before this the
+   * counter threw it away, so no visit could be tied to a campaign. Only the
+   * keys below are kept, in this order of importance; everything else is
+   * dropped (fbclid, gclid and any parameter that could identify a person).
+   * A value is kept only if it is short and made of letters, digits, Hebrew,
+   * space, dot, underscore or hyphen, so an e-mail or a URL can never ride in
+   * on a whitelisted key. The result rides in the existing `path` field
+   * (track-visit stores it as text, capped at 120 characters), so the server
+   * did not have to change. Parameters that would push past that cap are
+   * dropped from the end, never cut in the middle.
+   */
+  var KEEP = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'ref', 'ct'];
+  var SAFE_VALUE = /^[A-Za-z0-9א-ת _.\-]{1,40}$/;
+  var MAX_PATH = 120;
+
+  function pathWithCampaign() {
+    var path = location.pathname || '/';
+    try {
+      if (!location.search || typeof URLSearchParams === 'undefined') return path;
+      var params = new URLSearchParams(location.search);
+      var kept = [];
+      for (var i = 0; i < KEEP.length; i++) {
+        var v = params.get(KEEP[i]);
+        if (v && SAFE_VALUE.test(v)) kept.push(KEEP[i] + '=' + v);
+      }
+      while (kept.length && (path + '?' + kept.join('&')).length > MAX_PATH) kept.pop();
+      return kept.length ? path + '?' + kept.join('&') : path;
+    } catch (e) {
+      return path;
+    }
+  }
+
   function send(kind, label) {
     try {
       var body = JSON.stringify({
         kind: kind,
         label: label || null,
-        path: location.pathname || '/',
+        path: pathWithCampaign(),
         referrer: document.referrer || null
       });
 
@@ -73,13 +107,25 @@
    * data-sv wins over all of them, so a future page can name its own CTA
    * without this file being touched.
    */
+  /*
+   * Every store link carries its own campaign token (App Store ct=, Play
+   * utm_campaign inside referrer=), one per spot on the page. Appending it to
+   * the click label ("app-store:site-home-hero") splits the clicks by spot,
+   * the same split the stores report for installs. A link without a token
+   * still counts, as plain "app-store" / "google-play".
+   */
+  function campaignOf(href) {
+    var m = /[?&]ct=([a-z0-9-]+)/.exec(href) || /utm_campaign%3D([a-z0-9-]+)/.exec(href);
+    return m ? ':' + m[1] : '';
+  }
+
   function labelFor(el) {
     var named = el.getAttribute && el.getAttribute('data-sv');
     if (named) return named.slice(0, 40);
 
     var href = (el.getAttribute && el.getAttribute('href')) || '';
-    if (/apps\.apple\.com|itunes\.apple\.com/.test(href)) return 'app-store';
-    if (/play\.google\.com/.test(href)) return 'google-play';
+    if (/apps\.apple\.com|itunes\.apple\.com/.test(href)) return ('app-store' + campaignOf(href)).slice(0, 40);
+    if (/play\.google\.com/.test(href)) return ('google-play' + campaignOf(href)).slice(0, 40);
 
     if (el.closest && el.closest('form')) return 'waitlist-submit';
     return null;
