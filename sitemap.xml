@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://simvy.app/</loc><lastmod>2026-08-16</lastmod></url>
-  <url><loc>https://simvy.app/about.html</loc><lastmod>2026-08-16</lastmod></url>
-  <url><loc>https://simvy.app/courses.html</loc><lastmod>2026-08-16</lastmod></url>
+  <url><loc>https://simvy.app/</loc><lastmod>2026-10-10</lastmod></url>
+  <url><loc>https://simvy.app/about.html</loc><lastmod>2026-10-10</lastmod></url>
+  <url><loc>https://simvy.app/courses.html</loc><lastmod>2026-10-10</lastmod></url>
   <url><loc>https://simvy.app/disclaimer.html</loc><lastmod>2026-08-16</lastmod></url>
   <url><loc>https://simvy.app/accessibility.html</loc><lastmod>2026-08-16</lastmod></url>
+  <url><loc>https://simvy.app/pricing.html</loc><lastmod>2026-10-10</lastmod></url>
+  <url><loc>https://simvy.app/simulator.html</loc><lastmod>2026-10-10</lastmod></url>
 </urlset>
