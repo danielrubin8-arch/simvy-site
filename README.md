@@ -49,19 +49,26 @@ campaign token (`app-store:site-home-hero`).
 | `courses.html` | `site-courses-cta` |
 | `thanks.html` | `site-thanks-card` |
 
-- App Store: `https://apps.apple.com/il/app/id6797081307?ct=<ערך>`
+- App Store: `https://apps.apple.com/il/app/id6797081307?pt=129081401&ct=<ערך>&mt=8`
 - Google Play: `https://play.google.com/store/apps/details?id=com.simvy.app&referrer=utm_source%3Dsimvy-site%26utm_medium%3Dweb%26utm_campaign%3D<ערך>`
-  (בתוך `href` של HTML כותבים `&amp;referrer=`; בתוך JSON-LD כותבים `&referrer=`).
-- **חסר `pt` (provider token) של אפל.** לפי התיעוד של App Store Connect קישור
-  קמפיין צריך גם `pt` וגם `ct`. מקבלים אותו פעם אחת: ASC > App Analytics >
-  Campaigns > יצירת קישור קמפיין, ומעתיקים את המספר שאחרי `pt=`. אז כל קישור
-  לאפל הופך ל-`?pt=<המספר>&ct=<ערך>&mt=8`.
+- בתוך `href` של HTML כותבים `&amp;` במקום `&` (‏`?pt=129081401&amp;ct=...&amp;mt=8`,
+  ‏`&amp;referrer=`). בתוך JSON-LD כותבים `&` רגיל.
+- **`pt=129081401`** הוא ה-provider token של אפל. הוא **קבוע לכל החשבון**, ולא
+  משתנה בין קמפיינים. רק `ct` מבדיל בין מקום למקום. לפי התיעוד של App Store
+  Connect, קישור קמפיין צריך את שניהם. אם צריך אותו שוב: ASC > Apps > Simvy >
+  App Analytics > Campaigns > Create campaign link, והמספר מופיע אחרי `pt=`
+  בקישור שנוצר. החלון הוא מחולל בלבד ולא שומר רשומה של קמפיין, ולכן אין צורך
+  "לרשום" קמפיין חדש. מספיק `ct` חדש בקישור.
 
 **3. תג חכם של אפל** (Smart App Banner):
 `<meta name="apple-itunes-app" content="app-id=6797081307">`, בשני מקומות:
 ב-`<head>` הסטטי (מתחת ל-`twitter:card`), **וגם** ב-`<head>` של התבנית
 (`__bundler/template`, מתחת ל-`viewport`). הבאנדלר מחליף את כל המסמך
 (`document.documentElement.replaceWith`), ולכן תג שנמצא רק בחלק הסטטי לא שורד.
+בתג **אין** טוקני קמפיין, וזה מכוון. עמוד ה-Campaign links של אפל אומר להוסיף
+`pt` ו-`ct` לתג החכם, אבל לא מראה איך. עמוד התג עצמו מתעד רק את `app-id` ואת
+`app-argument`. בפורום המפתחים של אפל, מי שניסה `affiliate-data=pt=...&ct=...`
+דיווח שלא הגיעו נתונים ל-ASC, ואפל לא ענתה. כשאפל תתעד את התחביר, אפשר להוסיף.
 
 **4. פיסוק: אפס מקף ארוך (—) בטקסט עברי.** הקנבס עדיין מכיל אותם, וייצוא מחדש
 מחזיר את כולם. כל מקף הוחלף בנקודתיים, פסיק, נקודה או סוגריים, בלי לשנות מילה:
@@ -82,8 +89,10 @@ campaign token (`app-store:site-home-hero`).
 grep -c 'id6797081307"\|id6797081307\\"' *.html
 grep -c 'com\.simvy\.app"\|com\.simvy\.app\\"' *.html
 # הערכים: אחד לכל מקום (8 לאפל, 8 ל-Play)
-grep -o 'id6797081307?ct=[a-z0-9-]*' *.html
+grep -o 'id6797081307?pt=129081401&\(amp;\)\?ct=[a-z0-9-]*&\(amp;\)\?mt=8' *.html
 grep -o 'utm_campaign%3D[a-z0-9-]*' *.html
+# קישור לאפל בלי pt: 0 בכל קובץ
+grep -c 'id6797081307?ct=' *.html
 # תג חכם: 2 ב-index.html, 1 ב-about/courses/thanks
 grep -c 'apple-itunes-app' *.html
 # המונה: 1 בכל דף
@@ -100,4 +109,5 @@ grep '__bundler/template">' index.html | grep -o '—' | wc -l
   .map(a => a.href)
 ```
 
-ולוודא שלכל קישור יש `ct=` או `referrer=`.
+ולוודא שבכל קישור לאפל יש `pt=129081401&ct=site-...&mt=8`, ובכל קישור ל-Play יש
+`referrer=`.
