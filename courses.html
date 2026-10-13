@@ -19,366 +19,318 @@
 <meta property="og:locale" content="he_IL">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://simvy.app/#org", "name": "Simvy", "url": "https://simvy.app/", "logo": "https://simvy.app/logo-email.png", "email": "simvysupport@gmail.com", "sameAs": ["https://apps.apple.com/il/app/id6797081307", "https://play.google.com/store/apps/details?id=com.simvy.app"]}, {"@type": "Course", "name": "מבוא לשוק ההון", "description": "מה זה מניה, איך עובדת בורסה, מה ההבדל בין מדד לקרן, ומה באמת קורה כשלוחצים \"קנייה\". הבסיס שכולם מדלגים עליו, במילים של בני אדם.", "inLanguage": "he", "provider": {"@id": "https://simvy.app/#org"}}, {"@type": "Course", "name": "ניתוח טכני", "description": "לקרוא גרף כמו טקסט: נרות יפניים, מגמות, תמיכות והתנגדויות, תבניות. עם תרגול סימון ושרטוט על גרפים אמיתיים בתוך השיעור.", "inLanguage": "he", "provider": {"@id": "https://simvy.app/#org"}}, {"@type": "Course", "name": "ניתוח פונדמנטלי", "description": "מה מספרים הדוחות: הכנסות, רווח, מכפילים ותזרים. איך מעריכים חברה לפי העסק שלה, לא לפי הכותרות עליה.", "inLanguage": "he", "provider": {"@id": "https://simvy.app/#org"}}, {"@type": "Course", "name": "פסיכולוגיית השוק", "description": "פחד, פומו, ביטחון יתר והעדר: ההטיות שמפילות גם מנוסים, ואיך מזהים אותן אצלך, לפני שהן עולות כסף.", "inLanguage": "he", "provider": {"@id": "https://simvy.app/#org"}}, {"@type": "Course", "name": "ניהול סיכונים", "description": "גודל פוזיציה, סטופים, פיזור, ולמה לשרוד זה הכישרון החשוב ביותר בשוק. הידע שמפריד בין טעות לקטסטרופה.", "inLanguage": "he", "provider": {"@id": "https://simvy.app/#org"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "כמה שיעורים יש ב-Simvy?", "acceptedAnswer": {"@type": "Answer", "text": "101 שיעורים: 84 בחמשת הקורסים המרכזיים ו-17 בארבעה קורסי הרחבה."}}, {"@type": "Question", "name": "כמה זמן נמשך שיעור?", "acceptedAnswer": {"@type": "Answer", "text": "שיעורים של כ-10 דקות."}}, {"@type": "Question", "name": "איזה קורס פתוח בלי תשלום?", "acceptedAnswer": {"@type": "Answer", "text": "קורס המבוא לשוק ההון: 9 שיעורים ומבחן סיכום. שאר הקורסים נפתחים עם Simvy PRO ב-₪19.90 לחודש."}}, {"@type": "Question", "name": "מאיפה כדאי להתחיל?", "acceptedAnswer": {"@type": "Answer", "text": "מקורס המבוא. הוא נותן את הבסיס שכל שאר הקורסים נשענים עליו."}}, {"@type": "Question", "name": "יש תרגול על גרפים?", "acceptedAnswer": {"@type": "Answer", "text": "כן. בקורס הניתוח הטכני יש 46 שאלות שעונים עליהן ישירות על גרף מחיר, ב-23 מתוך 26 השיעורים."}}, {"@type": "Question", "name": "השיעורים בעברית?", "acceptedAnswer": {"@type": "Answer", "text": "כן, כל השיעורים בעברית."}}]}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"MobileApplication","@id":"https://simvy.app/#app","name":"Simvy","url":"https://simvy.app/","operatingSystem":"iOS, Android","applicationCategory":"EducationalApplication","inLanguage":"he","description":"שיעורים קצרים בעברית על שוק ההון וסימולטור מסחר בכסף וירטואלי.","installUrl":["https://apps.apple.com/il/app/id6797081307","https://play.google.com/store/apps/details?id=com.simvy.app"],"sameAs":["https://apps.apple.com/il/app/id6797081307","https://play.google.com/store/apps/details?id=com.simvy.app"],"publisher":{"@id":"https://simvy.app/#org"},"offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}]}</script>
-<style>
-@font-face { font-family:'Assistant'; font-weight:400; src:url('/fonts/assistant-400.ttf') format('truetype'); font-display:swap; }
-@font-face { font-family:'Assistant'; font-weight:700; src:url('/fonts/assistant-700.ttf') format('truetype'); font-display:swap; }
-@font-face { font-family:'Assistant'; font-weight:800; src:url('/fonts/assistant-800.ttf') format('truetype'); font-display:swap; }
-*{ box-sizing:border-box; margin:0; padding:0; }
-html{ direction:rtl; scroll-behavior:smooth; }
-body{
-  background: radial-gradient(100% 40% at 50% -6%, rgba(190,237,217,.12), transparent 60%), #131C18;
-  color:#F2F6F3; font-family:'Assistant',system-ui,sans-serif; font-size:17.5px; line-height:1.65;
-  -webkit-font-smoothing:antialiased; min-height:100vh; display:flex; flex-direction:column;
-}
-a{ color:#BEEDD9; text-decoration:none; }
-a:hover{ color:#7FCBAE; }
-.container{ max-width:860px; margin:0 auto; padding:0 22px; width:100%; }
-header.site{ position:sticky; top:0; z-index:50; background:rgba(19,28,24,.87); backdrop-filter:blur(12px); border-bottom:1px solid rgba(190,237,217,.17); }
-.nav{ display:flex; align-items:center; justify-content:space-between; padding:12px 0; gap:12px; }
-.brand{ display:flex; align-items:center; gap:10px; color:#F2F6F3; }
-.brand img{ width:34px; height:34px; border-radius:9px; }
-.brand b{ font-size:17px; letter-spacing:.03em; }
-.nav .cta{ background:#BEEDD9; color:#07372A; font-weight:700; font-size:14px; border-radius:99px; padding:8px 18px; white-space:nowrap; }
-.nav .links{ display:flex; gap:16px; margin-inline-start:auto; font-size:14.5px; font-weight:700; }
-.nav .links a{ color:#CBD6CF; white-space:nowrap; }
-.nav .links a:hover{ color:#BEEDD9; }
-@media (max-width:420px){ .brand b{ display:none; } .nav .links{ gap:12px; font-size:14px; } .nav .cta{ padding:8px 14px; } }
-main{ flex:1; padding:48px 0 64px; }
-h1{ font-size:clamp(30px,6vw,42px); font-weight:800; line-height:1.12; letter-spacing:-.015em; margin-bottom:14px; }
-.lede{ color:#CBD6CF; font-size:19px; max-width:34em; }
-h2{ font-size:clamp(21px,3.6vw,26px); font-weight:800; margin:38px 0 10px; letter-spacing:-.01em; }
-h3{ font-size:18.5px; font-weight:800; margin:24px 0 8px; color:#F2F6F3; }
-h4{ font-size:17px; font-weight:800; margin:0 0 4px; color:#F2F6F3; }
-p{ color:#CBD6CF; margin:0 0 14px; max-width:38em; overflow-wrap:anywhere; }
-p b, li b{ color:#F2F6F3; }
-ul, ol{ margin:0 0 16px; padding-inline-start:24px; color:#CBD6CF; max-width:40em; }
-li{ margin-bottom:6px; overflow-wrap:anywhere; }
-li ul{ margin:8px 0 4px; }
-hr{ border:0; border-top:1px solid rgba(190,237,217,.17); margin:34px 0 0; }
-.hl{ background:#1B2622; border:1px solid rgba(190,237,217,.28); border-radius:16px; padding:18px 20px; margin:20px 0; color:#BEEDD9; font-weight:700; font-size:18px; max-width:38em; }
-.faq{ border:1px solid rgba(190,237,217,.17); border-radius:16px; background:#1B2622; padding:16px 20px; margin:0 0 12px; max-width:44em; }
-.faq h3, .faq h4{ margin:0 0 6px; font-size:17px; }
-.faq p{ margin:0; font-size:16px; }
-.fine{ margin-top:30px; font-size:15px; color:rgba(203,214,207,.75); }
-.cta-block{ margin-top:36px; }
-.btn{ display:inline-block; background:#BEEDD9; color:#07372A; font-weight:800; font-size:16.5px; border-radius:99px; padding:14px 30px; box-shadow:0 0 28px rgba(190,237,217,.28); }
-footer.site{ border-top:1px solid rgba(190,237,217,.17); padding:26px 0 34px; font-size:13.5px; color:rgba(203,214,207,.62); }
-.flinks{ display:flex; flex-wrap:wrap; gap:8px 16px; margin-bottom:14px; font-size:14px; }
-.flinks a{ color:#CBD6CF; }
-.hero{ position:relative; overflow:hidden; }
-.hero img{ display:block; width:100%; max-height:52vh; object-fit:cover; object-position:center 32%; }
-.hero .scrim{ position:absolute; inset:0; background:linear-gradient(to bottom, rgba(19,28,24,.12), rgba(19,28,24,0) 38%, rgba(19,28,24,.9) 84%, #131C18 100%); }
-.hero .copy{ position:absolute; bottom:0; right:0; left:0; padding:0 22px 22px; max-width:860px; margin:0 auto; }
-.hero h1{ margin:0; }
-.course{ background:#F6F8F6; color:#16211C; border-radius:14px; padding:6px 22px 18px; margin:30px 0 0; box-shadow:0 20px 44px rgba(0,0,0,.45); }
-.course h2{ color:#16211C; border-bottom:2px solid #16211C; padding-bottom:10px; margin:14px 0 12px; font-size:clamp(20px,3.4vw,24px); }
-.course h3{ color:#16211C; margin-top:22px; }
-.course p, .course ol, .course ul{ color:#3A4A42; }
-.course p b, .course li b, .course h3 b{ color:#16211C; }
-.course .count{ font-size:14px; font-weight:800; color:#155F45; margin-bottom:8px; }
-.course ol{ columns:2 16em; column-gap:34px; }
-.course li{ break-inside:avoid; font-size:15.5px; margin-bottom:4px; }
-</style>
+<link rel="preload" href="/fonts/assistant-800.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="/img/lesson-read.webp" as="image" fetchpriority="high">
+<link rel="stylesheet" href="/css/site.css">
+<link rel="stylesheet" href="/css/courses.css">
   <script defer src="/t.js"></script>
 </head>
 <body>
-<header class="site"><div class="container nav">
-  <a class="brand" href="/"><img src="/email-icon.png" alt="Simvy"><b>simvy</b></a>
-  <nav class="links" aria-label="ניווט"><a href="/simulator.html">הסימולטור</a><a href="/pricing.html">תמחור</a></nav>
-  <a class="cta" href="/#download">להורדה</a>
+<script>(function(d){d.classList.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('motion')}catch(e){}})(document.documentElement)</script>
+<a class="skip" href="#main">דילוג לתוכן</a>
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="/"><span class="brand__mark"><img src="/img/home-mark.svg" alt="Simvy" width="22" height="22"></span><img class="brand__word" src="/img/home-wordmark.svg" alt="" width="70" height="20"></a>
+  <nav class="site-nav" aria-label="ניווט ראשי"><a href="/courses.html" aria-current="page">קורסים</a><a href="/simulator.html">הסימולטור</a><a href="/pricing.html">תמחור</a><a href="/about.html">מי אנחנו</a></nav>
+  <a class="btn" href="#download">להורדה</a>
 </div></header>
-<div class="hero">
-  <img src="/courses-hero.webp" alt="">
-  <div class="scrim"></div>
-  <div class="copy container">
-    <h1>הקורסים של Simvy: כל השיעורים לפי קורס</h1>
-  </div>
-</div>
-<main><div class="container">
-<p class="lede">ב-Simvy יש 101 שיעורים בעברית, שיעורים של כ-10 דקות, ב-5 קורסים מרכזיים וב-4 קורסי הרחבה. קורס המבוא (9 שיעורים) פתוח בלי תשלום, ושאר הקורסים נפתחים עם Simvy PRO ב-₪19.90 לחודש.</p>
-<h2>איך לומדים</h2>
-<ul>
-<li>שיעורים של כ-10 דקות. כל שיעור נגמר בתרגול, לא בסיכום.
-</li>
-<li>בתוך קורס, השיעורים נפתחים לפי הסדר: מסיימים שיעור, והבא נפתח.
-</li>
-<li>הקורסים מחולקים למדרגות. כדי לעבור למדרגה הבאה מסיימים את כל השיעורים במדרגה ועוברים את מבחן המדרגה.
-</li>
-<li>בקורס הניתוח הטכני יש שאלות שעונים עליהן ישירות על הגרף (פירוט בקורס 2).
-</li></ul>
-<p class="fine"><em>התכנים הם חינוך פיננסי בלבד ואינם ייעוץ השקעות.</em></p>
-<hr>
-<section class="course" id="course-1">
-<h2>קורס 1: מבוא לשוק ההון · פתוח בלי תשלום</h2>
-<p class="count">9 שיעורים ומבחן סיכום</p>
-<p>מה זה מניה, איך עובדת בורסה, מה ההבדל בין מדד לקרן, ומה באמת קורה כשלוחצים "קנייה". הבסיס שכולם מדלגים עליו, במילים של בני אדם.</p>
-<ol>
-<li>מבוא לשוק ההון
-</li>
-<li>מה היא מניה?
-</li>
-<li>זירת המדדים
-</li>
-<li>משקל כבד מול נוצה
-</li>
-<li>פקודות שוק
-</li>
-<li>טכני מול פונדמנטלי
-</li>
-<li>מבוא לניתוח פונדמנטלי
-</li>
-<li>מבוא לניתוח טכני
-</li>
-<li>מבוא לפסיכולוגיית השוק
-</li></ol>
-</section>
-<section class="course" id="course-2">
-<h2>קורס 2: ניתוח טכני · Simvy PRO</h2>
-<p class="count">26 שיעורים</p>
-<p>לקרוא גרף כמו טקסט: נרות יפניים, מגמות, תמיכות והתנגדויות, תבניות. עם תרגול סימון ושרטוט על גרפים אמיתיים בתוך השיעור.</p>
-<p><b>שאלות על הגרף:</b> ב-23 מתוך 26 השיעורים בקורס יש שאלות שעונים עליהן ישירות על גרף מחיר, 46 שאלות בסך הכול. סוגי השאלות: להקיש על נר מסוים, להקיש על נקודה בגרף, לסמן אזור (למשל תמיכה או התנגדות), לחבר נקודות בקו (למשל קו מגמה), לזהות איפה משהו נשבר בגרף, לסמן אילו סימנים מתקיימים בגרף, ולבדוק אם כמה סימנים מתכנסים יחד.</p>
-<ol>
-<li>סוגי גרפים
-</li>
-<li>אנטומיה של נר יפני
-</li>
-<li>קריאת נרות: איפה, לא רק איך
-</li>
-<li>מסגרות זמן
-</li>
-<li>מגמות שוק
-</li>
-<li>קווי מגמה
-</li>
-<li>תמיכה והתנגדות
-</li>
-<li>החלפת תפקידים
-</li>
-<li>המסדרון של המחיר
-</li>
-<li>נפח מסחר - <bdi>Volume</bdi>
-</li>
-<li>פריצות ופריצות דמה
-</li>
-<li>תיקונים – למה צריך אותם?
-</li>
-<li>נזילות
-</li>
-<li>למי אכפת ממוסדיים
-</li>
-<li>הגאפ
-</li>
-<li>ממוצעים נעים בסיסי (<bdi>SMA / EMA</bdi>)
-</li>
-<li>ממוצעים נעים מתקדם
-</li>
-<li><bdi>ATR</bdi> ורצועות בולינג'ר
-</li>
-<li>תבניות המשך גרפיות
-</li>
-<li>תבניות שינוי כיוון
-</li>
-<li>ה-<bdi>VWAP</bdi>
-</li>
-<li>מתנד ה-<bdi>MACD</bdi>
-</li>
-<li>מתנד ה-<bdi>RSI</bdi>
-</li>
-<li>אירועי <bdi>VPA</bdi> קריטיים
-</li>
-<li>תופעות קיצון בשוק
-</li>
-<li>האינטגרציה
-</li></ol>
-</section>
-<section class="course" id="course-3">
-<h2>קורס 3: ניתוח פונדמנטלי · Simvy PRO</h2>
-<p class="count">15 שיעורים</p>
-<p>מה מספרים הדוחות: הכנסות, רווח, מכפילים ותזרים. איך מעריכים חברה לפי העסק שלה, לא לפי הכותרות עליה.</p>
-<ol>
-<li>מודל עסקי וסקלביליות
-</li>
-<li>החפיר הכלכלי
-</li>
-<li>איכות ההנהלה
-</li>
-<li>דיבידנדים ומלכודת התשואה
-</li>
-<li>אקדח התמחור: מכפילי <bdi>P/E, P/S, P/B</bdi>
-</li>
-<li>מרווח ביטחון
-</li>
-<li>חוב ומינוף
-</li>
-<li>הבדלים בין חברת ערך לחברת צמיחה
-</li>
-<li>אינפלציה וריבית
-</li>
-<li>כיצד המאקרו מזיז את השוק
-</li>
-<li>רכישות עצמיות
-</li>
-<li>עונת הדיווחים 1: מכניקה, חוקים וזירת המשחק
-</li>
-<li>עונת הדיווחים 2: משחק הציפיות
-</li>
-<li>עונת הדיווחים 3: אדוות סקטוריאליות
-</li>
-<li>מלכודות ערך
-</li></ol>
-</section>
-<section class="course" id="course-4">
-<h2>קורס 4: פסיכולוגיית השוק · Simvy PRO</h2>
-<p class="count">20 שיעורים</p>
-<p>פחד, פומו, ביטחון יתר והעדר: ההטיות שמפילות גם מנוסים, ואיך מזהים אותן אצלך, לפני שהן עולות כסף.</p>
-<ol>
-<li>פסיכולוגיית השוק 101
-</li>
-<li>חמש האמיתות של המסחר
-</li>
-<li>תאוריית הערך ושנאת הפסד
-</li>
-<li>נוירו-כלכלה
-</li>
-<li>האנטומיה של ההפסד
-</li>
-<li>סחר יתר
-</li>
-<li>ניצחון ותסביך גדלות
-</li>
-<li>שיתוק יכולת הניתוח
-</li>
-<li>מלכודת עלות ההשקעה
-</li>
-<li>בניית היתרון המנטלי
-</li>
-<li>האמיגדלה ומפלי מידע
-</li>
-<li>תגובת חסר ותגובת יתר
-</li>
-<li>מכונת הנדסת התודעה
-</li>
-<li>פער הדורות והדמוקרטיזציה של הרעש
-</li>
-<li>מדד הפחד (<bdi>VIX</bdi>) - תמחור פאניקה
-</li>
-<li>מדד הפחד והחמדנות (<bdi>CNN</bdi>)
-</li>
-<li>תופעות קיצון בשוק
-</li>
-<li>מקרה בוחן <bdi>GameStop</bdi>
-</li>
-<li>סינון רעשים ואסטרטגיית אי-עשייה
-</li>
-<li>להיות רציונלי בעולם אקסטרמיסטי (שיעור מסכם)
-</li></ol>
-</section>
-<section class="course" id="course-5">
-<h2>קורס 5: ניהול סיכונים · Simvy PRO</h2>
-<p class="count">14 שיעורים</p>
-<p>גודל פוזיציה, סטופים, פיזור, ולמה לשרוד זה הכישרון החשוב ביותר בשוק. הידע שמפריד בין טעות לקטסטרופה.</p>
-<ol>
-<li>אשליית ה-<bdi>Win Rate</bdi> ותוחלת
-</li>
-<li>טראומת ההתאוששות
-</li>
-<li>סיכון אמיתי מול תנודתיות וברבורים שחורים
-</li>
-<li>מודל "הליבה והלוויין"
-</li>
-<li>אשליית הפיזור מול קורלציה
-</li>
-<li>מזומן כנשק אסטרטגי
-</li>
-<li>קביעת גודל פוזיציה מתמטי - חוק ה 1%
-</li>
-<li>תנודתיות משטחת רעשים (<bdi>ATR</bdi>)
-</li>
-<li>חשיפה פרוגרסיבית
-</li>
-<li>חוק השובר שוויון וניהול אקטיבי
-</li>
-<li>הישרדות מול הברוקר (מלכודות ריטייל)
-</li>
-<li>משטרי שוק
-</li>
-<li>סיכון זמן ומלכודת "המשקיע בעל כורחו"
-</li>
-<li>"חליבת הקופה" ושלב האקזיט
-</li></ol>
-</section>
-<hr>
-<section class="course" id="extensions">
-<h2>קורסי הרחבה · Simvy PRO</h2>
-<p>קורסים קצרים שמרחיבים נושא מתוך קורס מרכזי. 17 שיעורים.</p>
-<h3><b>חשבונאות</b> (הרחבה לניתוח פונדמנטלי) · 7 שיעורים</h3>
-<p>הרחבה לניתוח פונדמנטלי: השפה שבה עסקים מדווחים על עצמם.</p>
-<ol>
-<li>מבוא לשלושת הדוחות הפיננסיים
-</li>
-<li>דוח רווח והפסד
-</li>
-<li>המאזן והחוב
-</li>
-<li>תזרים מזומנים
-</li>
-<li>חשבונאות חקירתית
-</li>
-<li>מינוף ותשואה להון
-</li>
-<li>מודל <bdi>DCF</bdi> והערכה מבוססת נכסים
-</li></ol>
-<h3><b>המשקיע הישראלי</b> (הרחבה למבוא) · 3 שיעורים</h3>
-<p>שלושה חשבונות, המסלולים, ומה הכסף שלכם משלם בדרך.</p>
-<ol>
-<li>שלושה חשבונות, שלושה תפקידים
-</li>
-<li>המסלולים, ולמה הם לא אותו דבר
-</li>
-<li>מה הכסף שלך משלם
-</li></ol>
-<h3><b>קריפטו</b> (הרחבה למבוא) · 3 שיעורים</h3>
-<p>לא מניה, לא מדד, לא יורו</p>
-<ol>
-<li>לא מניה, לא מדד, לא יורו
-</li>
-<li>מה אתה מחזיק, ואיפה זה יושב
-</li>
-<li>הטוקן שמתחפש למניה
-</li></ol>
-<h3><b>מאקרו כלכלה</b> (הרחבה למבוא) · 4 שיעורים</h3>
-<p>התמונה הגדולה: אינפלציה, ריבית ושוק האג"ח, הכוחות שמזיזים את כל השאר.</p>
-<ol>
-<li>אינפלציה: הקצב, לא המחיר
-</li>
-<li>ההלוואה שאפשר למכור
-</li>
-<li>שוק החוב מדבר, וגם הוא טועה
-</li>
-<li>בולם הזעזועים של התיק
-</li></ol>
-</section>
-<h2>שאלות נפוצות</h2>
-<div class="faq"><h3>כמה שיעורים יש ב-Simvy?</h3><p>101 שיעורים: 84 בחמשת הקורסים המרכזיים ו-17 בארבעה קורסי הרחבה.</p></div>
-<div class="faq"><h3>כמה זמן נמשך שיעור?</h3><p>שיעורים של כ-10 דקות.</p></div>
-<div class="faq"><h3>איזה קורס פתוח בלי תשלום?</h3><p>קורס המבוא לשוק ההון: 9 שיעורים ומבחן סיכום. שאר הקורסים נפתחים עם Simvy PRO ב-₪19.90 לחודש.</p></div>
-<div class="faq"><h3>מאיפה כדאי להתחיל?</h3><p>מקורס המבוא. הוא נותן את הבסיס שכל שאר הקורסים נשענים עליו.</p></div>
-<div class="faq"><h3>יש תרגול על גרפים?</h3><p>כן. בקורס הניתוח הטכני יש 46 שאלות שעונים עליהן ישירות על גרף מחיר, ב-23 מתוך 26 השיעורים.</p></div>
-<div class="faq"><h3>השיעורים בעברית?</h3><p>כן, כל השיעורים בעברית.</p></div>
-<p class="fine"><em>Simvy היא אפליקציית חינוך פיננסי. התכנים אינם ייעוץ השקעות, והמסחר באפליקציה מתבצע בכסף וירטואלי בלבד.</em></p>
-<div class="cta-block">
-  <div style="display:flex; flex-wrap:wrap; gap:12px;">
-    <a class="btn" href="https://apps.apple.com/il/app/id6797081307?pt=129081401&amp;ct=site-courses-cta&amp;mt=8">להורדה מ-App Store</a>
-    <a class="btn" href="https://play.google.com/store/apps/details?id=com.simvy.app&amp;referrer=utm_source%3Dsimvy-site%26utm_medium%3Dweb%26utm_campaign%3Dsite-courses-cta">להורדה מ-Google Play</a>
-  </div>
-</div>
-</div></main>
 
-<footer class="site"><div class="container">
-  <div class="flinks">
+<main id="main">
+<section class="c-title" data-sc-act="flow">
+  <div class="wrap c-title__grid">
+    <h1>הקורסים של Simvy: כל השיעורים לפי קורס</h1>
+    <p class="lede">ב-Simvy יש 101 שיעורים בעברית, שיעורים של כ-10 דקות, ב-5 קורסים מרכזיים וב-4 קורסי הרחבה. קורס המבוא (9 שיעורים) פתוח בלי תשלום, ושאר הקורסים נפתחים עם Simvy PRO ב-₪19.90 לחודש.</p>
+  </div>
+</section>
+
+<section class="walk" id="lesson" data-sc-act="pin">
+  <div class="walk__stage">
+    <div class="wrap walk__grid">
+      <div class="walk__copy">
+        <h2>איך לומדים</h2>
+        <ul class="walk__list">
+          <li data-step="0">שיעורים של כ-10 דקות. כל שיעור נגמר בתרגול, לא בסיכום.</li>
+          <li data-step="0">בתוך קורס, השיעורים נפתחים לפי הסדר: מסיימים שיעור, והבא נפתח.</li>
+          <li data-step="1">הקורסים מחולקים למדרגות. כדי לעבור למדרגה הבאה מסיימים את כל השיעורים במדרגה ועוברים את מבחן המדרגה.</li>
+          <li data-step="2">בקורס הניתוח הטכני יש שאלות שעונים עליהן ישירות על הגרף (פירוט בקורס 2).</li>
+        </ul>
+        <p class="fine"><em>התכנים הם חינוך פיננסי בלבד ואינם ייעוץ השקעות.</em></p>
+      </div>
+      <div class="walk__rail" tabindex="0" role="region" aria-label="שיעור מבפנים: שלושה מסכים מהאפליקציה">
+        <div class="walk__track">
+          <figure class="frame" data-frame="0">
+            <div class="frame__phone"><img src="/img/lesson-read.webp" width="640" height="1332" fetchpriority="high" alt="עמוד הפתיחה של שיעור באפליקציה: הכותרת 'לא מניה, לא מדד, לא יורו', נגן להאזנה לעמוד, וטקסט השיעור. בראש המסך עמוד 1 מתוך 12"></div>
+            <figcaption><b>קוראים.</b> עמוד הפתיחה של השיעור "לא מניה, לא מדד, לא יורו", מקורס ההרחבה קריפטו.</figcaption>
+          </figure>
+          <figure class="frame" data-frame="1">
+            <div class="frame__phone"><img src="/img/lesson-question.webp" width="640" height="1332" loading="lazy" decoding="async" alt="שאלה אמריקאית באמצע אותו שיעור, עם ארבע תשובות. התשובה שנבחרה מסומנת בירוק, ומתחתיה הסבר קצר תחת הכותרת 'נכון'"></div>
+            <figcaption><b>עונים.</b> שאלה באמצע אותו שיעור, אחרי תשובה נכונה: ההסבר מופיע מיד.</figcaption>
+          </figure>
+          <figure class="frame" data-frame="2">
+            <div class="frame__phone"><img src="/img/home-lesson.webp" width="640" height="1332" loading="lazy" decoding="async" alt="שאלה על הגרף באפליקציה: גרף נרות, ועליו קו מגמה עולה ששורטט דרך שני שפלים. מתחת לגרף משוב 'כל הכבוד!'"></div>
+            <figcaption><b>משרטטים.</b> שאלה על הגרף: מחברים שני שפלים בקו מגמה, ישירות על גרף המחיר.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="catalog" id="catalog" data-sc-act="flow">
+  <div class="wrap catalog__grid">
+    <nav class="index" aria-label="הקורסים">
+      <p class="index__title">101 שיעורים</p>
+      <ol>
+        <li><a href="#course-1" data-for="course-1"><span class="ix-name">מבוא לשוק ההון</span><span class="ix-n">9</span><span class="ix-free">בלי תשלום</span><i class="ix-bar" aria-hidden="true"></i></a></li>
+        <li><a href="#course-2" data-for="course-2"><span class="ix-name">ניתוח טכני</span><span class="ix-n">26</span><i class="ix-bar" aria-hidden="true"></i></a></li>
+        <li><a href="#course-3" data-for="course-3"><span class="ix-name">ניתוח פונדמנטלי</span><span class="ix-n">15</span><i class="ix-bar" aria-hidden="true"></i></a></li>
+        <li><a href="#course-4" data-for="course-4"><span class="ix-name">פסיכולוגיית השוק</span><span class="ix-n">20</span><i class="ix-bar" aria-hidden="true"></i></a></li>
+        <li><a href="#course-5" data-for="course-5"><span class="ix-name">ניהול סיכונים</span><span class="ix-n">14</span><i class="ix-bar" aria-hidden="true"></i></a></li>
+        <li class="ix-sep"><a href="#ext-accounting" data-for="ext-accounting"><span class="ix-name">חשבונאות</span><span class="ix-n">7</span><i class="ix-bar" aria-hidden="true"></i></a></li>
+        <li><a href="#ext-israeli" data-for="ext-israeli"><span class="ix-name">המשקיע הישראלי</span><span class="ix-n">3</span><i class="ix-bar" aria-hidden="true"></i></a></li>
+        <li><a href="#ext-crypto" data-for="ext-crypto"><span class="ix-name">קריפטו</span><span class="ix-n">3</span><i class="ix-bar" aria-hidden="true"></i></a></li>
+        <li><a href="#ext-macro" data-for="ext-macro"><span class="ix-name">מאקרו כלכלה</span><span class="ix-n">4</span><i class="ix-bar" aria-hidden="true"></i></a></li>
+      </ol>
+      <div class="rider" aria-hidden="true"><div class="rider__body">
+        <img data-pose="glide" src="/img/av-glide.webp" alt="" width="325" height="420" loading="lazy" decoding="async">
+        <img data-pose="a" src="/img/av-lean-a.webp" alt="" width="349" height="420" loading="lazy" decoding="async">
+        <img data-pose="b" src="/img/av-lean-b.webp" alt="" width="441" height="420" loading="lazy" decoding="async">
+      </div></div>
+    </nav>
+
+    <div class="plates">
+      <section class="plate plate--free" id="course-1" data-plate>
+        <header class="plate__head"><span class="plate__n" aria-hidden="true">9</span>
+          <h2>קורס 1: מבוא לשוק ההון <span class="tier tier--free">· פתוח בלי תשלום</span></h2>
+          <p class="count">9 שיעורים ומבחן סיכום</p>
+        </header>
+        <p class="plate__desc">מה זה מניה, איך עובדת בורסה, מה ההבדל בין מדד לקרן, ומה באמת קורה כשלוחצים "קנייה". הבסיס שכולם מדלגים עליו, במילים של בני אדם.</p>
+        <ol class="lessons">
+          <li>מבוא לשוק ההון</li>
+          <li>מה היא מניה?</li>
+          <li>זירת המדדים</li>
+          <li>משקל כבד מול נוצה</li>
+          <li>פקודות שוק</li>
+          <li>טכני מול פונדמנטלי</li>
+          <li>מבוא לניתוח פונדמנטלי</li>
+          <li>מבוא לניתוח טכני</li>
+          <li>מבוא לפסיכולוגיית השוק</li>
+        </ol>
+      </section>
+
+      <section class="plate" id="course-2" data-plate>
+        <header class="plate__head"><span class="plate__n" aria-hidden="true">26</span>
+          <h2>קורס 2: ניתוח טכני <span class="tier">· Simvy PRO</span></h2>
+          <p class="count">26 שיעורים</p>
+        </header>
+        <p class="plate__desc">לקרוא גרף כמו טקסט: נרות יפניים, מגמות, תמיכות והתנגדויות, תבניות. עם תרגול סימון ושרטוט על גרפים אמיתיים בתוך השיעור.</p>
+        <p class="plate__note"><b>שאלות על הגרף:</b> ב-23 מתוך 26 השיעורים בקורס יש שאלות שעונים עליהן ישירות על גרף מחיר, 46 שאלות בסך הכול. סוגי השאלות: להקיש על נר מסוים, להקיש על נקודה בגרף, לסמן אזור (למשל תמיכה או התנגדות), לחבר נקודות בקו (למשל קו מגמה), לזהות איפה משהו נשבר בגרף, לסמן אילו סימנים מתקיימים בגרף, ולבדוק אם כמה סימנים מתכנסים יחד.</p>
+        <ol class="lessons">
+          <li>סוגי גרפים</li>
+          <li>אנטומיה של נר יפני</li>
+          <li>קריאת נרות: איפה, לא רק איך</li>
+          <li>מסגרות זמן</li>
+          <li>מגמות שוק</li>
+          <li>קווי מגמה</li>
+          <li>תמיכה והתנגדות</li>
+          <li>החלפת תפקידים</li>
+          <li>המסדרון של המחיר</li>
+          <li>נפח מסחר - <bdi>Volume</bdi></li>
+          <li>פריצות ופריצות דמה</li>
+          <li>תיקונים – למה צריך אותם?</li>
+          <li>נזילות</li>
+          <li>למי אכפת ממוסדיים</li>
+          <li>הגאפ</li>
+          <li>ממוצעים נעים בסיסי (<bdi>SMA / EMA</bdi>)</li>
+          <li>ממוצעים נעים מתקדם</li>
+          <li><bdi>ATR</bdi> ורצועות בולינג'ר</li>
+          <li>תבניות המשך גרפיות</li>
+          <li>תבניות שינוי כיוון</li>
+          <li>ה-<bdi>VWAP</bdi></li>
+          <li>מתנד ה-<bdi>MACD</bdi></li>
+          <li>מתנד ה-<bdi>RSI</bdi></li>
+          <li>אירועי <bdi>VPA</bdi> קריטיים</li>
+          <li>תופעות קיצון בשוק</li>
+          <li>האינטגרציה</li>
+        </ol>
+      </section>
+
+      <section class="plate" id="course-3" data-plate>
+        <header class="plate__head"><span class="plate__n" aria-hidden="true">15</span>
+          <h2>קורס 3: ניתוח פונדמנטלי <span class="tier">· Simvy PRO</span></h2>
+          <p class="count">15 שיעורים</p>
+        </header>
+        <p class="plate__desc">מה מספרים הדוחות: הכנסות, רווח, מכפילים ותזרים. איך מעריכים חברה לפי העסק שלה, לא לפי הכותרות עליה.</p>
+        <ol class="lessons">
+          <li>מודל עסקי וסקלביליות</li>
+          <li>החפיר הכלכלי</li>
+          <li>איכות ההנהלה</li>
+          <li>דיבידנדים ומלכודת התשואה</li>
+          <li>אקדח התמחור: מכפילי <bdi>P/E, P/S, P/B</bdi></li>
+          <li>מרווח ביטחון</li>
+          <li>חוב ומינוף</li>
+          <li>הבדלים בין חברת ערך לחברת צמיחה</li>
+          <li>אינפלציה וריבית</li>
+          <li>כיצד המאקרו מזיז את השוק</li>
+          <li>רכישות עצמיות</li>
+          <li>עונת הדיווחים 1: מכניקה, חוקים וזירת המשחק</li>
+          <li>עונת הדיווחים 2: משחק הציפיות</li>
+          <li>עונת הדיווחים 3: אדוות סקטוריאליות</li>
+          <li>מלכודות ערך</li>
+        </ol>
+      </section>
+
+      <section class="plate" id="course-4" data-plate>
+        <header class="plate__head"><span class="plate__n" aria-hidden="true">20</span>
+          <h2>קורס 4: פסיכולוגיית השוק <span class="tier">· Simvy PRO</span></h2>
+          <p class="count">20 שיעורים</p>
+        </header>
+        <p class="plate__desc">פחד, פומו, ביטחון יתר והעדר: ההטיות שמפילות גם מנוסים, ואיך מזהים אותן אצלך, לפני שהן עולות כסף.</p>
+        <ol class="lessons">
+          <li>פסיכולוגיית השוק 101</li>
+          <li>חמש האמיתות של המסחר</li>
+          <li>תאוריית הערך ושנאת הפסד</li>
+          <li>נוירו-כלכלה</li>
+          <li>האנטומיה של ההפסד</li>
+          <li>סחר יתר</li>
+          <li>ניצחון ותסביך גדלות</li>
+          <li>שיתוק יכולת הניתוח</li>
+          <li>מלכודת עלות ההשקעה</li>
+          <li>בניית היתרון המנטלי</li>
+          <li>האמיגדלה ומפלי מידע</li>
+          <li>תגובת חסר ותגובת יתר</li>
+          <li>מכונת הנדסת התודעה</li>
+          <li>פער הדורות והדמוקרטיזציה של הרעש</li>
+          <li>מדד הפחד (<bdi>VIX</bdi>) - תמחור פאניקה</li>
+          <li>מדד הפחד והחמדנות (<bdi>CNN</bdi>)</li>
+          <li>תופעות קיצון בשוק</li>
+          <li>מקרה בוחן <bdi>GameStop</bdi></li>
+          <li>סינון רעשים ואסטרטגיית אי-עשייה</li>
+          <li>להיות רציונלי בעולם אקסטרמיסטי (שיעור מסכם)</li>
+        </ol>
+      </section>
+
+      <section class="plate" id="course-5" data-plate>
+        <header class="plate__head"><span class="plate__n" aria-hidden="true">14</span>
+          <h2>קורס 5: ניהול סיכונים <span class="tier">· Simvy PRO</span></h2>
+          <p class="count">14 שיעורים</p>
+        </header>
+        <p class="plate__desc">גודל פוזיציה, סטופים, פיזור, ולמה לשרוד זה הכישרון החשוב ביותר בשוק. הידע שמפריד בין טעות לקטסטרופה.</p>
+        <ol class="lessons">
+          <li>אשליית ה-<bdi>Win Rate</bdi> ותוחלת</li>
+          <li>טראומת ההתאוששות</li>
+          <li>סיכון אמיתי מול תנודתיות וברבורים שחורים</li>
+          <li>מודל "הליבה והלוויין"</li>
+          <li>אשליית הפיזור מול קורלציה</li>
+          <li>מזומן כנשק אסטרטגי</li>
+          <li>קביעת גודל פוזיציה מתמטי - חוק ה 1%</li>
+          <li>תנודתיות משטחת רעשים (<bdi>ATR</bdi>)</li>
+          <li>חשיפה פרוגרסיבית</li>
+          <li>חוק השובר שוויון וניהול אקטיבי</li>
+          <li>הישרדות מול הברוקר (מלכודות ריטייל)</li>
+          <li>משטרי שוק</li>
+          <li>סיכון זמן ומלכודת "המשקיע בעל כורחו"</li>
+          <li>"חליבת הקופה" ושלב האקזיט</li>
+        </ol>
+      </section>
+
+      <section class="ext" id="extensions">
+        <header class="ext__head">
+          <h2>קורסי הרחבה <span class="tier">· Simvy PRO</span></h2>
+          <p>קורסים קצרים שמרחיבים נושא מתוך קורס מרכזי. 17 שיעורים.</p>
+        </header>
+        <div class="ext__grid">
+          <section class="plate plate--ext" id="ext-accounting" data-plate>
+            <header class="plate__head"><span class="plate__n" aria-hidden="true">7</span>
+              <h3><b>חשבונאות</b> (הרחבה לניתוח פונדמנטלי) · 7 שיעורים</h3>
+            </header>
+            <p class="plate__desc">הרחבה לניתוח פונדמנטלי: השפה שבה עסקים מדווחים על עצמם.</p>
+            <ol class="lessons">
+              <li>מבוא לשלושת הדוחות הפיננסיים</li>
+              <li>דוח רווח והפסד</li>
+              <li>המאזן והחוב</li>
+              <li>תזרים מזומנים</li>
+              <li>חשבונאות חקירתית</li>
+              <li>מינוף ותשואה להון</li>
+              <li>מודל <bdi>DCF</bdi> והערכה מבוססת נכסים</li>
+            </ol>
+          </section>
+          <section class="plate plate--ext" id="ext-israeli" data-plate>
+            <header class="plate__head"><span class="plate__n" aria-hidden="true">3</span>
+              <h3><b>המשקיע הישראלי</b> (הרחבה למבוא) · 3 שיעורים</h3>
+            </header>
+            <p class="plate__desc">שלושה חשבונות, המסלולים, ומה הכסף שלכם משלם בדרך.</p>
+            <ol class="lessons">
+              <li>שלושה חשבונות, שלושה תפקידים</li>
+              <li>המסלולים, ולמה הם לא אותו דבר</li>
+              <li>מה הכסף שלך משלם</li>
+            </ol>
+          </section>
+          <section class="plate plate--ext" id="ext-crypto" data-plate>
+            <header class="plate__head"><span class="plate__n" aria-hidden="true">3</span>
+              <h3><b>קריפטו</b> (הרחבה למבוא) · 3 שיעורים</h3>
+            </header>
+            <p class="plate__desc">לא מניה, לא מדד, לא יורו</p>
+            <ol class="lessons">
+              <li>לא מניה, לא מדד, לא יורו</li>
+              <li>מה אתה מחזיק, ואיפה זה יושב</li>
+              <li>הטוקן שמתחפש למניה</li>
+            </ol>
+          </section>
+          <section class="plate plate--ext" id="ext-macro" data-plate>
+            <header class="plate__head"><span class="plate__n" aria-hidden="true">4</span>
+              <h3><b>מאקרו כלכלה</b> (הרחבה למבוא) · 4 שיעורים</h3>
+            </header>
+            <p class="plate__desc">התמונה הגדולה: אינפלציה, ריבית ושוק האג"ח, הכוחות שמזיזים את כל השאר.</p>
+            <ol class="lessons">
+              <li>אינפלציה: הקצב, לא המחיר</li>
+              <li>ההלוואה שאפשר למכור</li>
+              <li>שוק החוב מדבר, וגם הוא טועה</li>
+              <li>בולם הזעזועים של התיק</li>
+            </ol>
+          </section>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="c-faq" id="faq" data-sc-act="flow">
+  <div class="wrap">
+    <h2 class="c-faq__h">שאלות נפוצות</h2>
+    <div class="qa">
+      <div><h3>כמה שיעורים יש ב-Simvy?</h3><p>101 שיעורים: 84 בחמשת הקורסים המרכזיים ו-17 בארבעה קורסי הרחבה.</p></div>
+      <div><h3>כמה זמן נמשך שיעור?</h3><p>שיעורים של כ-10 דקות.</p></div>
+      <div><h3>איזה קורס פתוח בלי תשלום?</h3><p>קורס המבוא לשוק ההון: 9 שיעורים ומבחן סיכום. שאר הקורסים נפתחים עם Simvy PRO ב-₪19.90 לחודש.</p></div>
+      <div><h3>מאיפה כדאי להתחיל?</h3><p>מקורס המבוא. הוא נותן את הבסיס שכל שאר הקורסים נשענים עליו.</p></div>
+      <div><h3>יש תרגול על גרפים?</h3><p>כן. בקורס הניתוח הטכני יש 46 שאלות שעונים עליהן ישירות על גרף מחיר, ב-23 מתוך 26 השיעורים.</p></div>
+      <div><h3>השיעורים בעברית?</h3><p>כן, כל השיעורים בעברית.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="c-close" id="download" data-sc-act="flow">
+  <div class="wrap c-close__grid">
+    <div class="plate plate--close">
+      <header class="plate__head"><span class="plate__n" aria-hidden="true">101</span>
+        <h2>Simvy</h2>
+        <p class="count">101 שיעורים בעברית. קורס המבוא פתוח בלי תשלום.</p>
+      </header>
+      <div class="c-close__links">
+        <a class="btn" href="https://apps.apple.com/il/app/id6797081307?pt=129081401&amp;ct=site-courses-cta&amp;mt=8">להורדה מ-App Store</a>
+        <a class="btn" href="https://play.google.com/store/apps/details?id=com.simvy.app&amp;referrer=utm_source%3Dsimvy-site%26utm_medium%3Dweb%26utm_campaign%3Dsite-courses-cta">להורדה מ-Google Play</a>
+      </div>
+      <p class="fine"><em>Simvy היא אפליקציית חינוך פיננסי. התכנים אינם ייעוץ השקעות, והמסחר באפליקציה מתבצע בכסף וירטואלי בלבד.</em></p>
+    </div>
+    <div class="c-close__stand"><img src="/img/av-openarms.webp" alt="" width="318" height="420" loading="lazy" decoding="async"></div>
+  </div>
+</section>
+</main>
+
+<footer class="site-foot"><div class="wrap">
+  <nav aria-label="קישורים">
     <a href="/">דף הבית</a>
     <a href="/about.html">מי אנחנו</a>
-    <a href="/courses.html">הקורסים</a>
+    <a href="/courses.html" aria-current="page">הקורסים</a>
     <a href="/simulator.html">הסימולטור</a>
     <a href="/pricing.html">תמחור</a>
     <a href="/disclaimer.html">גילוי נאות</a>
@@ -386,8 +338,9 @@ footer.site{ border-top:1px solid rgba(190,237,217,.17); padding:26px 0 34px; fo
     <a href="https://legal.simvy.app/privacy.html">מדיניות פרטיות</a>
     <a href="https://legal.simvy.app/terms.html">תנאי שימוש</a>
     <a href="mailto:simvysupport@gmail.com">יצירת קשר</a>
-  </div>
+  </nav>
   Simvy היא אפליקציית חינוך פיננסי. התכנים אינם ייעוץ השקעות; המסחר באפליקציה מתבצע בכסף וירטואלי בלבד.
 </div></footer>
+<script src="/js/courses.js" defer></script>
 </body>
 </html>
