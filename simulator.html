@@ -19,242 +19,438 @@
 <meta property="og:locale" content="he_IL">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "כמה כסף מקבלים בסימולטור, וזה בתשלום?", "acceptedAnswer": {"@type": "Answer", "text": "$10,000 וירטואליים, שאי אפשר למשוך. הסימולטור, היומן והחדשות פתוחים לכל המשתמשים בלי תשלום ובלי הגבלה על מספר העסקאות."}}, {"@type": "Question", "name": "מה אפשר לסחור?", "acceptedAnswer": {"@type": "Answer", "text": "63 מניות שנסחרות בארה\"ב, 12 קרנות סל ו-8 מטבעות קריפטו. אין מניות מהבורסה בתל אביב ואין אופציות."}}, {"@type": "Question", "name": "אילו פקודות יש?", "acceptedAnswer": {"@type": "Answer", "text": "קנייה ומכירה בחסר, פקודת שוק ופקודת לימיט לכניסה, סטופ או סטופ עוקב ויעד, הוספה לפוזיציה וסגירה חלקית או מלאה."}}, {"@type": "Question", "name": "המחירים בזמן אמת?", "acceptedAnswer": {"@type": "Answer", "text": "לא. הם מתעדכנים בערך פעם בדקה, ומחירי המניות מגיעים מבורסת IEX בלבד, ולכן יכולים להיות שונים מעט מהמחיר אצל ברוקר."}}, {"@type": "Question", "name": "אפשר לסחור כשהבורסה האמריקאית סגורה?", "acceptedAnswer": {"@type": "Answer", "text": "בקריפטו כן, מסביב לשעון. במניות ובקרנות סל אפשר להשאיר פקודת לימיט לכניסה שתמתין לפתיחה. יציאה מפוזיציה רק כשהבורסה פתוחה."}}, {"@type": "Question", "name": "יש עמלות בסימולטור?", "acceptedAnswer": {"@type": "Answer", "text": "לא. בשוק האמיתי יש עמלות, ולכן התוצאה בסימולטור יכולה להיות שונה מאותה עסקה בחשבון אמיתי."}}, {"@type": "Question", "name": "מה היומן שומר על כל עסקה?", "acceptedAnswer": {"@type": "Answer", "text": "את פרטי העסקה ואיך היא נסגרה, את מצב השוק בכניסה, ואת מה שבחרת למלא: סיבת הכניסה, מה יבטל אותה, סוג העסקה ומקור הרעיון. אחרי הסגירה אפשר להוסיף הערה."}}, {"@type": "Question", "name": "היומן חוסם עסקה שסותרת חוק שקבעתי?", "acceptedAnswer": {"@type": "Answer", "text": "לא. הוא מציג התראה לפני הכניסה, בודק את העסקה אחרי הסגירה, ומראה כמה פעמים עמדת בכל חוק."}}, {"@type": "Question", "name": "כל כמה זמן מתעדכנות החדשות?", "acceptedAnswer": {"@type": "Answer", "text": "מהדורה חדשה בעברית יוצאת פעמיים בשבוע, בדרך כלל ביום שישי וביום ראשון."}}, {"@type": "Question", "name": "זה ייעוץ השקעות?", "acceptedAnswer": {"@type": "Answer", "text": "לא. הסימולטור, היומן והחדשות הם כלי לימוד. שום דבר בהם אינו המלצה לקנות או למכור."}}]}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://simvy.app/#org","name":"Simvy","url":"https://simvy.app/","logo":"https://simvy.app/logo-email.png","email":"simvysupport@gmail.com","sameAs":["https://apps.apple.com/il/app/id6797081307","https://play.google.com/store/apps/details?id=com.simvy.app"]},{"@type":"MobileApplication","@id":"https://simvy.app/#app","name":"Simvy","url":"https://simvy.app/","operatingSystem":"iOS, Android","applicationCategory":"EducationalApplication","inLanguage":"he","description":"שיעורים קצרים בעברית על שוק ההון וסימולטור מסחר בכסף וירטואלי.","installUrl":["https://apps.apple.com/il/app/id6797081307","https://play.google.com/store/apps/details?id=com.simvy.app"],"sameAs":["https://apps.apple.com/il/app/id6797081307","https://play.google.com/store/apps/details?id=com.simvy.app"],"publisher":{"@id":"https://simvy.app/#org"},"offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}]}</script>
+<link rel="preload" href="/fonts/assistant-800.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="/img/sim-phone-aapl.webp" as="image" fetchpriority="high">
+<link rel="stylesheet" href="/css/site.css">
 <style>
-@font-face { font-family:'Assistant'; font-weight:400; src:url('/fonts/assistant-400.ttf') format('truetype'); font-display:swap; }
-@font-face { font-family:'Assistant'; font-weight:700; src:url('/fonts/assistant-700.ttf') format('truetype'); font-display:swap; }
-@font-face { font-family:'Assistant'; font-weight:800; src:url('/fonts/assistant-800.ttf') format('truetype'); font-display:swap; }
-*{ box-sizing:border-box; margin:0; padding:0; }
-html{ direction:rtl; scroll-behavior:smooth; }
-body{
-  background: radial-gradient(100% 40% at 50% -6%, rgba(190,237,217,.12), transparent 60%), #131C18;
-  color:#F2F6F3; font-family:'Assistant',system-ui,sans-serif; font-size:17.5px; line-height:1.65;
-  -webkit-font-smoothing:antialiased; min-height:100vh; display:flex; flex-direction:column;
+/* ---- simulator page ---- */
+.title-page { position: relative; overflow: clip; padding-block: clamp(40px, 7vw, 96px) clamp(48px, 7vw, 88px); background: radial-gradient(70% 60% at 22% 30%, rgba(27, 94, 72, .22), transparent 70%), var(--canvas); }
+.title-grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: var(--s-8) clamp(24px, 5vw, 72px); align-items: center; }
+.title-copy h1 { font-size: var(--t-3xl); font-weight: 800; line-height: 1.02; letter-spacing: -.024em; text-wrap: balance; max-width: 9.5em; }
+.title-copy .lede { margin-block-start: var(--s-6); font-size: var(--t-lg); line-height: 1.6; color: var(--ink-soft); max-width: 31em; text-wrap: pretty; }
+.title-copy .pull { margin-block-start: var(--s-7); padding-inline-start: var(--s-5); border-inline-start: 1px solid var(--accent-2); font-size: var(--t-xl); font-weight: 800; line-height: 1.3; color: var(--accent); max-width: 18em; text-wrap: balance; }
+.title-actions { display: flex; flex-wrap: wrap; gap: var(--s-3); margin-block-start: var(--s-8); }
+.title-stage { position: relative; display: grid; place-items: center; min-block-size: 560px; }
+.title-stage .trace { position: absolute; inset-inline: -6% -40%; inset-block: 12% 20%; inline-size: auto; block-size: auto; opacity: .75; z-index: 0; }
+.trace polyline { fill: none; stroke: var(--accent-2); stroke-width: 2; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+.trace .tline { stroke: var(--stop); stroke-width: 1.5; stroke-dasharray: 6 7; vector-effect: non-scaling-stroke; opacity: .7; }
+.title-stage .phone { position: relative; z-index: 1; inline-size: min(320px, 70vw); margin: 0; border-radius: 42px 42px 30px 30px; overflow: hidden; border: 1px solid #2B302E; box-shadow: var(--e3), 0 0 0 8px rgba(11, 15, 14, .6); background: #0E1312; }
+.title-stage .phone img { inline-size: 100%; block-size: auto; }
+.title-stage .perch { inset-block-start: auto; inset-block-end: 6%; inline-size: clamp(96px, 10vw, 140px); }
+.title-stage[data-side="end"] .perch { inset-inline-end: 2%; }
+.note-wrap { margin-block: 0; padding-block-end: var(--s-9); background: var(--canvas); }
+@media (max-width: 899.98px) {
+  .title-grid { grid-template-columns: minmax(0, 1fr); }
+  .title-stage { min-block-size: 0; padding-block: var(--s-4) 0; }
+  .title-copy h1 { font-size: clamp(38px, 11vw, 52px); }
 }
-a{ color:#BEEDD9; text-decoration:none; }
-a:hover{ color:#7FCBAE; }
-.container{ max-width:860px; margin:0 auto; padding:0 22px; width:100%; }
-header.site{ position:sticky; top:0; z-index:50; background:rgba(19,28,24,.87); backdrop-filter:blur(12px); border-bottom:1px solid rgba(190,237,217,.17); }
-.nav{ display:flex; align-items:center; justify-content:space-between; padding:12px 0; gap:12px; }
-.brand{ display:flex; align-items:center; gap:10px; color:#F2F6F3; }
-.brand img{ width:34px; height:34px; border-radius:9px; }
-.brand b{ font-size:17px; letter-spacing:.03em; }
-.nav .cta{ background:#BEEDD9; color:#07372A; font-weight:700; font-size:14px; border-radius:99px; padding:8px 18px; white-space:nowrap; }
-.nav .links{ display:flex; gap:16px; margin-inline-start:auto; font-size:14.5px; font-weight:700; }
-.nav .links a{ color:#CBD6CF; white-space:nowrap; }
-.nav .links a:hover{ color:#BEEDD9; }
-@media (max-width:420px){ .brand b{ display:none; } .nav .links{ gap:12px; font-size:14px; } .nav .cta{ padding:8px 14px; } }
-main{ flex:1; padding:48px 0 64px; }
-h1{ font-size:clamp(30px,6vw,42px); font-weight:800; line-height:1.12; letter-spacing:-.015em; margin-bottom:14px; }
-.lede{ color:#CBD6CF; font-size:19px; max-width:34em; }
-h2{ font-size:clamp(21px,3.6vw,26px); font-weight:800; margin:38px 0 10px; letter-spacing:-.01em; }
-h3{ font-size:18.5px; font-weight:800; margin:24px 0 8px; color:#F2F6F3; }
-h4{ font-size:17px; font-weight:800; margin:0 0 4px; color:#F2F6F3; }
-p{ color:#CBD6CF; margin:0 0 14px; max-width:38em; overflow-wrap:anywhere; }
-p b, li b{ color:#F2F6F3; }
-ul, ol{ margin:0 0 16px; padding-inline-start:24px; color:#CBD6CF; max-width:40em; }
-li{ margin-bottom:6px; overflow-wrap:anywhere; }
-li ul{ margin:8px 0 4px; }
-hr{ border:0; border-top:1px solid rgba(190,237,217,.17); margin:34px 0 0; }
-.hl{ background:#1B2622; border:1px solid rgba(190,237,217,.28); border-radius:16px; padding:18px 20px; margin:20px 0; color:#BEEDD9; font-weight:700; font-size:18px; max-width:38em; }
-.faq{ border:1px solid rgba(190,237,217,.17); border-radius:16px; background:#1B2622; padding:16px 20px; margin:0 0 12px; max-width:44em; }
-.faq h3, .faq h4{ margin:0 0 6px; font-size:17px; }
-.faq p{ margin:0; font-size:16px; }
-.fine{ margin-top:30px; font-size:15px; color:rgba(203,214,207,.75); }
-.cta-block{ margin-top:36px; }
-.btn{ display:inline-block; background:#BEEDD9; color:#07372A; font-weight:800; font-size:16.5px; border-radius:99px; padding:14px 30px; box-shadow:0 0 28px rgba(190,237,217,.28); }
-footer.site{ border-top:1px solid rgba(190,237,217,.17); padding:26px 0 34px; font-size:13.5px; color:rgba(203,214,207,.62); }
-.flinks{ display:flex; flex-wrap:wrap; gap:8px 16px; margin-bottom:14px; font-size:14px; }
-.flinks a{ color:#CBD6CF; }
+
+.spread--flip { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+.spread--flip > .spread__media { order: -1; }
+.spread--solo { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+@media (max-width: 899.98px) { .spread--flip, .spread--solo { grid-template-columns: minmax(0, 1fr); } .spread--flip > .spread__media { order: 0; } }
+.card-shot { border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--e3); border: 1px solid var(--line); }
+.card-shot img { inline-size: 100%; block-size: auto; }
+.news-shot { border-radius: 38px 38px 0 0; overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 100%); mask-image: linear-gradient(to bottom, #000 72%, transparent 100%); max-inline-size: 420px; margin-inline: auto; }
+.news-shot img { inline-size: 100%; block-size: auto; }
+
+/* charts */
+.chart { inline-size: 100%; block-size: auto; overflow: visible; font-family: var(--font); }
+.chart .grid line { stroke: rgba(190, 237, 217, .07); stroke-width: 1; }
+.chart .grid .mtick { stroke: rgba(190, 237, 217, .12); stroke-dasharray: 2 5; }
+.chart .ax { fill: #7F9188; font-weight: 700; }
+.chart .c line { stroke-width: 1.5; }
+.chart .c.up line { stroke: var(--up); } .chart .c.up rect { fill: var(--up); }
+.chart .c.dn line { stroke: var(--down); } .chart .c.dn rect { fill: var(--down); }
+.chart .c { transition: opacity 140ms var(--ease-out); }
+.chart .c.after { opacity: .34; }
+.chart .c.off, .chart .exit.off, .chart .fall.off { opacity: 0; }
+.chart .ln { stroke-width: 2; }
+.chart .ln.target { stroke: var(--target); stroke-dasharray: 7 7; opacity: .8; }
+.chart .ln.stop { stroke: var(--stop); stroke-width: 2.6; stroke-dasharray: 10 6; }
+.chart.caught .ln.stop { stroke-dasharray: none; stroke-width: 3.2; }
+.chart .ln.pos { stroke: var(--ink); stroke-width: 2.2; opacity: .9; }
+.chart .lab text { font-weight: 800; }
+.chart .lab.target rect { fill: #1E3A30; } .chart .lab.target text { fill: var(--accent); }
+.chart .lab.entry rect { fill: #E9F0EC; } .chart .lab.entry text { fill: #0B0F0E; }
+.chart .lab.stop rect { fill: var(--stop); } .chart .lab.stop text { fill: #2B0C05; }
+.chart .dot.entry { fill: var(--ink); stroke: var(--canvas); stroke-width: 3; }
+.chart .exit .dot { fill: var(--stop); stroke: var(--ground-night); stroke-width: 3; }
+.chart .exit .ring { fill: none; stroke: var(--stop); stroke-width: 2; transform-box: fill-box; transform-origin: center; }
+.chart .exit, .chart .fall { transition: opacity 200ms var(--ease-out); }
+.motion .chart.caught .exit .ring { animation: catch 900ms var(--ease-out) 1; }
+@keyframes catch { from { transform: scale(.4); opacity: 1; } to { transform: scale(1.9); opacity: 0; } }
+.chart .fall line { stroke: var(--ink-mute); stroke-width: 1.6; stroke-dasharray: 3 5; }
+.chart .fall .cap { stroke-dasharray: none; }
+.chart .fall text { fill: var(--ink-soft); font-weight: 800; }
+
+/* order figure */
+.order-fig { background: var(--canvas); border: 1px solid var(--line); border-radius: var(--r-lg); padding: var(--s-5) var(--s-4) var(--s-4); box-shadow: var(--e2); }
+#order-chart { touch-action: pan-y; }
+#order-chart.dragging { cursor: grabbing; }
+.motion #order-chart:not(.placed) .order .ln, .motion #order-chart:not(.placed) .order .lab, .motion #order-chart:not(.placed) .order .dot { opacity: 0; transform: translateY(-14px); }
+#order-chart .order .ln, #order-chart .order .lab, #order-chart .order .dot { transition: opacity 420ms var(--ease-out), transform 520ms var(--ease-out); }
+#order-chart .order .lab.stop, #order-chart .order .ln.stop { transition-delay: 160ms; }
+.stopctl[hidden] { display: none; }
+.stopctl { margin-block-start: var(--s-4); display: grid; gap: var(--s-2); }
+.stopctl label { font-weight: 700; font-size: var(--t-sm); color: var(--ink); display: flex; gap: var(--s-2); align-items: baseline; }
+.stopctl output { color: var(--stop); font-variant-numeric: tabular-nums; font-size: var(--t-lg); font-weight: 800; }
+.stopctl input { inline-size: 100%; accent-color: var(--stop); block-size: 32px; cursor: pointer; }
+.stopctl p { font-size: var(--t-xs); color: var(--ink-mute); }
+
+/* the peak */
+.peak { padding: 0; }
+.peak__stage { padding-block: var(--chapter-pad); }
+.peak .wrap { max-width: 1240px; }
+.peak__grid { display: grid; grid-template-columns: minmax(0, 3.3fr) minmax(0, 8.7fr); gap: var(--s-8) clamp(28px, 4vw, 64px); align-items: center; }
+.peak__copy h2 { font-size: clamp(34px, 4.4vw, 56px); font-weight: 800; line-height: var(--lh-tight); letter-spacing: var(--track-tight); text-wrap: balance; }
+.beats { list-style: none; padding: 0; margin-block-start: var(--s-7); display: grid; gap: var(--s-4); }
+.beats li { position: relative; padding-inline-start: var(--s-5); border-inline-start: 2px solid var(--line-strong); color: var(--ink-soft); font-size: var(--t-lg); line-height: 1.45; transition: opacity 260ms var(--ease-out), border-color 260ms var(--ease-out); }
+.beats li b { color: var(--ink); }
+.motion .beats li { opacity: .28; }
+.motion .beats li.done { opacity: .55; }
+.motion .beats li.on { opacity: 1; border-inline-start-color: var(--accent); }
+.motion .beats li.on:nth-child(3), .motion .beats li.on:nth-child(4) { border-inline-start-color: var(--stop); }
+.peak__data { margin-block-start: var(--s-7); font-size: var(--t-xs); color: var(--ink-mute); line-height: 1.5; max-width: 30em; }
+.peak__chart { min-inline-size: 0; }
+.motion .peak { block-size: 360vh; }
+.motion .peak__stage { position: sticky; inset-block-start: 0; block-size: 100vh; block-size: 100svh; display: grid; align-items: center; padding-block: var(--s-7); }
+@media (max-width: 899.98px) {
+  .peak__grid { grid-template-columns: minmax(0, 1fr); gap: var(--s-5); }
+  .peak__copy h2 { font-size: clamp(32px, 9vw, 44px); }
+  .motion .peak__stage { align-items: start; padding-block: 56px var(--s-4); }
+  .motion .beats { margin-block-start: var(--s-4); display: block; position: relative; min-block-size: 6.2em; }
+  .motion .beats li { position: absolute; inset-inline: 0; inset-block-start: 0; opacity: 0; font-size: 17px; }
+  .motion .beats li.on { opacity: 1; }
+  .motion .beats li.done { opacity: 0; }
+  .motion .peak__data { margin-block-start: var(--s-3); }
+  .peak .peak__chart { order: 2; }
+}
+
+/* grades */
+.grades__row { display: flex; justify-content: space-between; gap: var(--s-2); padding: var(--s-6) var(--s-5); border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--canvas); box-shadow: var(--e2); }
+.grades__row span { font-size: clamp(44px, 6vw, 72px); font-weight: 800; line-height: 1; color: var(--accent); letter-spacing: -.02em; }
+.grades__row span:nth-child(2) { opacity: .8; } .grades__row span:nth-child(3) { opacity: .62; } .grades__row span:nth-child(4) { opacity: .46; }
+.grades__row .f { color: var(--down); }
+.grades figcaption { font-size: var(--t-base); color: var(--ink-soft); font-weight: 700; }
+
+.limits { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-8) clamp(32px, 6vw, 96px); }
+.limits .prose ul { list-style: none; padding: 0; }
+.limits .prose li { padding-block: var(--s-4); border-block-start: 1px solid var(--line); margin: 0; }
+.limits .prose h3 { margin-block-start: 0; }
+@media (max-width: 899.98px) { .limits { grid-template-columns: minmax(0, 1fr); } }
+.landing { position: relative; inline-size: 150px; block-size: 190px; }
+.landing .perch { inset-block-start: auto; inset-block-end: 0; inline-size: 140px; }
+.landing[data-side="start"] .perch { inset-inline-start: 0; }
+@media (max-width: 760px) { .landing { inline-size: 110px; block-size: 140px; margin-inline-start: auto; } .landing .perch { inline-size: 104px; } }
 </style>
   <script defer src="/t.js"></script>
 </head>
 <body>
-<header class="site"><div class="container nav">
-  <a class="brand" href="/"><img src="/email-icon.png" alt="Simvy"><b>simvy</b></a>
-  <nav class="links" aria-label="ניווט"><a href="/simulator.html">הסימולטור</a><a href="/pricing.html">תמחור</a></nav>
-  <a class="cta" href="/#download">להורדה</a>
+<script>(function(d){d.classList.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('motion')}catch(e){}})(document.documentElement)</script>
+<a class="skip" href="#main">דילוג לתוכן</a>
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="/"><span class="brand__mark"><img src="/img/home-mark.svg" alt="Simvy" width="22" height="22"></span><img class="brand__word" src="/img/home-wordmark.svg" alt="" width="70" height="20"></a>
+  <nav class="site-nav" aria-label="ניווט"><a href="/simulator.html" aria-current="page">הסימולטור</a><a href="/pricing.html">תמחור</a></nav>
+  <a class="btn" href="#download">להורדה</a>
 </div></header>
+<nav class="folio-mini" aria-label="הפרק הנוכחי"><span>פרק <b id="fm-no"></b></span><span id="fm-name"></span><a href="#download">להורדה</a></nav>
+<nav class="folio" aria-label="פרקים"><ol>
+  <li><a href="#ch-sim"><span>1</span>הסימולטור</a></li>
+  <li><a href="#ch-order"><span>2</span>הפקודה</a></li>
+  <li><a href="#ch-stop"><span>3</span>הסטופ</a></li>
+  <li><a href="#ch-journal"><span>4</span>היומן</a></li>
+  <li><a href="#ch-news"><span>5</span>החדשות</a></li>
+  <li><a href="#ch-limits"><span>6</span>הגבולות</a></li>
+  <li><a href="#ch-faq"><span>7</span>שאלות</a></li>
+  <li><a href="#download"><span></span>להורדה</a></li>
+</ol></nav>
+<div class="traveler" aria-hidden="true"><div class="traveler__body">
+  <img data-pose="glide" src="/img/av-glide.webp" alt="" width="325" height="420" loading="lazy" decoding="async">
+  <img data-pose="a" src="/img/av-lean-a.webp" alt="" width="349" height="420" loading="lazy" decoding="async">
+  <img data-pose="b" src="/img/av-lean-b.webp" alt="" width="441" height="420" loading="lazy" decoding="async">
+  <img data-pose="open" src="/img/av-openarms.webp" alt="" width="318" height="420" loading="lazy" decoding="async">
+</div></div>
 
-<main><div class="container">
-<h1>הסימולטור, היומן והחדשות</h1>
-<p class="lede">ב-Simvy יש סימולטור מסחר בכסף וירטואלי על מחירי שוק אמיתיים, יומן שמתעד את העסקאות שלך ומנתח אותן, ומהדורת חדשות שוק בעברית. שלושתם פתוחים לכל המשתמשים בלי תשלום, והם כלי לימוד: לא כסף אמיתי ולא ייעוץ השקעות.</p>
-<p><b>חשוב לדעת:</b> הסימולטור לא מחובר לברוקר, אי אפשר להפקיד בו או למשוך ממנו כסף, ושום דבר בסימולטור, ביומן או בחדשות אינו ייעוץ השקעות או המלצה לקנות, למכור או להחזיק נייר ערך כלשהו.</p>
-<div class="hl">השוק אמיתי. הכסף וירטואלי. פה מותר להפסיד: זה בדיוק הרעיון.</div>
-<h2>הסימולטור: כלי הקנייה והמכירה</h2>
-<h3>הכסף</h3>
-<ul>
-<li>כל חשבון מתחיל עם $10,000 וירטואליים.
-</li>
-<li>קונים לפי סכום בדולרים, כך שאפשר להחזיק גם חלק ממניה.
-</li>
-<li>אין מינוף: אי אפשר לפתוח פוזיציות בסכום גדול יותר מהכסף הפנוי בחשבון.
-</li>
-<li>אין הגבלה על מספר העסקאות.
-</li></ul>
-<h3>מה אפשר לסחור</h3>
-<p>83 נכסים:</p>
-<ul>
-<li><b>63 מניות שנסחרות בארה"ב</b>, כולל חברות ישראליות שנסחרות שם (למשל TEVA, ESLT, MNDY, WIX).
-</li>
-<li><b>12 קרנות סל (ETF)</b>, למשל SPY, QQQ, DIA ו-GLD.
-</li>
-<li><b>8 מטבעות קריפטו:</b> BTC, ETH, XRP, BNB, SOL, ADA, DOGE, LINK.
-</li></ul>
-<p>אין ניירות ערך מהבורסה בתל אביב, ואין אופציות.</p>
-<h3>כיוונים וסוגי פקודות</h3>
-<ul>
-<li><b>קנייה (לונג).</b>
-</li>
-<li><b>מכירה בחסר (שורט)</b>, וסגירה שלה בכיסוי. שורט נסגר אוטומטית אם המחיר עולה ב-50% מעל מחיר הכניסה.
-</li>
-<li><b>פקודת שוק:</b> מתבצעת במחיר האחרון שנקלט.
-</li>
-<li><b>פקודת לימיט לכניסה</b>, ללונג או לשורט: בוחרים מראש את מחיר הכניסה. הפקודה ממתינה עד שהמחיר מגיע אליה או עד שמבטלים אותה, והסכום שלה שמור בצד בינתיים.
-</li>
-<li><b>כשהבורסה האמריקאית סגורה:</b> אפשר לשלוח פקודת לימיט לכניסה, והיא ממתינה לפתיחה. יציאה מפוזיציה (מכירה או כיסוי) מתבצעת בפקודת שוק, ולכן רק כשהבורסה פתוחה. קריפטו נסחר מסביב לשעון.
-</li></ul>
-<h3>הגנה ויציאה</h3>
-<ul>
-<li><b>סטופ</b> או <b>סטופ עוקב</b>, ו<b>יעד</b>. קובעים אותם כבר בפקודה, או מוסיפים ומשנים אותם על פוזיציה פתוחה.
-</li>
-<li>על פוזיציה פתוחה אפשר להעביר את הסטופ לנקודת האיזון בהקשה אחת.
-</li>
-<li>הרחקה של הסטופ או הסרה של ההגנה דורשות אישור נוסף, ונרשמות ביומן.
-</li>
-<li>סטופ ויעד נבדקים פעם בדקה, בזמן שהשוק פתוח, ומתבצעים במחיר האחרון שנקלט. בתנועה חדה, המחיר בפועל יכול להיות רחוק מהמחיר שקבעת.
-</li></ul>
-<h3>ניהול פוזיציה</h3>
-<ul>
-<li><b>הוספה</b> לפוזיציה קיימת: מחיר הכניסה מתעדכן לממוצע.
-</li>
-<li><b>סגירה חלקית או מלאה:</b> 25%, 50%, 75% או 100% מהפוזיציה.
-</li>
-<li>ליד הפוזיציה מוצגים הרווח או ההפסד, גם ביחידות R (ביחס לסיכון שנלקח עד הסטופ).
-</li>
-<li>פיצולי מניות מעודכנים אוטומטית בפוזיציות הפתוחות.
-</li></ul>
-<h3>לפני שמאשרים פקודה</h3>
-<p>כרטיס הפקודה מציג את הסיכון בדולרים ובאחוזים מהחשבון ואת יחס הסיכון לסיכוי, כעובדות ולא כהמלצה. אחרי המילוי מגיע שלב אישור נפרד.</p>
-<h3>הגרף</h3>
-<ul>
-<li>זמני נרות: דקה, 5 דקות, 15 דקות, שעה, 4 שעות, יומי ושבועי.
-</li>
-<li>אינדיקטורים: ממוצעים נעים (SMA, EMA), VWAP, רצועות בולינג'ר, RSI, MACD, ATR ונפח מסחר.
-</li>
-<li>כלי שרטוט: קרן, קרן אופקית, קו מגמה, מלבן, טווח מחיר, פיבונאצ'י וטקסט.
-</li>
-<li>על הגרף מוצגים הכניסה, הסטופ והיעד של הפוזיציה, ואפשר להציג עליו גם עסקאות קודמות.
-</li></ul>
-<h3>בלי עמלות</h3>
-<p>בסימולטור אין עמלות ואין הפרש בין המחיר המוצג למחיר הביצוע. בשוק האמיתי יש עמלות ומחיר הביצוע יכול להיות שונה, ולכן אותה עסקה בחשבון אמיתי יכולה להסתיים אחרת.</p>
-<h2>היומן: מה הוא מתעד ומה הוא מנתח</h2>
-<h3>מה נשמר על כל עסקה</h3>
-<ul>
-<li><b>אוטומטית:</b> הנכס, הכיוון (לונג או שורט), הכמות, מחיר הכניסה והיציאה, התוצאה בדולרים, איך העסקה נסגרה (למשל ידנית, בסטופ או ביעד), זמני הפתיחה והסגירה, הסטופ הראשון, ושינויים בסטופ בזמן שהעסקה פתוחה.
-</li>
-<li><b>מצב השוק ברגע הכניסה:</b> מדד הפחד והחמדנות של CNN ו-VIX.
-</li>
-<li><b>מה שבוחרים למלא בכרטיס הפקודה:</b> סיבת הכניסה, מה יבטל את הרעיון, סוג העסקה (דיי-טרייד, סווינג או טווח ארוך) ומקור הרעיון (שלי או מבחוץ).
-</li>
-<li><b>אחרי הסגירה:</b> הערה אישית לעסקה.
-</li></ul>
-<h3>צ'ק-אין יומי</h3>
-<p>צ'ק-אין קצר: מצב רגשי מתוך רשימה, ריכוז מתוך 10 והערה. היומן משתמש בו כדי להראות איך המצב שלך קשור לתוצאות.</p>
-<h3>מה היומן מציג</h3>
-<ul>
-<li><b>לוח שנה חודשי:</b> לכל יום הצ'ק-אין, מבחנים שעשית, והעסקאות שנפתחו ונסגרו עם התוצאה של היום.
-</li>
-<li><b>ציון ביצוע לכל עסקה סגורה:</b> מ-A עד D, ו-F כשחוק אישי נשבר. הציון בודק את התוכנית ואת הביצוע, לא את הרווח: הפסד שנלקח בדיוק לפי התוכנית מקבל A, ורווח בלי סטופ מקבל D.
-</li>
-<li><b>כרטיסי ניתוח:</b>
-<ul>
-<li>שבוע אחר שבוע: הפעילות שלך בכל שבוע.
-</li>
-<li>הסיפור שלך: רווח והפסד ממוצעים וחציוניים, הגדולים ביותר, ואחוז ההצלחה.
-</li>
-<li>לאן הלך הכסף: עסקאות שנפתחו עם סטופ מול עסקאות בלי סטופ.
-</li>
-<li>תוכנית מול ביצוע.
-</li>
-<li>לפי סוג העסקה, כולל זמן החזקה חציוני.
-</li>
-<li>מקור הרעיון: שלי מול מבחוץ.
-</li>
-<li>המצב שהיית בו: התוצאות לפי המצב שסימנת בצ'ק-אין.
-</li>
-<li>אז מול עכשיו: התקופה המוקדמת מול האחרונה.
-</li></ul>
-</li></ul>
-<p>כל הניתוחים מחושבים מעסקאות שנסגרו. פוזיציה פתוחה נכנסת לחישובים רק אחרי שהיא נסגרת.</p>
-<h2>כללי מסחר אישיים</h2>
-<p>ביומן אפשר להגדיר חוקים אישיים מתוך רשימה של 14 חוקים שנשענים על השיעורים, למשל "תמיד עם סטופ", "תקרת סיכון לעסקה", "מתג כיבוי יומי", "עצירה אחרי רצף הפסדים" ו"סטופ זמן". את המספר בכל חוק קובעים בעצמך: אין ערך ברירת מחדל ואין ערך מומלץ.</p>
-<ul>
-<li><b>לפני הכניסה:</b> אם עסקה סותרת חוק פעיל, מופיעה בכרטיס הפקודה שורת התראה. ההתראה לא חוסמת את העסקה.
-</li>
-<li><b>אחרי הסגירה:</b> היומן בודק את העסקה מול החוקים. עסקה ששברה חוק מקבלת ציון F.
-</li>
-<li><b>לאורך זמן:</b> לכל חוק מוצג אחוז העמידה בו, אחרי 5 בדיקות רלוונטיות לפחות.
-</li></ul>
-<p>אפשר גם לכתוב כלל במילים שלך. כלל כזה נשמר ברשימה, אבל לא נבדק אוטומטית.</p>
-<h2>איך הסימולטור והיומן עובדים יחד</h2>
-<ol>
-<li><b>בכרטיס הפקודה:</b> רואים את הסיכון ואת יחס הסיכון לסיכוי, ממלאים אם רוצים את סיבת הכניסה, מה יבטל אותה, סוג העסקה ומקור הרעיון, ורואים התראה אם העסקה סותרת חוק.
-</li>
-<li><b>בשליחה:</b> הפרטים האלה נשמרים עם העסקה, יחד עם מצב השוק באותו רגע.
-</li>
-<li><b>בזמן שהפוזיציה פתוחה:</b> שינויים בסטופ נרשמים.
-</li>
-<li><b>בסגירה</b> (ידנית, בסטופ או ביעד): העסקה נכנסת ליומן, מקבלת ציון ביצוע, מופיעה בלוח השנה ונכנסת לכרטיסי הניתוח. אפשר להוסיף לה הערה.
-</li></ol>
-<h2>החדשות</h2>
-<p><b>המהדורה</b> היא מהדורת חדשות שוק בעברית שמתפרסמת פעמיים בשבוע, בדרך כלל ביום שישי וביום ראשון. בכל מהדורה יש כתבה ראשית, תמצית השבוע וכתבות נוספות. בכל כתבה יש פסקת "ההקשר הלימודי", ומונחים שמסומנים בה נפתחים להגדרה מתוך המילון של השיעורים. בראש המהדורה מוצגים מדד הפחד והחמדנות של CNN ו-VIX, ובסופה רשימת המקורות של המהדורה.</p>
-<p>המהדורה היא חדשות ולמידה, לא המלצה: שום דבר בה אינו המלצה לקנות או למכור.</p>
-<h2>מה כל זה לא עושה</h2>
-<ul>
-<li>לא כסף אמיתי, לא חיבור לברוקר, לא הפקדות ולא משיכות.
-</li>
-<li>לא ממליץ על עסקאות ולא שולח איתותים. היומן משקף את מה שכבר עשית.
-</li>
-<li>לא מינוף ולא אופציות.
-</li>
-<li>לא חוסם עסקה שסותרת את החוקים שלך: הוא מתריע ומודד.
-</li>
-<li>לא מחירים בזמן אמת (פירוט למטה).
-</li>
-<li>ביצועים בסימולטור לא מעידים על ביצועים בשוק האמיתי.
-</li></ul>
-<h3>המחירים: מה חשוב לדעת</h3>
-<ul>
-<li><b>המחירים לא בזמן אמת.</b> הם מתעדכנים בערך פעם בדקה.
-</li>
-<li><b>מחירי המניות וקרנות הסל מגיעים מבורסת IEX בלבד</b>, שהיא אחת מכמה בורסות בארה"ב. לכן המחיר יכול להיות שונה מעט מהמחיר שמופיע אצל ברוקר, ונפח המסחר שמוצג בגרפים התוך-יומיים נמוך מהנפח בשוק כולו.
-</li>
-<li>אם המחיר האחרון שנקלט ישן יותר מ-30 דקות, פקודת שוק נדחית.
-</li>
-<li>נתוני השוק מוצגים למטרות לימוד בלבד, ואין להסתמך עליהם לביצוע פעולות בשוק האמיתי.
-</li></ul>
-<h3>שאלות נפוצות</h3>
-<div class="faq"><h4>כמה כסף מקבלים בסימולטור, וזה בתשלום?</h4><p>$10,000 וירטואליים, שאי אפשר למשוך. הסימולטור, היומן והחדשות פתוחים לכל המשתמשים בלי תשלום ובלי הגבלה על מספר העסקאות.</p></div>
-<div class="faq"><h4>מה אפשר לסחור?</h4><p>63 מניות שנסחרות בארה"ב, 12 קרנות סל ו-8 מטבעות קריפטו. אין מניות מהבורסה בתל אביב ואין אופציות.</p></div>
-<div class="faq"><h4>אילו פקודות יש?</h4><p>קנייה ומכירה בחסר, פקודת שוק ופקודת לימיט לכניסה, סטופ או סטופ עוקב ויעד, הוספה לפוזיציה וסגירה חלקית או מלאה.</p></div>
-<div class="faq"><h4>המחירים בזמן אמת?</h4><p>לא. הם מתעדכנים בערך פעם בדקה, ומחירי המניות מגיעים מבורסת IEX בלבד, ולכן יכולים להיות שונים מעט מהמחיר אצל ברוקר.</p></div>
-<div class="faq"><h4>אפשר לסחור כשהבורסה האמריקאית סגורה?</h4><p>בקריפטו כן, מסביב לשעון. במניות ובקרנות סל אפשר להשאיר פקודת לימיט לכניסה שתמתין לפתיחה. יציאה מפוזיציה רק כשהבורסה פתוחה.</p></div>
-<div class="faq"><h4>יש עמלות בסימולטור?</h4><p>לא. בשוק האמיתי יש עמלות, ולכן התוצאה בסימולטור יכולה להיות שונה מאותה עסקה בחשבון אמיתי.</p></div>
-<div class="faq"><h4>מה היומן שומר על כל עסקה?</h4><p>את פרטי העסקה ואיך היא נסגרה, את מצב השוק בכניסה, ואת מה שבחרת למלא: סיבת הכניסה, מה יבטל אותה, סוג העסקה ומקור הרעיון. אחרי הסגירה אפשר להוסיף הערה.</p></div>
-<div class="faq"><h4>היומן חוסם עסקה שסותרת חוק שקבעתי?</h4><p>לא. הוא מציג התראה לפני הכניסה, בודק את העסקה אחרי הסגירה, ומראה כמה פעמים עמדת בכל חוק.</p></div>
-<div class="faq"><h4>כל כמה זמן מתעדכנות החדשות?</h4><p>מהדורה חדשה בעברית יוצאת פעמיים בשבוע, בדרך כלל ביום שישי וביום ראשון.</p></div>
-<div class="faq"><h4>זה ייעוץ השקעות?</h4><p>לא. הסימולטור, היומן והחדשות הם כלי לימוד. שום דבר בהם אינו המלצה לקנות או למכור.</p></div>
-<p class="fine"><em>Simvy היא אפליקציית חינוך פיננסי. התכנים אינם ייעוץ השקעות, והמסחר באפליקציה מתבצע בכסף וירטואלי בלבד.</em></p>
-<div class="cta-block">
-  <div style="display:flex; flex-wrap:wrap; gap:12px;">
-    <a class="btn" href="https://apps.apple.com/il/app/id6797081307?pt=129081401&amp;ct=site-simulator-cta&amp;mt=8">להורדה מ-App Store</a>
-    <a class="btn" href="https://play.google.com/store/apps/details?id=com.simvy.app&amp;referrer=utm_source%3Dsimvy-site%26utm_medium%3Dweb%26utm_campaign%3Dsite-simulator-cta">להורדה מ-Google Play</a>
+<main id="main">
+<section class="title-page" data-sc-act="flow">
+  <div class="wrap title-grid">
+    <div class="title-copy">
+      <h1>הסימולטור, היומן והחדשות</h1>
+      <p class="lede">ב-Simvy יש סימולטור מסחר בכסף וירטואלי על מחירי שוק אמיתיים, יומן שמתעד את העסקאות שלך ומנתח אותן, ומהדורת חדשות שוק בעברית. שלושתם פתוחים לכל המשתמשים בלי תשלום, והם כלי לימוד: לא כסף אמיתי ולא ייעוץ השקעות.</p>
+      <p class="pull">השוק אמיתי. הכסף וירטואלי. פה מותר להפסיד: זה בדיוק הרעיון.</p>
+      <div class="title-actions"><a class="btn" href="#download">להורדה</a><a class="btn btn--ghost" href="#ch-stop">מה סטופ עושה</a></div>
+    </div>
+    <div class="title-stage gate" data-gate data-perch="side" data-side="end">
+      <svg class="trace" viewBox="0 0 840 300" preserveAspectRatio="none" aria-hidden="true" focusable="false"><polyline points="0.0,251.1 10.1,278.7 20.2,271.7 30.4,248.9 40.5,251.9 50.6,236.6 60.7,217.9 70.8,218.7 81.0,240.3 91.1,231.7 101.2,243.3 111.3,233.5 121.4,219.3 131.6,212.3 141.7,194.7 151.8,191.2 161.9,202.2 172.0,197.3 182.2,199.4 192.3,183.5 202.4,175.6 212.5,190.9 222.7,171.0 232.8,160.1 242.9,148.2 253.0,154.4 263.1,161.0 273.3,167.8 283.4,141.1 293.5,138.1 303.6,110.8 313.7,116.4 323.9,124.3 334.0,92.5 344.1,94.3 354.2,96.8 364.3,98.8 374.5,98.6 384.6,76.4 394.7,80.1 404.8,62.0 414.9,55.9 425.1,56.7 435.2,48.3 445.3,50.9 455.4,64.2 465.5,84.6 475.7,86.7 485.8,84.6 495.9,71.7 506.0,105.2 516.1,117.0 526.3,129.8 536.4,138.7 546.5,134.6 556.6,145.6 566.7,152.4 576.9,145.1 587.0,153.3 597.1,137.8 607.2,106.2 617.3,155.2 627.5,148.4 637.6,163.6 647.7,173.5 657.8,152.6 668.0,140.1 678.1,156.7 688.2,161.8 698.3,173.1 708.4,172.2 718.6,166.7 728.7,177.1 738.8,214.2 748.9,237.5 759.0,214.8 769.2,196.6 779.3,194.2 789.4,199.3 799.5,226.9 809.6,225.9 819.8,233.0 829.9,236.4 840.0,212.2"/><line class="tline" x1="303.6" x2="840" y1="175.9" y2="175.9"/></svg>
+      <figure class="phone" data-gate-box><img src="/img/sim-phone-aapl.webp" width="560" height="1127" fetchpriority="high" alt="מסך הסימולטור באפליקציה: גרף נרות יומי של AAPL, ומתחתיו כפתורי שורט וקנייה"></figure>
+      <img class="perch" src="/img/av-glide.webp" alt="" width="325" height="420">
+    </div>
   </div>
-</div>
-</div></main>
+</section>
 
-<footer class="site"><div class="container">
-  <div class="flinks">
+<aside class="note-wrap" aria-label="חשוב לדעת"><div class="wrap"><div class="note">
+  <p><b>חשוב לדעת:</b> הסימולטור לא מחובר לברוקר, אי אפשר להפקיד בו או למשוך ממנו כסף, ושום דבר בסימולטור, ביומן או בחדשות אינו ייעוץ השקעות או המלצה לקנות, למכור או להחזיק נייר ערך כלשהו.</p>
+</div></div></aside>
+
+<section class="ch ch--g2" id="ch-sim" data-folio="1|הסימולטור" data-sc-act="flow">
+  <div class="wrap">
+    <header class="intertitle"><span class="intertitle__no">פרק 1</span><h2>הסימולטור: כלי הקנייה והמכירה</h2></header>
+    <div class="spread spread--flip">
+      <div class="prose">
+        <h3>הכסף</h3>
+        <ul>
+          <li>כל חשבון מתחיל עם <bdi>$10,000</bdi> וירטואליים.</li>
+          <li>קונים לפי סכום בדולרים, כך שאפשר להחזיק גם חלק ממניה.</li>
+          <li>אין מינוף: אי אפשר לפתוח פוזיציות בסכום גדול יותר מהכסף הפנוי בחשבון.</li>
+          <li>אין הגבלה על מספר העסקאות.</li>
+        </ul>
+        <h3>מה אפשר לסחור</h3>
+        <p>83 נכסים:</p>
+        <ul class="ledger">
+          <li><span class="fig-n" aria-hidden="true">63</span><span><b>63 מניות שנסחרות בארה"ב</b>, כולל חברות ישראליות שנסחרות שם (למשל <bdi>TEVA</bdi>, <bdi>ESLT</bdi>, <bdi>MNDY</bdi>, <bdi>WIX</bdi>).</span></li>
+          <li><span class="fig-n" aria-hidden="true">12</span><span><b>12 קרנות סל (<bdi>ETF</bdi>)</b>, למשל <bdi>SPY</bdi>, <bdi>QQQ</bdi>, <bdi>DIA</bdi> ו-<bdi>GLD</bdi>.</span></li>
+          <li><span class="fig-n" aria-hidden="true">8</span><span><b>8 מטבעות קריפטו:</b> <bdi>BTC</bdi>, <bdi>ETH</bdi>, <bdi>XRP</bdi>, <bdi>BNB</bdi>, <bdi>SOL</bdi>, <bdi>ADA</bdi>, <bdi>DOGE</bdi>, <bdi>LINK</bdi>.</span></li>
+        </ul>
+        <p>אין ניירות ערך מהבורסה בתל אביב, ואין אופציות.</p>
+      </div>
+      <aside class="spread__media">
+        <figure class="fig gate" data-gate data-side="start">
+          <div class="card-shot" data-gate-box><img src="/img/sim-portfolio-card.webp" width="800" height="291" loading="lazy" decoding="async" alt="כרטיס התיק בסימולטור במסך הבית של האפליקציה: $10,000 בתחילת הדרך"></div>
+          <img class="perch" src="/img/av-lean-a.webp" alt="" width="349" height="420" loading="lazy" decoding="async">
+          <figcaption>כרטיס התיק בסימולטור, כפי שהוא מופיע במסך הבית של האפליקציה.</figcaption>
+        </figure>
+      </aside>
+    </div>
+    <div class="spread spread--solo">
+      <div class="prose">
+        <h3>כיוונים וסוגי פקודות</h3>
+        <ul>
+          <li><b>קנייה (לונג).</b></li>
+          <li><b>מכירה בחסר (שורט)</b>, וסגירה שלה בכיסוי. שורט נסגר אוטומטית אם המחיר עולה ב-50% מעל מחיר הכניסה.</li>
+          <li><b>פקודת שוק:</b> מתבצעת במחיר האחרון שנקלט.</li>
+          <li><b>פקודת לימיט לכניסה</b>, ללונג או לשורט: בוחרים מראש את מחיר הכניסה. הפקודה ממתינה עד שהמחיר מגיע אליה או עד שמבטלים אותה, והסכום שלה שמור בצד בינתיים.</li>
+          <li><b>כשהבורסה האמריקאית סגורה:</b> אפשר לשלוח פקודת לימיט לכניסה, והיא ממתינה לפתיחה. יציאה מפוזיציה (מכירה או כיסוי) מתבצעת בפקודת שוק, ולכן רק כשהבורסה פתוחה. קריפטו נסחר מסביב לשעון.</li>
+        </ul>
+        <h3>הגרף</h3>
+        <ul>
+          <li>זמני נרות: דקה, 5 דקות, 15 דקות, שעה, 4 שעות, יומי ושבועי.</li>
+          <li>אינדיקטורים: ממוצעים נעים (<bdi>SMA</bdi>, <bdi>EMA</bdi>), <bdi>VWAP</bdi>, רצועות בולינג'ר, <bdi>RSI</bdi>, <bdi>MACD</bdi>, <bdi>ATR</bdi> ונפח מסחר.</li>
+          <li>כלי שרטוט: קרן, קרן אופקית, קו מגמה, מלבן, טווח מחיר, פיבונאצ'י וטקסט.</li>
+          <li>על הגרף מוצגים הכניסה, הסטופ והיעד של הפוזיציה, ואפשר להציג עליו גם עסקאות קודמות.</li>
+        </ul>
+        <h3>בלי עמלות</h3>
+        <p>בסימולטור אין עמלות ואין הפרש בין המחיר המוצג למחיר הביצוע. בשוק האמיתי יש עמלות ומחיר הביצוע יכול להיות שונה, ולכן אותה עסקה בחשבון אמיתי יכולה להסתיים אחרת.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch-order" data-folio="2|הפקודה" data-sc-act="flow">
+  <div class="wrap">
+    <header class="intertitle"><span class="intertitle__no">פרק 2</span><h2>פקודה: כניסה, סטופ ויעד</h2></header>
+    <div class="spread">
+      <div class="prose">
+        <h3>הגנה ויציאה</h3>
+        <ul>
+          <li><b>סטופ</b> או <b>סטופ עוקב</b>, ו<b>יעד</b>. קובעים אותם כבר בפקודה, או מוסיפים ומשנים אותם על פוזיציה פתוחה.</li>
+          <li>על פוזיציה פתוחה אפשר להעביר את הסטופ לנקודת האיזון בהקשה אחת.</li>
+          <li>הרחקה של הסטופ או הסרה של ההגנה דורשות אישור נוסף, ונרשמות ביומן.</li>
+          <li>סטופ ויעד נבדקים פעם בדקה, בזמן שהשוק פתוח, ומתבצעים במחיר האחרון שנקלט. בתנועה חדה, המחיר בפועל יכול להיות רחוק מהמחיר שקבעת.</li>
+        </ul>
+        <h3>לפני שמאשרים פקודה</h3>
+        <p>כרטיס הפקודה מציג את הסיכון בדולרים ובאחוזים מהחשבון ואת יחס הסיכון לסיכוי, כעובדות ולא כהמלצה. אחרי המילוי מגיע שלב אישור נפרד.</p>
+        <h3>ניהול פוזיציה</h3>
+        <ul>
+          <li><b>הוספה</b> לפוזיציה קיימת: מחיר הכניסה מתעדכן לממוצע.</li>
+          <li><b>סגירה חלקית או מלאה:</b> 25%, 50%, 75% או 100% מהפוזיציה.</li>
+          <li>ליד הפוזיציה מוצגים הרווח או ההפסד, גם ביחידות <bdi>R</bdi> (ביחס לסיכון שנלקח עד הסטופ).</li>
+          <li>פיצולי מניות מעודכנים אוטומטית בפוזיציות הפתוחות.</li>
+        </ul>
+      </div>
+      <aside class="spread__media">
+        <figure class="fig order-fig gate" data-gate data-side="end">
+          <div id="order-chart" data-gate-box data-title="גרף נרות יומי של AAPL עד 29.7.2022, עם קו כניסה, קו יעד וקו סטופ לדוגמה"><svg class="chart" viewBox="0 0 600 560" role="img" aria-labelledby="order-svg-t" direction="ltr" preserveAspectRatio="xMidYMid meet"><title id="order-svg-t">גרף נרות יומי של AAPL עד 29.7.2022, עם קו כניסה, קו יעד וקו סטופ לדוגמה</title><g class="grid"><line x1="12" x2="426" y1="476.6" y2="476.6"/><text class="ax" font-size="23" x="438" y="484.1">130</text><line x1="12" x2="426" y1="395.6" y2="395.6"/><text class="ax" font-size="23" x="438" y="403.1">140</text><line x1="12" x2="426" y1="314.5" y2="314.5"/><text class="ax" font-size="23" x="438" y="322">150</text><line x1="12" x2="426" y1="233.5" y2="233.5"/><text class="ax" font-size="23" x="438" y="241">160</text><line x1="12" x2="426" y1="152.4" y2="152.4"/><text class="ax" font-size="23" x="438" y="159.9">170</text><line x1="12" x2="426" y1="71.4" y2="71.4"/><text class="ax" font-size="23" x="438" y="78.9">180</text><line class="mtick" x1="66.2" x2="66.2" y1="39" y2="509"/><text class="ax mlabel" font-size="23" x="74.2" y="548" text-anchor="end" direction="rtl">יולי</text><line class="mtick" x1="164.8" x2="164.8" y1="39" y2="509"/><text class="ax mlabel" font-size="23" x="172.8" y="548" text-anchor="end" direction="rtl">אוגוסט</text><line class="mtick" x1="278.1" x2="278.1" y1="39" y2="509"/><text class="ax mlabel" font-size="23" x="286.1" y="548" text-anchor="end" direction="rtl">ספטמבר</text><line class="mtick" x1="381.6" x2="381.6" y1="39" y2="509"/><text class="ax mlabel" font-size="23" x="389.6" y="548" text-anchor="end" direction="rtl">אוקטובר</text></g><g class="candles"><g class="c up" data-i="0"><line x1="14.5" x2="14.5" y1="417.2" y2="458.9"/><rect x="12.9" y="432.3" width="3.1" height="10.3" rx="1"/></g><g class="c dn" data-i="1"><line x1="19.4" x2="19.4" y1="457.3" y2="484"/><rect x="17.9" y="461.6" width="3.1" height="14.1" rx="1"/></g><g class="c up" data-i="2"><line x1="24.3" x2="24.3" y1="451.8" y2="478"/><rect x="22.8" y="464.6" width="3.1" height="11.4" rx="1"/></g><g class="c up" data-i="3"><line x1="29.3" x2="29.3" y1="419.5" y2="449.6"/><rect x="27.7" y="428.9" width="3.1" height="20" rx="1"/></g><g class="c up" data-i="4"><line x1="34.2" x2="34.2" y1="413.9" y2="444.8"/><rect x="32.7" y="433.7" width="3.1" height="5.3" rx="1"/></g><g class="c up" data-i="5"><line x1="39.1" x2="39.1" y1="407" y2="431"/><rect x="37.6" y="409.7" width="3.1" height="11.9" rx="1"/></g><g class="c up" data-i="6"><line x1="44" x2="44" y1="380.3" y2="397.3"/><rect x="42.5" y="380.3" width="3.1" height="15.5" rx="1"/></g><g class="c dn" data-i="7"><line x1="49" x2="49" y1="367.4" y2="387.6"/><rect x="47.4" y="373.5" width="3.1" height="8.2" rx="1"/></g><g class="c dn" data-i="8"><line x1="53.9" x2="53.9" y1="367.8" y2="417.2"/><rect x="52.4" y="377.5" width="3.1" height="38" rx="1"/></g><g class="c up" data-i="9"><line x1="58.8" x2="58.8" y1="390.2" y2="422.3"/><rect x="57.3" y="402" width="3.1" height="14.1" rx="1"/></g><g class="c dn" data-i="10"><line x1="63.8" x2="63.8" y1="409.1" y2="445.9"/><rect x="62.2" y="418.2" width="3.1" height="2" rx="1"/></g><g class="c up" data-i="11"><line x1="68.7" x2="68.7" y1="403.5" y2="430.3"/><rect x="67.2" y="404.9" width="3.1" height="21.8" rx="1"/></g><g class="c up" data-i="12"><line x1="73.6" x2="73.6" y1="382.5" y2="420.3"/><rect x="72.1" y="382.5" width="3.1" height="30.7" rx="1"/></g><g class="c up" data-i="13"><line x1="78.5" x2="78.5" y1="362.2" y2="386.5"/><rect x="77" y="371.6" width="3.1" height="12.9" rx="1"/></g><g class="c up" data-i="14"><line x1="83.5" x2="83.5" y1="342.5" y2="368.6"/><rect x="81.9" y="344.1" width="3.1" height="23.7" rx="1"/></g><g class="c up" data-i="15"><line x1="88.4" x2="88.4" y1="334.5" y2="354.4"/><rect x="86.9" y="338.6" width="3.1" height="14.6" rx="1"/></g><g class="c dn" data-i="16"><line x1="93.3" x2="93.3" y1="341.7" y2="364.8"/><rect x="91.8" y="349.4" width="3.1" height="6.4" rx="1"/></g><g class="c up" data-i="17"><line x1="98.3" x2="98.3" y1="327.2" y2="354.5"/><rect x="96.7" y="348.1" width="3.1" height="1.5" rx="1"/></g><g class="c up" data-i="18"><line x1="103.2" x2="103.2" y1="343.3" y2="378.1"/><rect x="101.7" y="351.4" width="3.1" height="19.4" rx="1"/></g><g class="c up" data-i="19"><line x1="108.1" x2="108.1" y1="323" y2="369.1"/><rect x="106.6" y="326.5" width="3.1" height="36.7" rx="1"/></g><g class="c up" data-i="20"><line x1="113" x2="113" y1="307.8" y2="328.8"/><rect x="111.5" y="314.1" width="3.1" height="1.5" rx="1"/></g><g class="c dn" data-i="21"><line x1="118" x2="118" y1="302" y2="341"/><rect x="116.4" y="308.6" width="3.1" height="29.4" rx="1"/></g><g class="c up" data-i="22"><line x1="122.9" x2="122.9" y1="304.6" y2="339.5"/><rect x="121.4" y="306.9" width="3.1" height="24.3" rx="1"/></g><g class="c up" data-i="23"><line x1="127.8" x2="127.8" y1="284.4" y2="311.4"/><rect x="126.3" y="289.9" width="3.1" height="15.7" rx="1"/></g><g class="c up" data-i="24"><line x1="132.8" x2="132.8" y1="269.4" y2="298.2"/><rect x="131.2" y="271.2" width="3.1" height="6.8" rx="1"/></g><g class="c dn" data-i="25"><line x1="137.7" x2="137.7" y1="264" y2="286.9"/><rect x="136.2" y="269.9" width="3.1" height="11" rx="1"/></g><g class="c dn" data-i="26"><line x1="142.6" x2="142.6" y1="273.8" y2="295.9"/><rect x="141.1" y="282" width="3.1" height="9.2" rx="1"/></g><g class="c dn" data-i="27"><line x1="147.5" x2="147.5" y1="289.6" y2="307.9"/><rect x="146" y="296.7" width="3.1" height="5.2" rx="1"/></g><g class="c up" data-i="28"><line x1="152.5" x2="152.5" y1="255.4" y2="296.6"/><rect x="150.9" y="260" width="3.1" height="33.6" rx="1"/></g><g class="c up" data-i="29"><line x1="157.4" x2="157.4" y1="252.7" y2="278.7"/><rect x="155.9" y="255.3" width="3.1" height="2.2" rx="1"/></g><g class="c up" data-i="30"><line x1="162.3" x2="162.3" y1="204.1" y2="237.4"/><rect x="160.8" y="212.6" width="3.1" height="10.9" rx="1"/></g></g><g class="order"><line class="ln target" x1="162.3" x2="426" y1="71.4" y2="71.4"/><line class="ln stop" x1="162.3" x2="426" y1="314.5" y2="314.5"/><line class="ln pos" x1="162.3" x2="162.3" y1="212.6" y2="212.6" data-x0="162.3" data-step="4.9" data-exit="329.9" data-x1="426"/><g class="lab target"><rect x="430" y="48.9" width="168" height="45" rx="8"/><text font-size="23" x="514" y="79.7" text-anchor="middle" direction="rtl">יעד 180</text></g><g class="lab entry"><rect x="430" y="190.1" width="168" height="45" rx="8"/><text font-size="23" x="514" y="220.8" text-anchor="middle" direction="rtl">כניסה 162.58</text></g><g class="lab stop"><rect x="430" y="292" width="168" height="45" rx="8"/><text font-size="23" x="514" y="322.8" text-anchor="middle" direction="rtl">סטופ 150</text></g><circle class="dot entry" cx="162.3" cy="212.6" r="9"/></g><g class="exit off"><circle class="ring" cx="329.9" cy="314.5" r="22.5"/><circle class="dot" cx="329.9" cy="314.5" r="10.5"/></g><g class="fall off"><line x1="379.2" x2="379.2" y1="314.5" y2="411.1"/><line class="cap" x1="370.2" x2="388.2" y1="411.1" y2="411.1"/><text font-size="24" x="379.2" y="456.1" text-anchor="middle">138.08</text></g></svg></div>
+          <div class="stopctl" hidden>
+            <label for="stop-range">איפה לשים את הסטופ? <output id="stop-out" for="stop-range">150</output></label>
+            <input type="range" id="stop-range" min="145" max="159" step="1" value="150" dir="ltr">
+            <p>אפשר לגרור את המחוון, או את קו הסטופ על הגרף.</p>
+          </div>
+          <img class="perch" src="/img/av-lean-b.webp" alt="" width="441" height="420" loading="lazy" decoding="async">
+          <figcaption>דוגמה להמחשה על נתונים היסטוריים: <bdi>AAPL</bdi>, נרות יומיים, <bdi>15.6.2022</bdi> עד <bdi>29.7.2022</bdi>. הכניסה במחיר הסגירה של <bdi>29.7.2022</bdi>. לא המלצה.</figcaption>
+        </figure>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="ch ch--night peak" id="ch-stop" data-folio="3|הסטופ" data-sc-act="pin">
+  <div class="peak__stage">
+    <div class="wrap peak__grid">
+      <div class="peak__copy">
+        <span class="intertitle__no">פרק 3</span>
+        <h2>מה סטופ עושה</h2>
+        <ol class="beats">
+          <li>המחיר עולה. היעד והסטופ נשארים במקום שקבעת.</li>
+          <li>המחיר נעצר לפני היעד, ומתחיל לרדת.</li>
+          <li><b>הסטופ נגע ב-<bdi data-k="exit-date">16.9.2022</bdi>.</b> העסקה נסגרה.</li>
+          <li>המחיר המשיך לרדת עד <bdi data-k="low">138.08</bdi> ב-<bdi data-k="low-date">30.9.2022</bdi>. העסקה כבר הייתה סגורה.</li>
+        </ol>
+        <p class="peak__data"><bdi>AAPL</bdi>, נרות יומיים, <bdi>15.6.2022</bdi> עד <bdi>13.10.2022</bdi>. נתונים היסטוריים להמחשה בלבד: לא המלצה ולא תחזית.</p>
+      </div>
+      <div class="peak__chart" id="peak-chart" data-title="גרף נרות יומי של AAPL מ-15.6.2022 עד 13.10.2022: המחיר עולה, יורד ופוגע בקו הסטופ, וממשיך לרדת אחרי שהעסקה נסגרה"><svg class="chart" viewBox="0 0 1000 600" role="img" aria-labelledby="peak-svg-t" direction="ltr" preserveAspectRatio="xMidYMid meet"><title id="peak-svg-t">גרף נרות יומי של AAPL מ-15.6.2022 עד 13.10.2022: המחיר עולה, יורד ופוגע בקו הסטופ, וממשיך לרדת אחרי שהעסקה נסגרה</title><g class="grid"><line x1="12" x2="884" y1="528.8" y2="528.8"/><text class="ax" font-size="15" x="896" y="533.8">130</text><line x1="12" x2="884" y1="435.7" y2="435.7"/><text class="ax" font-size="15" x="896" y="440.7">140</text><line x1="12" x2="884" y1="342.6" y2="342.6"/><text class="ax" font-size="15" x="896" y="347.6">150</text><line x1="12" x2="884" y1="249.4" y2="249.4"/><text class="ax" font-size="15" x="896" y="254.4">160</text><line x1="12" x2="884" y1="156.3" y2="156.3"/><text class="ax" font-size="15" x="896" y="161.3">170</text><line x1="12" x2="884" y1="63.2" y2="63.2"/><text class="ax" font-size="15" x="896" y="68.2">180</text><line class="mtick" x1="126.2" x2="126.2" y1="26" y2="566"/><text class="ax mlabel" font-size="15" x="134.2" y="592" text-anchor="end" direction="rtl">יולי</text><line class="mtick" x1="333.8" x2="333.8" y1="26" y2="566"/><text class="ax mlabel" font-size="15" x="341.8" y="592" text-anchor="end" direction="rtl">אוגוסט</text><line class="mtick" x1="572.6" x2="572.6" y1="26" y2="566"/><text class="ax mlabel" font-size="15" x="580.6" y="592" text-anchor="end" direction="rtl">ספטמבר</text><line class="mtick" x1="790.6" x2="790.6" y1="26" y2="566"/><text class="ax mlabel" font-size="15" x="798.6" y="592" text-anchor="end" direction="rtl">אוקטובר</text></g><g class="candles"><g class="c up" data-i="0"><line x1="17.2" x2="17.2" y1="460.5" y2="508.5"/><rect x="14" y="477.9" width="6.4" height="11.8" rx="1"/></g><g class="c dn" data-i="1"><line x1="27.6" x2="27.6" y1="506.6" y2="537.3"/><rect x="24.4" y="511.5" width="6.4" height="16.2" rx="1"/></g><g class="c up" data-i="2"><line x1="38" x2="38" y1="500.3" y2="530.4"/><rect x="34.7" y="515" width="6.4" height="13.1" rx="1"/></g><g class="c up" data-i="3"><line x1="48.3" x2="48.3" y1="463.1" y2="497.8"/><rect x="45.1" y="474" width="6.4" height="23" rx="1"/></g><g class="c up" data-i="4"><line x1="58.7" x2="58.7" y1="456.7" y2="492.3"/><rect x="55.5" y="479.5" width="6.4" height="6.1" rx="1"/></g><g class="c up" data-i="5"><line x1="69.1" x2="69.1" y1="448.8" y2="476.3"/><rect x="65.9" y="451.9" width="6.4" height="13.7" rx="1"/></g><g class="c up" data-i="6"><line x1="79.5" x2="79.5" y1="418.2" y2="437.7"/><rect x="76.3" y="418.2" width="6.4" height="17.8" rx="1"/></g><g class="c dn" data-i="7"><line x1="89.9" x2="89.9" y1="403.3" y2="426.5"/><rect x="86.6" y="410.3" width="6.4" height="9.4" rx="1"/></g><g class="c dn" data-i="8"><line x1="100.2" x2="100.2" y1="403.8" y2="460.5"/><rect x="97" y="414.9" width="6.4" height="43.7" rx="1"/></g><g class="c up" data-i="9"><line x1="110.6" x2="110.6" y1="429.5" y2="466.4"/><rect x="107.4" y="443.1" width="6.4" height="16.2" rx="1"/></g><g class="c dn" data-i="10"><line x1="121" x2="121" y1="451.2" y2="493.5"/><rect x="117.8" y="461.6" width="6.4" height="2.3" rx="1"/></g><g class="c up" data-i="11"><line x1="131.4" x2="131.4" y1="444.8" y2="475.6"/><rect x="128.2" y="446.4" width="6.4" height="25" rx="1"/></g><g class="c up" data-i="12"><line x1="141.8" x2="141.8" y1="420.7" y2="464.1"/><rect x="138.5" y="420.7" width="6.4" height="35.3" rx="1"/></g><g class="c up" data-i="13"><line x1="152.1" x2="152.1" y1="397.3" y2="425.2"/><rect x="148.9" y="408.2" width="6.4" height="14.8" rx="1"/></g><g class="c up" data-i="14"><line x1="162.5" x2="162.5" y1="374.7" y2="404.7"/><rect x="159.3" y="376.5" width="6.4" height="27.2" rx="1"/></g><g class="c up" data-i="15"><line x1="172.9" x2="172.9" y1="365.5" y2="388.4"/><rect x="169.7" y="370.2" width="6.4" height="16.8" rx="1"/></g><g class="c dn" data-i="16"><line x1="183.3" x2="183.3" y1="373.8" y2="400.4"/><rect x="180.1" y="382.6" width="6.4" height="7.4" rx="1"/></g><g class="c up" data-i="17"><line x1="193.7" x2="193.7" y1="357.1" y2="388.5"/><rect x="190.4" y="381.1" width="6.4" height="1.5" rx="1"/></g><g class="c up" data-i="18"><line x1="204" x2="204" y1="375.6" y2="415.6"/><rect x="200.8" y="384.9" width="6.4" height="22.3" rx="1"/></g><g class="c up" data-i="19"><line x1="214.4" x2="214.4" y1="352.3" y2="405.3"/><rect x="211.2" y="356.3" width="6.4" height="42.2" rx="1"/></g><g class="c up" data-i="20"><line x1="224.8" x2="224.8" y1="334.8" y2="358.9"/><rect x="221.6" y="342.1" width="6.4" height="1.5" rx="1"/></g><g class="c dn" data-i="21"><line x1="235.2" x2="235.2" y1="328.1" y2="373"/><rect x="232" y="335.8" width="6.4" height="33.8" rx="1"/></g><g class="c up" data-i="22"><line x1="245.6" x2="245.6" y1="331.2" y2="371.2"/><rect x="242.4" y="333.8" width="6.4" height="27.9" rx="1"/></g><g class="c up" data-i="23"><line x1="256" x2="256" y1="307.9" y2="338.9"/><rect x="252.7" y="314.2" width="6.4" height="18.1" rx="1"/></g><g class="c up" data-i="24"><line x1="266.3" x2="266.3" y1="290.7" y2="323.8"/><rect x="263.1" y="292.8" width="6.4" height="7.8" rx="1"/></g><g class="c dn" data-i="25"><line x1="276.7" x2="276.7" y1="284.5" y2="310.8"/><rect x="273.5" y="291.3" width="6.4" height="12.7" rx="1"/></g><g class="c dn" data-i="26"><line x1="287.1" x2="287.1" y1="295.8" y2="321.1"/><rect x="283.9" y="305.2" width="6.4" height="10.6" rx="1"/></g><g class="c dn" data-i="27"><line x1="297.5" x2="297.5" y1="313.9" y2="334.9"/><rect x="294.3" y="322.1" width="6.4" height="6" rx="1"/></g><g class="c up" data-i="28"><line x1="307.9" x2="307.9" y1="274.6" y2="322"/><rect x="304.6" y="279.9" width="6.4" height="38.6" rx="1"/></g><g class="c up" data-i="29"><line x1="318.2" x2="318.2" y1="271.5" y2="301.4"/><rect x="315" y="274.5" width="6.4" height="2.5" rx="1"/></g><g class="c up" data-i="30"><line x1="328.6" x2="328.6" y1="215.7" y2="253.9"/><rect x="325.4" y="225.4" width="6.4" height="12.6" rx="1"/></g><g class="c up" data-i="31"><line x1="339" x2="339" y1="216.2" y2="241.2"/><rect x="335.8" y="235.6" width="6.4" height="3.8" rx="1"/></g><g class="c dn" data-i="32"><line x1="349.4" x2="349.4" y1="227" y2="252.8"/><rect x="346.2" y="249.1" width="6.4" height="1.5" rx="1"/></g><g class="c up" data-i="33"><line x1="359.8" x2="359.8" y1="188.1" y2="241.5"/><rect x="356.5" y="192.5" width="6.4" height="47.9" rx="1"/></g><g class="c dn" data-i="34"><line x1="370.1" x2="370.1" y1="182.7" y2="208.1"/><rect x="366.9" y="193" width="6.4" height="2.8" rx="1"/></g><g class="c up" data-i="35"><line x1="380.5" x2="380.5" y1="195" y2="221.5"/><rect x="377.3" y="200.3" width="6.4" height="20.8" rx="1"/></g><g class="c dn" data-i="36"><line x1="390.9" x2="390.9" y1="177" y2="210.3"/><rect x="387.7" y="189.8" width="6.4" height="14.2" rx="1"/></g><g class="c up" data-i="37"><line x1="401.3" x2="401.3" y1="195.3" y2="214.3"/><rect x="398.1" y="203.5" width="6.4" height="8.6" rx="1"/></g><g class="c up" data-i="38"><line x1="411.7" x2="411.7" y1="162.9" y2="185.2"/><rect x="408.4" y="163.6" width="6.4" height="12.8" rx="1"/></g><g class="c dn" data-i="39"><line x1="422" x2="422" y1="147.2" y2="173"/><rect x="418.8" y="156.3" width="6.4" height="14" rx="1"/></g><g class="c up" data-i="40"><line x1="432.4" x2="432.4" y1="137.6" y2="161.7"/><rect x="429.2" y="137.6" width="6.4" height="19.3" rx="1"/></g><g class="c up" data-i="41"><line x1="442.8" x2="442.8" y1="124.8" y2="143.8"/><rect x="439.6" y="126.6" width="6.4" height="15.5" rx="1"/></g><g class="c up" data-i="42"><line x1="453.2" x2="453.2" y1="121.8" y2="140.8"/><rect x="450" y="128.1" width="6.4" height="3.3" rx="1"/></g><g class="c up" data-i="43"><line x1="463.6" x2="463.6" y1="99.2" y2="132.4"/><rect x="460.4" y="113" width="6.4" height="18.2" rx="1"/></g><g class="c up" data-i="44"><line x1="474" x2="474" y1="110.8" y2="127.2"/><rect x="470.7" y="117.6" width="6.4" height="3.7" rx="1"/></g><g class="c dn" data-i="45"><line x1="484.3" x2="484.3" y1="121.8" y2="144"/><rect x="481.1" y="127" width="6.4" height="14.6" rx="1"/></g><g class="c dn" data-i="46"><line x1="494.7" x2="494.7" y1="157.9" y2="182.9"/><rect x="491.5" y="160.7" width="6.4" height="17.6" rx="1"/></g><g class="c up" data-i="47"><line x1="505.1" x2="505.1" y1="168.4" y2="187.4"/><rect x="501.9" y="182.1" width="6.4" height="1.5" rx="1"/></g><g class="c up" data-i="48"><line x1="515.5" x2="515.5" y1="173.9" y2="191.3"/><rect x="512.3" y="178.3" width="6.4" height="5.1" rx="1"/></g><g class="c up" data-i="49"><line x1="525.9" x2="525.9" y1="155.1" y2="171.7"/><rect x="522.6" y="155.1" width="6.4" height="12.5" rx="1"/></g><g class="c dn" data-i="50"><line x1="536.2" x2="536.2" y1="146.8" y2="216.1"/><rect x="533" y="151.4" width="6.4" height="63.9" rx="1"/></g><g class="c up" data-i="51"><line x1="546.6" x2="546.6" y1="222.4" y2="251.1"/><rect x="543.4" y="236.6" width="6.4" height="2.8" rx="1"/></g><g class="c dn" data-i="52"><line x1="557" x2="557" y1="225.8" y2="270.6"/><rect x="553.8" y="229.2" width="6.4" height="30.4" rx="1"/></g><g class="c dn" data-i="53"><line x1="567.4" x2="567.4" y1="244.8" y2="275.9"/><rect x="564.2" y="247" width="6.4" height="28.6" rx="1"/></g><g class="c up" data-i="54"><line x1="577.8" x2="577.8" y1="264.8" y2="298.9"/><rect x="574.5" y="268.3" width="6.4" height="12.4" rx="1"/></g><g class="c dn" data-i="55"><line x1="588.1" x2="588.1" y1="246.2" y2="296.3"/><rect x="584.9" y="251.1" width="6.4" height="37" rx="1"/></g><g class="c dn" data-i="56"><line x1="598.5" x2="598.5" y1="276.8" y2="307.8"/><rect x="595.3" y="282.2" width="6.4" height="18.1" rx="1"/></g><g class="c up" data-i="57"><line x1="608.9" x2="608.9" y1="280.5" y2="308.8"/><rect x="605.7" y="287.2" width="6.4" height="10.4" rx="1"/></g><g class="c dn" data-i="58"><line x1="619.3" x2="619.3" y1="283.3" y2="317.4"/><rect x="616.1" y="299.8" width="6.4" height="2" rx="1"/></g><g class="c up" data-i="59"><line x1="629.7" x2="629.7" y1="270" y2="298"/><rect x="626.4" y="274" width="6.4" height="18.5" rx="1"/></g><g class="c up" data-i="60"><line x1="640" x2="640" y1="209.9" y2="254.9"/><rect x="636.8" y="217.2" width="6.4" height="35.7" rx="1"/></g><g class="c dn" data-i="61"><line x1="650.4" x2="650.4" y1="244.5" y2="311"/><rect x="647.2" y="250.7" width="6.4" height="54.7" rx="1"/></g><g class="c up" data-i="62"><line x1="660.8" x2="660.8" y1="276.5" y2="308.8"/><rect x="657.6" y="293.1" width="6.4" height="5.4" rx="1"/></g><g class="c dn" data-i="63"><line x1="671.2" x2="671.2" y1="293.9" y2="329.6"/><rect x="668" y="298.2" width="6.4" height="22.3" rx="1"/></g><g class="c dn" data-i="64"><line x1="681.6" x2="681.6" y1="330" y2="357.4"/><rect x="678.4" y="331.6" width="6.4" height="6.7" rx="1"/></g><g class="c up after" data-i="65"><line x1="692" x2="692" y1="300.1" y2="350.9"/><rect x="688.7" y="300.7" width="6.4" height="49.3" rx="1"/></g><g class="c up after" data-i="66"><line x1="702.3" x2="702.3" y1="267.3" y2="313.8"/><rect x="699.1" y="278.1" width="6.4" height="32.9" rx="1"/></g><g class="c dn after" data-i="67"><line x1="712.7" x2="712.7" y1="261.6" y2="308.2"/><rect x="709.5" y="273.7" width="6.4" height="34.4" rx="1"/></g><g class="c up after" data-i="68"><line x1="723.1" x2="723.1" y1="301.6" y2="334"/><rect x="719.9" y="317.2" width="6.4" height="4.1" rx="1"/></g><g class="c dn after" data-i="69"><line x1="733.5" x2="733.5" y1="329.1" y2="355.7"/><rect x="730.3" y="332.9" width="6.4" height="4.7" rx="1"/></g><g class="c up after" data-i="70"><line x1="743.9" x2="743.9" y1="307.5" y2="345"/><rect x="740.6" y="335.9" width="6.4" height="8.7" rx="1"/></g><g class="c dn after" data-i="71"><line x1="754.2" x2="754.2" y1="299.1" y2="343"/><rect x="751" y="316.8" width="6.4" height="9.2" rx="1"/></g><g class="c up after" data-i="72"><line x1="764.6" x2="764.6" y1="336.6" y2="390.6"/><rect x="761.4" y="344.8" width="6.4" height="19.3" rx="1"/></g><g class="c dn after" data-i="73"><line x1="775" x2="775" y1="373.2" y2="429.2"/><rect x="771.8" y="379" width="6.4" height="32.5" rx="1"/></g><g class="c dn after" data-i="74"><line x1="785.4" x2="785.4" y1="406.9" y2="453.5"/><rect x="782.2" y="424.2" width="6.4" height="29.3" rx="1"/></g><g class="c up after" data-i="75"><line x1="795.8" x2="795.8" y1="407.1" y2="456.6"/><rect x="792.5" y="412.7" width="6.4" height="38.7" rx="1"/></g><g class="c up after" data-i="76"><line x1="806.1" x2="806.1" y1="377.9" y2="395.7"/><rect x="802.9" y="379.9" width="6.4" height="8.8" rx="1"/></g><g class="c up after" data-i="77"><line x1="816.5" x2="816.5" y1="367.1" y2="407.1"/><rect x="813.3" y="375.6" width="6.4" height="23.2" rx="1"/></g><g class="c dn after" data-i="78"><line x1="826.9" x2="826.9" y1="365.6" y2="387.1"/><rect x="823.7" y="380.9" width="6.4" height="3.8" rx="1"/></g><g class="c dn after" data-i="79"><line x1="837.3" x2="837.3" y1="407.1" y2="440.7"/><rect x="834.1" y="412" width="6.4" height="22.3" rx="1"/></g><g class="c dn after" data-i="80"><line x1="847.7" x2="847.7" y1="418.2" y2="448.9"/><rect x="844.4" y="431.1" width="6.4" height="1.6" rx="1"/></g><g class="c dn after" data-i="81"><line x1="858" x2="858" y1="423.3" y2="451.9"/><rect x="854.8" y="438.7" width="6.4" height="6.6" rx="1"/></g><g class="c dn after" data-i="82"><line x1="868.4" x2="868.4" y1="432.4" y2="452.8"/><rect x="865.2" y="444.4" width="6.4" height="7.2" rx="1"/></g><g class="c up after" data-i="83"><line x1="878.8" x2="878.8" y1="402.5" y2="487.8"/><rect x="875.6" y="407.9" width="6.4" height="75.2" rx="1"/></g></g><g class="order"><line class="ln target" x1="328.6" x2="681.6" y1="63.2" y2="63.2"/><line class="ln stop" x1="328.6" x2="681.6" y1="342.6" y2="342.6"/><line class="ln pos" x1="328.6" x2="681.6" y1="225.4" y2="225.4" data-x0="328.6" data-step="10.4" data-exit="681.6" data-x1="884"/><g class="lab target"><rect x="888" y="48.2" width="112" height="30" rx="8"/><text font-size="15" x="944" y="68.7" text-anchor="middle" direction="rtl">יעד 180</text></g><g class="lab entry"><rect x="888" y="210.4" width="112" height="30" rx="8"/><text font-size="15" x="944" y="230.9" text-anchor="middle" direction="rtl">כניסה 162.58</text></g><g class="lab stop"><rect x="888" y="327.6" width="112" height="30" rx="8"/><text font-size="15" x="944" y="348.1" text-anchor="middle" direction="rtl">סטופ 150</text></g><circle class="dot entry" cx="328.6" cy="225.4" r="6"/></g><g class="exit"><circle class="ring" cx="681.6" cy="342.6" r="15"/><circle class="dot" cx="681.6" cy="342.6" r="7"/></g><g class="fall"><line x1="785.4" x2="785.4" y1="342.6" y2="453.5"/><line class="cap" x1="776.4" x2="794.4" y1="453.5" y2="453.5"/><text font-size="16" x="785.4" y="483.5" text-anchor="middle">138.08</text></g></svg></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch ch--g2" id="ch-journal" data-folio="4|היומן" data-sc-act="flow">
+  <div class="wrap">
+    <header class="intertitle"><span class="intertitle__no">פרק 4</span><h2>היומן: מה הוא מתעד ומה הוא מנתח</h2></header>
+    <div class="spread spread--flip">
+      <div class="prose">
+        <h3>מה נשמר על כל עסקה</h3>
+        <ul>
+          <li><b>אוטומטית:</b> הנכס, הכיוון (לונג או שורט), הכמות, מחיר הכניסה והיציאה, התוצאה בדולרים, איך העסקה נסגרה (למשל ידנית, בסטופ או ביעד), זמני הפתיחה והסגירה, הסטופ הראשון, ושינויים בסטופ בזמן שהעסקה פתוחה.</li>
+          <li><b>מצב השוק ברגע הכניסה:</b> מדד הפחד והחמדנות של <bdi>CNN</bdi> ו-<bdi>VIX</bdi>.</li>
+          <li><b>מה שבוחרים למלא בכרטיס הפקודה:</b> סיבת הכניסה, מה יבטל את הרעיון, סוג העסקה (דיי-טרייד, סווינג או טווח ארוך) ומקור הרעיון (שלי או מבחוץ).</li>
+          <li><b>אחרי הסגירה:</b> הערה אישית לעסקה.</li>
+        </ul>
+        <h3>צ'ק-אין יומי</h3>
+        <p>צ'ק-אין קצר: מצב רגשי מתוך רשימה, ריכוז מתוך 10 והערה. היומן משתמש בו כדי להראות איך המצב שלך קשור לתוצאות.</p>
+        <h3>מה היומן מציג</h3>
+        <ul>
+          <li><b>לוח שנה חודשי:</b> לכל יום הצ'ק-אין, מבחנים שעשית, והעסקאות שנפתחו ונסגרו עם התוצאה של היום.</li>
+          <li><b>ציון ביצוע לכל עסקה סגורה:</b> מ-<bdi>A</bdi> עד <bdi>D</bdi>, ו-<bdi>F</bdi> כשחוק אישי נשבר. הציון בודק את התוכנית ואת הביצוע, לא את הרווח: הפסד שנלקח בדיוק לפי התוכנית מקבל <bdi>A</bdi>, ורווח בלי סטופ מקבל <bdi>D</bdi>.</li>
+          <li><b>כרטיסי ניתוח:</b>
+            <ul>
+              <li>שבוע אחר שבוע: הפעילות שלך בכל שבוע.</li>
+              <li>הסיפור שלך: רווח והפסד ממוצעים וחציוניים, הגדולים ביותר, ואחוז ההצלחה.</li>
+              <li>לאן הלך הכסף: עסקאות שנפתחו עם סטופ מול עסקאות בלי סטופ.</li>
+              <li>תוכנית מול ביצוע.</li>
+              <li>לפי סוג העסקה, כולל זמן החזקה חציוני.</li>
+              <li>מקור הרעיון: שלי מול מבחוץ.</li>
+              <li>המצב שהיית בו: התוצאות לפי המצב שסימנת בצ'ק-אין.</li>
+              <li>אז מול עכשיו: התקופה המוקדמת מול האחרונה.</li>
+            </ul>
+          </li>
+        </ul>
+        <p>כל הניתוחים מחושבים מעסקאות שנסגרו. פוזיציה פתוחה נכנסת לחישובים רק אחרי שהיא נסגרת.</p>
+      </div>
+      <aside class="spread__media">
+        <figure class="fig grades gate" data-gate data-side="start">
+          <div class="grades__row" data-gate-box dir="ltr" aria-hidden="true"><span>A</span><span>B</span><span>C</span><span>D</span><span class="f">F</span></div>
+          <img class="perch" src="/img/av-glide.webp" alt="" width="325" height="420" loading="lazy" decoding="async">
+          <figcaption>הציון בודק את התוכנית ואת הביצוע, לא את הרווח.</figcaption>
+        </figure>
+      </aside>
+    </div>
+    <div class="spread spread--solo">
+      <div class="prose">
+        <h3>כללי מסחר אישיים</h3>
+        <p>ביומן אפשר להגדיר חוקים אישיים מתוך רשימה של 14 חוקים שנשענים על השיעורים, למשל "תמיד עם סטופ", "תקרת סיכון לעסקה", "מתג כיבוי יומי", "עצירה אחרי רצף הפסדים" ו"סטופ זמן". את המספר בכל חוק קובעים בעצמך: אין ערך ברירת מחדל ואין ערך מומלץ.</p>
+        <ul>
+          <li><b>לפני הכניסה:</b> אם עסקה סותרת חוק פעיל, מופיעה בכרטיס הפקודה שורת התראה. ההתראה לא חוסמת את העסקה.</li>
+          <li><b>אחרי הסגירה:</b> היומן בודק את העסקה מול החוקים. עסקה ששברה חוק מקבלת ציון <bdi>F</bdi>.</li>
+          <li><b>לאורך זמן:</b> לכל חוק מוצג אחוז העמידה בו, אחרי 5 בדיקות רלוונטיות לפחות.</li>
+        </ul>
+        <p>אפשר גם לכתוב כלל במילים שלך. כלל כזה נשמר ברשימה, אבל לא נבדק אוטומטית.</p>
+      </div>
+    </div>
+    <div class="prose steps-block">
+      <h3>איך הסימולטור והיומן עובדים יחד</h3>
+      <ol class="steps">
+        <li><b>בכרטיס הפקודה:</b> רואים את הסיכון ואת יחס הסיכון לסיכוי, ממלאים אם רוצים את סיבת הכניסה, מה יבטל אותה, סוג העסקה ומקור הרעיון, ורואים התראה אם העסקה סותרת חוק.</li>
+        <li><b>בשליחה:</b> הפרטים האלה נשמרים עם העסקה, יחד עם מצב השוק באותו רגע.</li>
+        <li><b>בזמן שהפוזיציה פתוחה:</b> שינויים בסטופ נרשמים.</li>
+        <li><b>בסגירה</b> (ידנית, בסטופ או ביעד): העסקה נכנסת ליומן, מקבלת ציון ביצוע, מופיעה בלוח השנה ונכנסת לכרטיסי הניתוח. אפשר להוסיף לה הערה.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch-news" data-folio="5|החדשות" data-sc-act="flow">
+  <div class="wrap">
+    <header class="intertitle"><span class="intertitle__no">פרק 5</span><h2>החדשות</h2></header>
+    <div class="spread">
+      <div class="prose">
+        <p><b>המהדורה</b> היא מהדורת חדשות שוק בעברית שמתפרסמת פעמיים בשבוע, בדרך כלל ביום שישי וביום ראשון. בכל מהדורה יש כתבה ראשית, תמצית השבוע וכתבות נוספות. בכל כתבה יש פסקת "ההקשר הלימודי", ומונחים שמסומנים בה נפתחים להגדרה מתוך המילון של השיעורים. בראש המהדורה מוצגים מדד הפחד והחמדנות של <bdi>CNN</bdi> ו-<bdi>VIX</bdi>, ובסופה רשימת המקורות של המהדורה.</p>
+        <p>המהדורה היא חדשות ולמידה, לא המלצה: שום דבר בה אינו המלצה לקנות או למכור.</p>
+      </div>
+      <aside class="spread__media">
+        <figure class="fig gate" data-gate data-perch="side" data-side="end">
+          <div class="news-shot" data-gate-box><img src="/img/sim-news-top.webp" width="556" height="634" loading="lazy" decoding="async" alt="ראש מהדורת החדשות באפליקציה: מדד הפחד והחמדנות של CNN ומדד VIX, ומתחתם איור הכתבה הראשית"></div>
+          <img class="perch" src="/img/av-lean-a.webp" alt="" width="349" height="420" loading="lazy" decoding="async">
+          <figcaption>ראש המהדורה באפליקציה.</figcaption>
+        </figure>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="ch ch--paper" id="ch-limits" data-folio="6|הגבולות" data-sc-act="flow">
+  <div class="wrap">
+    <header class="intertitle"><span class="intertitle__no">פרק 6</span><h2>מה כל זה לא עושה</h2></header>
+    <div class="limits">
+      <div class="prose">
+        <ul>
+          <li>לא כסף אמיתי, לא חיבור לברוקר, לא הפקדות ולא משיכות.</li>
+          <li>לא ממליץ על עסקאות ולא שולח איתותים. היומן משקף את מה שכבר עשית.</li>
+          <li>לא מינוף ולא אופציות.</li>
+          <li>לא חוסם עסקה שסותרת את החוקים שלך: הוא מתריע ומודד.</li>
+          <li>לא מחירים בזמן אמת (פירוט למטה).</li>
+          <li>ביצועים בסימולטור לא מעידים על ביצועים בשוק האמיתי.</li>
+        </ul>
+      </div>
+      <div class="prose">
+        <h3>המחירים: מה חשוב לדעת</h3>
+        <ul>
+          <li><b>המחירים לא בזמן אמת.</b> הם מתעדכנים בערך פעם בדקה.</li>
+          <li><b>מחירי המניות וקרנות הסל מגיעים מבורסת <bdi>IEX</bdi> בלבד</b>, שהיא אחת מכמה בורסות בארה"ב. לכן המחיר יכול להיות שונה מעט מהמחיר שמופיע אצל ברוקר, ונפח המסחר שמוצג בגרפים התוך-יומיים נמוך מהנפח בשוק כולו.</li>
+          <li>אם המחיר האחרון שנקלט ישן יותר מ-30 דקות, פקודת שוק נדחית.</li>
+          <li>נתוני השוק מוצגים למטרות לימוד בלבד, ואין להסתמך עליהם לביצוע פעולות בשוק האמיתי.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch-faq" data-folio="7|שאלות" data-sc-act="flow">
+  <div class="wrap">
+    <header class="intertitle"><span class="intertitle__no">פרק 7</span><h2>שאלות נפוצות</h2></header>
+    <div class="qa">
+      <div><h3>כמה כסף מקבלים בסימולטור, וזה בתשלום?</h3><p><bdi>$10,000</bdi> וירטואליים, שאי אפשר למשוך. הסימולטור, היומן והחדשות פתוחים לכל המשתמשים בלי תשלום ובלי הגבלה על מספר העסקאות.</p></div>
+      <div><h3>מה אפשר לסחור?</h3><p>63 מניות שנסחרות בארה"ב, 12 קרנות סל ו-8 מטבעות קריפטו. אין מניות מהבורסה בתל אביב ואין אופציות.</p></div>
+      <div><h3>אילו פקודות יש?</h3><p>קנייה ומכירה בחסר, פקודת שוק ופקודת לימיט לכניסה, סטופ או סטופ עוקב ויעד, הוספה לפוזיציה וסגירה חלקית או מלאה.</p></div>
+      <div><h3>המחירים בזמן אמת?</h3><p>לא. הם מתעדכנים בערך פעם בדקה, ומחירי המניות מגיעים מבורסת <bdi>IEX</bdi> בלבד, ולכן יכולים להיות שונים מעט מהמחיר אצל ברוקר.</p></div>
+      <div><h3>אפשר לסחור כשהבורסה האמריקאית סגורה?</h3><p>בקריפטו כן, מסביב לשעון. במניות ובקרנות סל אפשר להשאיר פקודת לימיט לכניסה שתמתין לפתיחה. יציאה מפוזיציה רק כשהבורסה פתוחה.</p></div>
+      <div><h3>יש עמלות בסימולטור?</h3><p>לא. בשוק האמיתי יש עמלות, ולכן התוצאה בסימולטור יכולה להיות שונה מאותה עסקה בחשבון אמיתי.</p></div>
+      <div><h3>מה היומן שומר על כל עסקה?</h3><p>את פרטי העסקה ואיך היא נסגרה, את מצב השוק בכניסה, ואת מה שבחרת למלא: סיבת הכניסה, מה יבטל אותה, סוג העסקה ומקור הרעיון. אחרי הסגירה אפשר להוסיף הערה.</p></div>
+      <div><h3>היומן חוסם עסקה שסותרת חוק שקבעתי?</h3><p>לא. הוא מציג התראה לפני הכניסה, בודק את העסקה אחרי הסגירה, ומראה כמה פעמים עמדת בכל חוק.</p></div>
+      <div><h3>כל כמה זמן מתעדכנות החדשות?</h3><p>מהדורה חדשה בעברית יוצאת פעמיים בשבוע, בדרך כלל ביום שישי וביום ראשון.</p></div>
+      <div><h3>זה ייעוץ השקעות?</h3><p>לא. הסימולטור, היומן והחדשות הם כלי לימוד. שום דבר בהם אינו המלצה לקנות או למכור.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="colophon" id="download" data-folio="·|להורדה" data-sc-act="flow">
+  <div class="wrap colophon__grid">
+    <div>
+      <p class="colophon__line">שלושתם פתוחים לכל המשתמשים בלי תשלום.</p>
+      <div class="colophon__links">
+        <a class="btn" href="https://apps.apple.com/il/app/id6797081307?pt=129081401&amp;ct=site-simulator-cta&amp;mt=8">להורדה מ-App Store</a>
+        <a class="btn" href="https://play.google.com/store/apps/details?id=com.simvy.app&amp;referrer=utm_source%3Dsimvy-site%26utm_medium%3Dweb%26utm_campaign%3Dsite-simulator-cta">להורדה מ-Google Play</a>
+      </div>
+      <p class="fine"><em>Simvy היא אפליקציית חינוך פיננסי. התכנים אינם ייעוץ השקעות, והמסחר באפליקציה מתבצע בכסף וירטואלי בלבד.</em></p>
+    </div>
+    <div class="landing gate" data-gate data-gate-last data-perch="stand" data-side="start">
+      <img class="perch" src="/img/av-openarms.webp" alt="" width="318" height="420" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-foot"><div class="wrap">
+  <nav aria-label="קישורים">
     <a href="/">דף הבית</a>
     <a href="/about.html">מי אנחנו</a>
     <a href="/courses.html">הקורסים</a>
@@ -265,8 +461,11 @@ footer.site{ border-top:1px solid rgba(190,237,217,.17); padding:26px 0 34px; fo
     <a href="https://legal.simvy.app/privacy.html">מדיניות פרטיות</a>
     <a href="https://legal.simvy.app/terms.html">תנאי שימוש</a>
     <a href="mailto:simvysupport@gmail.com">יצירת קשר</a>
-  </div>
+  </nav>
   Simvy היא אפליקציית חינוך פיננסי. התכנים אינם ייעוץ השקעות; המסחר באפליקציה מתבצע בכסף וירטואלי בלבד.
 </div></footer>
+<script type="application/json" id="aapl-data">[["2022-06-15",134.19,137.33,132.18,135.46],["2022-06-16",131.85,132.38,129.08,130.11],["2022-06-17",130.07,133.06,129.82,131.48],["2022-06-21",133.41,137.05,133.33,135.88],["2022-06-22",134.64,137.74,133.92,135.29],["2022-06-23",136.78,138.59,135.63,138.25],["2022-06-24",139.97,141.88,139.78,141.88],["2022-06-27",142.72,143.47,140.98,141.71],["2022-06-28",142.23,143.42,137.33,137.54],["2022-06-29",137.46,140.66,136.7,139.2],["2022-06-30",137.21,138.33,133.79,136.96],["2022-07-01",136.16,139.02,135.71,138.85],["2022-07-05",137.82,141.61,136.94,141.61],["2022-07-06",141.36,144.12,141.12,142.95],["2022-07-07",143.43,146.55,143.32,146.35],["2022-07-08",145.23,147.54,145.08,147.03],["2022-07-11",145.7,146.64,143.79,144.91],["2022-07-12",145.8,148.44,145.06,145.86],["2022-07-13",143.05,146.45,142.15,145.45],["2022-07-14",143.99,148.95,143.26,148.52],["2022-07-15",149.91,150.83,148.24,150.05],["2022-07-18",150.73,151.55,146.73,147.1],["2022-07-19",147.94,151.22,146.92,150.94],["2022-07-20",151.1,153.72,150.39,153.04],["2022-07-21",154.5,155.57,152.01,155.34],["2022-07-22",155.5,156.24,153.41,154.14],["2022-07-25",154.01,155.02,152.3,152.87],["2022-07-26",152.2,153.08,150.82,151.56],["2022-07-27",152.58,157.3,152.21,156.73],["2022-07-28",157.04,157.63,154.42,157.31],["2022-07-29",161.23,163.62,159.52,162.58],["2022-08-01",161.08,163.57,160.89,161.49],["2022-08-02",160.04,162.41,159.64,159.97],["2022-08-03",160.98,166.59,160.85,166.12],["2022-08-04",166.06,167.17,164.44,165.76],["2022-08-05",163.05,165.85,163,165.28],["2022-08-08",166.41,167.78,164.2,164.89],["2022-08-09",164.02,165.82,163.77,164.94],["2022-08-10",167.85,169.3,166.9,169.22],["2022-08-11",170.01,170.98,168.21,168.51],["2022-08-12",169.94,172.01,169.42,172.01],["2022-08-15",171.52,173.39,171.35,173.19],["2022-08-16",172.68,173.71,171.67,173.03],["2022-08-17",172.71,176.14,172.57,174.66],["2022-08-18",173.76,174.89,173.13,174.16],["2022-08-19",173.15,173.71,171.33,171.58],["2022-08-22",169.53,169.83,167.15,167.64],["2022-08-23",167.09,168.7,166.66,167.23],["2022-08-24",167.09,168.11,166.25,167.64],["2022-08-25",168.79,170.13,168.35,170.13],["2022-08-26",170.53,171.03,163.58,163.67],["2022-08-29",161.08,162.9,159.82,161.38],["2022-08-30",162.18,162.54,157.73,158.91],["2022-08-31",160.26,160.5,157.16,157.19],["2022-09-01",156.64,158.35,154.69,157.97],["2022-09-02",159.82,160.35,154.97,155.85],["2022-09-06",156.48,157.06,153.73,154.54],["2022-09-07",154.82,156.66,153.62,155.94],["2022-09-08",154.59,156.36,152.7,154.37],["2022-09-09",155.37,157.79,154.78,157.36],["2022-09-12",159.63,164.25,159.41,163.46],["2022-09-13",159.87,160.53,153.39,153.99],["2022-09-14",154.73,157.09,153.63,155.31],["2022-09-15",154.76,155.23,151.39,152.37],["2022-09-16",151.18,151.35,148.41,150.46],["2022-09-19",149.21,154.56,149.1,154.5],["2022-09-20",153.39,158.08,153.09,156.92],["2022-09-21",157.4,158.7,153.69,153.71],["2022-09-22",152.28,154.4,150.92,152.72],["2022-09-23",151.04,151.45,148.59,150.54],["2022-09-26",149.78,153.76,149.74,150.71],["2022-09-27",152.77,154.67,149.95,151.78],["2022-09-28",147.69,150.64,144.84,149.76],["2022-09-29",146.08,146.71,140.69,142.59],["2022-09-30",141.23,143.09,138.08,138.08],["2022-10-03",138.31,143.07,137.75,142.47],["2022-10-04",145.04,146.2,144.29,145.99],["2022-10-05",143.96,147.36,143.07,146.45],["2022-10-06",145.88,147.52,145.22,145.47],["2022-10-07",142.54,143.07,139.46,140.14],["2022-10-10",140.49,141.88,138.58,140.32],["2022-10-11",139.67,141.33,138.25,138.96],["2022-10-12",139.06,140.35,138.16,138.29],["2022-10-13",134.9,143.56,134.4,142.98]]</script>
+<script src="/js/sim-chart.js" defer></script>
+<script src="/js/simulator.js" defer></script>
 </body>
 </html>
