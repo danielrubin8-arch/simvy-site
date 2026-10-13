@@ -19,114 +19,123 @@
 <meta property="og:locale" content="he_IL">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://simvy.app/#org", "name": "Simvy", "url": "https://simvy.app/", "logo": "https://simvy.app/logo-email.png", "email": "simvysupport@gmail.com", "sameAs": ["https://apps.apple.com/il/app/id6797081307", "https://play.google.com/store/apps/details?id=com.simvy.app"]}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"MobileApplication","@id":"https://simvy.app/#app","name":"Simvy","url":"https://simvy.app/","operatingSystem":"iOS, Android","applicationCategory":"EducationalApplication","inLanguage":"he","description":"שיעורים קצרים בעברית על שוק ההון וסימולטור מסחר בכסף וירטואלי.","installUrl":["https://apps.apple.com/il/app/id6797081307","https://play.google.com/store/apps/details?id=com.simvy.app"],"sameAs":["https://apps.apple.com/il/app/id6797081307","https://play.google.com/store/apps/details?id=com.simvy.app"],"publisher":{"@id":"https://simvy.app/#org"},"offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}]}</script>
-<style>
-@font-face { font-family:'Assistant'; font-weight:400; src:url('/fonts/assistant-400.ttf') format('truetype'); font-display:swap; }
-@font-face { font-family:'Assistant'; font-weight:700; src:url('/fonts/assistant-700.ttf') format('truetype'); font-display:swap; }
-@font-face { font-family:'Assistant'; font-weight:800; src:url('/fonts/assistant-800.ttf') format('truetype'); font-display:swap; }
-*{ box-sizing:border-box; margin:0; padding:0; }
-html{ direction:rtl; scroll-behavior:smooth; }
-body{
-  background: radial-gradient(100% 40% at 50% -6%, rgba(190,237,217,.12), transparent 60%), #131C18;
-  color:#F2F6F3; font-family:'Assistant',system-ui,sans-serif; font-size:17.5px; line-height:1.65;
-  -webkit-font-smoothing:antialiased; min-height:100vh; display:flex; flex-direction:column;
-}
-a{ color:#BEEDD9; text-decoration:none; }
-a:hover{ color:#7FCBAE; }
-.container{ max-width:860px; margin:0 auto; padding:0 22px; width:100%; }
-header.site{ position:sticky; top:0; z-index:50; background:rgba(19,28,24,.87); backdrop-filter:blur(12px); border-bottom:1px solid rgba(190,237,217,.17); }
-.nav{ display:flex; align-items:center; justify-content:space-between; padding:12px 0; gap:12px; }
-.brand{ display:flex; align-items:center; gap:10px; color:#F2F6F3; }
-.brand img{ width:34px; height:34px; border-radius:9px; }
-.brand b{ font-size:17px; letter-spacing:.03em; }
-.nav .cta{ background:#BEEDD9; color:#07372A; font-weight:700; font-size:14px; border-radius:99px; padding:8px 18px; white-space:nowrap; }
-.nav .links{ display:flex; gap:16px; margin-inline-start:auto; font-size:14.5px; font-weight:700; }
-.nav .links a{ color:#CBD6CF; white-space:nowrap; }
-.nav .links a:hover{ color:#BEEDD9; }
-@media (max-width:420px){ .brand b{ display:none; } .nav .links{ gap:12px; font-size:14px; } .nav .cta{ padding:8px 14px; } }
-main{ flex:1; padding:48px 0 64px; }
-h1{ font-size:clamp(30px,6vw,42px); font-weight:800; line-height:1.12; letter-spacing:-.015em; margin-bottom:14px; }
-.lede{ color:#CBD6CF; font-size:19px; max-width:34em; }
-h2{ font-size:clamp(21px,3.6vw,26px); font-weight:800; margin:38px 0 10px; letter-spacing:-.01em; }
-h3{ font-size:18.5px; font-weight:800; margin:24px 0 8px; color:#F2F6F3; }
-h4{ font-size:17px; font-weight:800; margin:0 0 4px; color:#F2F6F3; }
-p{ color:#CBD6CF; margin:0 0 14px; max-width:38em; overflow-wrap:anywhere; }
-p b, li b{ color:#F2F6F3; }
-ul, ol{ margin:0 0 16px; padding-inline-start:24px; color:#CBD6CF; max-width:40em; }
-li{ margin-bottom:6px; overflow-wrap:anywhere; }
-li ul{ margin:8px 0 4px; }
-hr{ border:0; border-top:1px solid rgba(190,237,217,.17); margin:34px 0 0; }
-.hl{ background:#1B2622; border:1px solid rgba(190,237,217,.28); border-radius:16px; padding:18px 20px; margin:20px 0; color:#BEEDD9; font-weight:700; font-size:18px; max-width:38em; }
-.faq{ border:1px solid rgba(190,237,217,.17); border-radius:16px; background:#1B2622; padding:16px 20px; margin:0 0 12px; max-width:44em; }
-.faq h3, .faq h4{ margin:0 0 6px; font-size:17px; }
-.faq p{ margin:0; font-size:16px; }
-.fine{ margin-top:30px; font-size:15px; color:rgba(203,214,207,.75); }
-.cta-block{ margin-top:36px; }
-.btn{ display:inline-block; background:#BEEDD9; color:#07372A; font-weight:800; font-size:16.5px; border-radius:99px; padding:14px 30px; box-shadow:0 0 28px rgba(190,237,217,.28); }
-footer.site{ border-top:1px solid rgba(190,237,217,.17); padding:26px 0 34px; font-size:13.5px; color:rgba(203,214,207,.62); }
-.flinks{ display:flex; flex-wrap:wrap; gap:8px 16px; margin-bottom:14px; font-size:14px; }
-.flinks a{ color:#CBD6CF; }
-</style>
+<link rel="preload" href="/fonts/assistant-800.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="/css/site.css">
+<link rel="stylesheet" href="/css/about.css">
   <script defer src="/t.js"></script>
 </head>
 <body>
-<header class="site"><div class="container nav">
-  <a class="brand" href="/"><img src="/email-icon.png" alt="Simvy"><b>simvy</b></a>
-  <nav class="links" aria-label="ניווט"><a href="/simulator.html">הסימולטור</a><a href="/pricing.html">תמחור</a></nav>
-  <a class="cta" href="/#download">להורדה</a>
+<script>(function(d){d.classList.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('motion')}catch(e){}})(document.documentElement)</script>
+<a class="skip" href="#main">דילוג לתוכן</a>
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="/"><span class="brand__mark"><img src="/img/home-mark.svg" alt="Simvy" width="22" height="22"></span><img class="brand__word" src="/img/home-wordmark.svg" alt="" width="70" height="20"></a>
+  <nav class="site-nav" aria-label="ניווט ראשי"><a href="/courses.html">קורסים</a><a href="/simulator.html">הסימולטור</a><a href="/pricing.html">תמחור</a><a href="/about.html" aria-current="page">מי אנחנו</a></nav>
+  <a class="btn" href="#download">להורדה</a>
 </div></header>
 
-<main><div class="container">
-<h1>אודות Simvy</h1>
-<p class="lede">Simvy היא אפליקציה בעברית ללימוד שוק ההון מאפס, עם שיעורים של כ-10 דקות, סימולטור מסחר בכסף וירטואלי, יומן וחדשות שוק. היא מלמדת איך השוק עובד ולא אומרת לאף אחד מה לקנות; קורס המבוא, הסימולטור, היומן והחדשות פתוחים בלי תשלום, ושאר הקורסים ב-Simvy PRO ב-₪19.90 לחודש.</p>
-<h2>למה Simvy קיימת</h2>
-<p>ללמוד שוק ההון לא צריך להיות יקר, מתנשא או מלא באנשים שמנסים למכור לך משהו. Simvy נבנתה להיות האפליקציה שחסרה למי שמתחיל: בעברית, בשיעורים של כ-10 דקות, עם מקום לתרגל בלי לסכן כסף.</p>
-<p>אי אפשר ללמוד לשחות מהרצפה. צריך להיכנס למים, עם מצופים. בגלל זה Simvy היא לא עוד ספר על שוק ההון. היא בריכה: שיעורים שנותנים את הידע, סימולטור בכסף וירטואלי על מחירי שוק אמיתיים, שבו מותר לטעות, להפסיד, לנסות שוב, ויומן שעוזר להבין למה.</p>
-<p>המטרה שלנו אחת: שתבין איך השוק עובד. לא שתסחר כמו מישהו אחר, ולא שתקנה מה שאומרים לך. שתבין מספיק טוב כדי שההחלטות שלך יהיו באמת שלך.</p>
-<div class="hl">ההבטחות יקרות. הידע זול.</div>
-<h2>איך נבנה שיעור</h2>
-<p>כל שיעור חדש מתחיל במחקר: איסוף העובדות מהמקורות, לפני שנכתבת מילה. השיעור נכתב רק מתוך העובדות שנאספו, ולפני שהוא עולה לאפליקציה הוא נבדק בשש עדשות:</p>
-<ul>
-<li><b>דיוק:</b> כל מספר, תאריך ושם נבדקים שוב מול המקור.
-</li>
-<li><b>קריאה ראשונה:</b> האם מי שפוגש את הנושא בפעם הראשונה מבין אותו, בלי להניח ידע שעוד לא נלמד.
-</li>
-<li><b>מקום בתוכנית:</b> שהשיעור לא חוזר על שיעור אחר ומתחבר למה שלפניו.
-</li>
-<li><b>התאמה לשוק:</b> שהדוגמאות משקפות איך השוק עובד בפועל.
-</li>
-<li><b>שפה:</b> עברית פשוטה, בשיעורים של כ-10 דקות.
-</li>
-<li><b>הגבול הרגולטורי:</b> חינוך, לא ייעוץ.
-</li></ul>
-<p>שיעור שלא עובר את כל הבדיקות חוזר לתיקון ונבדק שוב, ועולה לאפליקציה רק אחרי אישור סופי.</p>
-<p>השיעורים שעלו לפני שהתהליך הזה נקבע עברו ביקורת מלאה בעדשות דומות, ושיעורים ממשיכים להתעדכן ולהשתפר גם אחרי שעלו.</p>
-<h2>העקרונות שלנו</h2>
-<p><b>חינוך, לא ייעוץ.</b> Simvy לא אומרת מה לקנות או למכור, לא שולחת איתותים ולא מבטיחה תשואה. התכנים הם חומר לימודי כללי ואינם ייעוץ השקעות. הפירוט המלא בעמוד <a href="/disclaimer.html">גילוי נאות</a>.</p>
-<p><b>כנות לגבי המגבלות.</b> מחירי הסימולטור מתעדכנים בערך פעם בדקה ולא בזמן אמת, מחירי המניות מגיעים מבורסה אמריקאית אחת, ובסימולטור אין עמלות. כל זה כתוב בעמוד <a href="/simulator.html">הסימולטור, היומן והחדשות</a>, כדי שתדע בדיוק מה אתה מתרגל ומה שונה בשוק האמיתי.</p>
-<p><b>היומן משקף, לא מנהל.</b> היומן מראה מה עשית ובודק את העסקאות מול חוקים שקבעת בעצמך. הוא לא ממליץ על עסקאות ולא קובע בשבילך מספרים.</p>
-<p><b>מחיר פשוט.</b> קורס המבוא, הסימולטור, היומן והחדשות פתוחים בלי תשלום. Simvy PRO עולה ₪19.90 לחודש, במנוי חודשי בלבד, ומבטלים דרך החנות. הפרטים בעמוד <a href="/pricing.html">תמחור ושאלות נפוצות</a>.</p>
-<p><b>תיקון טעויות.</b> מצאת טעות בשיעור? כתוב לנו במסך "עזרה ותקלות" באפליקציה (נושא: שיעורים ולמידה) או במייל. שיעורים מתוקנים ומתעדכנים גם אחרי שעלו.</p>
-<h2>איך פונים אלינו</h2>
-<ul>
-<li>במייל: simvysupport@gmail.com
-</li>
-<li>באפליקציה: מסך "עזרה ותקלות", עם נושאים לבחירה: החשבון שלי, תשלומים ומנוי, שיעורים ולמידה, תקלות טכניות.
-</li></ul>
-<h2>מסמכים</h2>
-<p><a href="https://legal.simvy.app/privacy.html">מדיניות פרטיות</a> · <a href="https://legal.simvy.app/terms.html">תנאי שימוש</a> · <a href="/disclaimer.html">גילוי נאות</a> · <a href="/accessibility.html">הצהרת נגישות</a></p>
-<p class="fine"><em>Simvy היא אפליקציית חינוך פיננסי. התכנים אינם ייעוץ השקעות, והמסחר באפליקציה מתבצע בכסף וירטואלי בלבד.</em></p>
-<div class="cta-block">
-  <div style="display:flex; flex-wrap:wrap; gap:12px;">
-    <a class="btn" href="https://apps.apple.com/il/app/id6797081307?pt=129081401&amp;ct=site-about-cta&amp;mt=8">להורדה מ-App Store</a>
-    <a class="btn" href="https://play.google.com/store/apps/details?id=com.simvy.app&amp;referrer=utm_source%3Dsimvy-site%26utm_medium%3Dweb%26utm_campaign%3Dsite-about-cta">להורדה מ-Google Play</a>
+<main id="main">
+<section class="a-hero" data-sc-act="flow">
+  <div class="wrap">
+    <h1><span class="a-hero__pre">אודות</span> <span class="a-hero__name" dir="ltr">Simvy</span></h1>
+    <p class="a-hero__lede">Simvy היא אפליקציה בעברית ללימוד שוק ההון מאפס, עם שיעורים של כ-10 דקות, סימולטור מסחר בכסף וירטואלי, יומן וחדשות שוק. היא מלמדת איך השוק עובד ולא אומרת לאף אחד מה לקנות; קורס המבוא, הסימולטור, היומן והחדשות פתוחים בלי תשלום, ושאר הקורסים ב-Simvy PRO ב-₪19.90 לחודש.</p>
   </div>
-</div>
-</div></main>
+</section>
 
-<footer class="site"><div class="container">
-  <div class="flinks">
+<section class="a-why" data-sc-act="flow">
+  <div class="wrap a-why__grid">
+    <h2>למה Simvy קיימת</h2>
+    <div class="a-why__text">
+      <p>ללמוד שוק ההון לא צריך להיות יקר, מתנשא או מלא באנשים שמנסים למכור לך משהו. Simvy נבנתה להיות האפליקציה שחסרה למי שמתחיל: בעברית, בשיעורים של כ-10 דקות, עם מקום לתרגל בלי לסכן כסף.</p>
+      <p><span class="say">אי אפשר ללמוד לשחות מהרצפה. צריך להיכנס למים, עם מצופים.</span> בגלל זה Simvy היא לא עוד ספר על שוק ההון. היא בריכה: שיעורים שנותנים את הידע, סימולטור בכסף וירטואלי על מחירי שוק אמיתיים, שבו מותר לטעות, להפסיד, לנסות שוב, ויומן שעוזר להבין למה.</p>
+      <p>המטרה שלנו אחת: שתבין איך השוק עובד. לא שתסחר כמו מישהו אחר, ולא שתקנה מה שאומרים לך. שתבין מספיק טוב כדי שההחלטות שלך יהיו באמת שלך.</p>
+    </div>
+  </div>
+</section>
+
+<section class="a-line" data-sc-act="pin">
+  <div class="a-line__stage">
+    <div class="wrap">
+      <p class="line"><span class="line__a">ההבטחות יקרות.</span> <span class="line__b">הידע זול.</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="a-build" data-sc-act="flow">
+  <div class="wrap">
+    <h2 class="a-build__h">איך נבנה שיעור</h2>
+    <div class="a-build__grid">
+      <div class="a-build__text">
+        <p class="a-build__intro">כל שיעור חדש מתחיל במחקר: איסוף העובדות מהמקורות, לפני שנכתבת מילה. השיעור נכתב רק מתוך העובדות שנאספו, ולפני שהוא עולה לאפליקציה הוא נבדק בשש עדשות:</p>
+        <ol class="lenses">
+          <li><b>דיוק:</b> כל מספר, תאריך ושם נבדקים שוב מול המקור.</li>
+          <li><b>קריאה ראשונה:</b> האם מי שפוגש את הנושא בפעם הראשונה מבין אותו, בלי להניח ידע שעוד לא נלמד.</li>
+          <li><b>מקום בתוכנית:</b> שהשיעור לא חוזר על שיעור אחר ומתחבר למה שלפניו.</li>
+          <li><b>התאמה לשוק:</b> שהדוגמאות משקפות איך השוק עובד בפועל.</li>
+          <li><b>שפה:</b> עברית פשוטה, בשיעורים של כ-10 דקות.</li>
+          <li><b>הגבול הרגולטורי:</b> חינוך, לא ייעוץ.</li>
+        </ol>
+        <p class="a-build__gate">שיעור שלא עובר את כל הבדיקות חוזר לתיקון ונבדק שוב, ועולה לאפליקציה רק אחרי אישור סופי.</p>
+        <p class="a-build__after">השיעורים שעלו לפני שהתהליך הזה נקבע עברו ביקורת מלאה בעדשות דומות, ושיעורים ממשיכים להתעדכן ולהשתפר גם אחרי שעלו.</p>
+      </div>
+      <figure class="rings" aria-hidden="true">
+        <svg viewBox="0 0 320 320" focusable="false">
+          <circle class="ring" cx="160" cy="160" r="44" pathLength="1"/>
+          <circle class="ring" cx="160" cy="160" r="65" pathLength="1"/>
+          <circle class="ring" cx="160" cy="160" r="86" pathLength="1"/>
+          <circle class="ring" cx="160" cy="160" r="107" pathLength="1"/>
+          <circle class="ring" cx="160" cy="160" r="128" pathLength="1"/>
+          <circle class="ring" cx="160" cy="160" r="149" pathLength="1"/>
+        </svg>
+        <img class="rings__mark" src="/img/home-mark.svg" alt="" width="56" height="40">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="a-principles" data-sc-act="flow">
+  <div class="wrap">
+    <h2 class="a-principles__h">העקרונות שלנו</h2>
+    <div class="principles">
+      <p><b>חינוך, לא ייעוץ.</b> Simvy לא אומרת מה לקנות או למכור, לא שולחת איתותים ולא מבטיחה תשואה. התכנים הם חומר לימודי כללי ואינם ייעוץ השקעות. הפירוט המלא בעמוד <a href="/disclaimer.html">גילוי נאות</a>.</p>
+      <p><b>כנות לגבי המגבלות.</b> מחירי הסימולטור מתעדכנים בערך פעם בדקה ולא בזמן אמת, מחירי המניות מגיעים מבורסה אמריקאית אחת, ובסימולטור אין עמלות. כל זה כתוב בעמוד <a href="/simulator.html">הסימולטור, היומן והחדשות</a>, כדי שתדע בדיוק מה אתה מתרגל ומה שונה בשוק האמיתי.</p>
+      <p><b>היומן משקף, לא מנהל.</b> היומן מראה מה עשית ובודק את העסקאות מול חוקים שקבעת בעצמך. הוא לא ממליץ על עסקאות ולא קובע בשבילך מספרים.</p>
+      <p><b>מחיר פשוט.</b> קורס המבוא, הסימולטור, היומן והחדשות פתוחים בלי תשלום. Simvy PRO עולה ₪19.90 לחודש, במנוי חודשי בלבד, ומבטלים דרך החנות. הפרטים בעמוד <a href="/pricing.html">תמחור ושאלות נפוצות</a>.</p>
+      <p><b>תיקון טעויות.</b> מצאת טעות בשיעור? כתוב לנו במסך "עזרה ותקלות" באפליקציה (נושא: שיעורים ולמידה) או במייל. שיעורים מתוקנים ומתעדכנים גם אחרי שעלו.</p>
+    </div>
+  </div>
+</section>
+
+<section class="a-contact" data-sc-act="flow">
+  <div class="wrap a-contact__grid">
+    <div>
+      <h2>איך פונים אלינו</h2>
+      <ul>
+        <li>במייל: <bdi>simvysupport@gmail.com</bdi></li>
+        <li>באפליקציה: מסך "עזרה ותקלות", עם נושאים לבחירה: החשבון שלי, תשלומים ומנוי, שיעורים ולמידה, תקלות טכניות.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>מסמכים</h2>
+      <p><a href="https://legal.simvy.app/privacy.html">מדיניות פרטיות</a> · <a href="https://legal.simvy.app/terms.html">תנאי שימוש</a> · <a href="/disclaimer.html">גילוי נאות</a> · <a href="/accessibility.html">הצהרת נגישות</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="a-close" id="download" data-sc-act="flow">
+  <div class="wrap a-close__grid">
+    <img class="a-close__av" src="/img/av-pointing.webp" alt="" width="344" height="420" loading="lazy" decoding="async">
+    <div>
+      <p class="a-close__links"><a href="https://apps.apple.com/il/app/id6797081307?pt=129081401&amp;ct=site-about-cta&amp;mt=8">להורדה מ-App Store</a> <span aria-hidden="true">·</span> <a href="https://play.google.com/store/apps/details?id=com.simvy.app&amp;referrer=utm_source%3Dsimvy-site%26utm_medium%3Dweb%26utm_campaign%3Dsite-about-cta">להורדה מ-Google Play</a></p>
+      <p class="fine"><em>Simvy היא אפליקציית חינוך פיננסי. התכנים אינם ייעוץ השקעות, והמסחר באפליקציה מתבצע בכסף וירטואלי בלבד.</em></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-foot"><div class="wrap">
+  <nav aria-label="קישורים">
     <a href="/">דף הבית</a>
-    <a href="/about.html">מי אנחנו</a>
+    <a href="/about.html" aria-current="page">מי אנחנו</a>
     <a href="/courses.html">הקורסים</a>
     <a href="/simulator.html">הסימולטור</a>
     <a href="/pricing.html">תמחור</a>
@@ -135,8 +144,9 @@ footer.site{ border-top:1px solid rgba(190,237,217,.17); padding:26px 0 34px; fo
     <a href="https://legal.simvy.app/privacy.html">מדיניות פרטיות</a>
     <a href="https://legal.simvy.app/terms.html">תנאי שימוש</a>
     <a href="mailto:simvysupport@gmail.com">יצירת קשר</a>
-  </div>
+  </nav>
   Simvy היא אפליקציית חינוך פיננסי. התכנים אינם ייעוץ השקעות; המסחר באפליקציה מתבצע בכסף וירטואלי בלבד.
 </div></footer>
+<script src="/js/about.js" defer></script>
 </body>
 </html>
