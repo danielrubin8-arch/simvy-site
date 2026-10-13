@@ -143,6 +143,13 @@
 .landing .perch { inset-block-start: auto; inset-block-end: 0; inline-size: 140px; }
 .landing[data-side="start"] .perch { inset-inline-start: 0; }
 @media (max-width: 760px) { .landing { inline-size: 110px; block-size: 140px; margin-inline-start: auto; } .landing .perch { inline-size: 104px; } }
+/* header: five destinations do not fit one row on a phone, so the nav takes its own row */
+@media (max-width: 560px) {
+  .site-head .wrap { flex-wrap: wrap; column-gap: var(--s-3); row-gap: 0; min-height: 0; padding-block-start: 10px; }
+  .site-head .btn { margin-inline-start: auto; }
+  .site-nav { order: 3; flex: 1 0 100%; margin-inline-start: 0; margin-block-start: 10px; justify-content: space-between; gap: var(--s-2); border-block-start: 1px solid var(--line); }
+  .site-nav a { padding-block: 11px; }
+}
 </style>
   <script defer src="/t.js"></script>
 </head>
@@ -151,7 +158,7 @@
 <a class="skip" href="#main">דילוג לתוכן</a>
 <header class="site-head"><div class="wrap">
   <a class="brand" href="/"><span class="brand__mark"><img src="/img/home-mark.svg" alt="Simvy" width="22" height="22"></span><img class="brand__word" src="/img/home-wordmark.svg" alt="" width="70" height="20"></a>
-  <nav class="site-nav" aria-label="ניווט"><a href="/simulator.html" aria-current="page">הסימולטור</a><a href="/pricing.html">תמחור</a></nav>
+  <nav class="site-nav" aria-label="ניווט"><a href="/courses.html">קורסים</a><a href="/simulator.html" aria-current="page">הסימולטור</a><a href="/pricing.html">תמחור</a><a href="/about.html">מי אנחנו</a></nav>
   <a class="btn" href="#download">להורדה</a>
 </div></header>
 <nav class="folio-mini" aria-label="הפרק הנוכחי"><span>פרק <b id="fm-no"></b></span><span id="fm-name"></span><a href="#download">להורדה</a></nav>
