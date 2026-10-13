@@ -134,10 +134,11 @@
   .c-close__stand { inline-size: 104px; margin-inline-start: auto; order: -1; margin-block-end: calc(-1 * var(--s-5)); }
 }
 
-/* header: five destinations do not fit one row on a phone, so the nav takes its own row */
-@media (max-width: 560px) {
-  .site-head .wrap { flex-wrap: wrap; column-gap: var(--s-3); row-gap: 0; min-height: 0; padding-block-start: 10px; }
+/* phones: the unified nav drops to its own row under the logo and the download button
+   (candidate for site.css once every page carries the same header) */
+@media (max-width: 640px) {
+  .site-head .wrap { flex-wrap: wrap; row-gap: 0; }
   .site-head .btn { margin-inline-start: auto; }
-  .site-nav { order: 3; flex: 1 0 100%; margin-inline-start: 0; margin-block-start: 10px; justify-content: space-between; gap: var(--s-2); border-block-start: 1px solid var(--line); }
-  .site-nav a { padding-block: 11px; }
+  .site-head .site-nav { order: 3; flex-basis: 100%; justify-content: space-between; margin-inline-start: 0; gap: var(--s-2); border-block-start: 1px solid var(--line); padding-block: 2px; }
+  .site-head .site-nav a { padding-block: 10px; }
 }
