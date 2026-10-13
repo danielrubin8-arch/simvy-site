@@ -11,7 +11,7 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="preload" href="/img/home-hero-avatar.webp" as="image" fetchpriority="high">
+  <link rel="preload" href="/img/home-start-phone.webp" as="image" fetchpriority="high">
   <link rel="canonical" href="https://simvy.app/">
   <meta property="og:url" content="https://simvy.app/">
   <meta property="og:type" content="website">
@@ -20,409 +20,286 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="apple-itunes-app" content="app-id=6797081307">
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://simvy.app/#org","name":"Simvy","url":"https://simvy.app/","logo":"https://simvy.app/logo-email.png","email":"simvysupport@gmail.com","sameAs":["https://apps.apple.com/il/app/id6797081307","https://play.google.com/store/apps/details?id=com.simvy.app"]},{"@type":"WebSite","@id":"https://simvy.app/#site","name":"Simvy","url":"https://simvy.app/","inLanguage":"he","publisher":{"@id":"https://simvy.app/#org"}},{"@type":"MobileApplication","@id":"https://simvy.app/#app","name":"Simvy","url":"https://simvy.app/","operatingSystem":"iOS, Android","applicationCategory":"EducationalApplication","inLanguage":"he","description":"שיעורים קצרים בעברית על שוק ההון וסימולטור מסחר בכסף וירטואלי.","installUrl":["https://apps.apple.com/il/app/id6797081307","https://play.google.com/store/apps/details?id=com.simvy.app"],"sameAs":["https://apps.apple.com/il/app/id6797081307","https://play.google.com/store/apps/details?id=com.simvy.app"],"publisher":{"@id":"https://simvy.app/#org"},"offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"זה כסף אמיתי?","acceptedAnswer":{"@type":"Answer","text":"לא, וזאת בדיוק הפואנטה. הסימולטור רץ על נתוני שוק אמיתיים, אבל הכסף וירטואלי לגמרי. טועים, לומדים, ולא משלמים על זה שקל."}},{"@type":"Question","name":"כמה זה עולה?","acceptedAnswer":{"@type":"Answer","text":"הקורס הראשון: חינם לגמרי, בלי כרטיס אשראי. אחר כך Simvy PRO: 19.90 ש״ח לחודש."}},{"@type":"Question","name":"אתם נותנים המלצות השקעה?","acceptedAnswer":{"@type":"Answer","text":"לא. Simvy מלמדת איך שוק ההון עובד. היא לא אומרת לך מה לקנות או למכור. בלי איתותים, בלי טיפים, בלי הבטחות. חינוך, לא ייעוץ."}},{"@type":"Question","name":"מתי אפשר להוריד?","acceptedAnswer":{"@type":"Answer","text":"עכשיו. Simvy זמינה ב-App Store וב-Google Play. הקורס הראשון חינם, בלי כרטיס אשראי."}}]}]}</script>
-  <style>
-  @font-face{ font-family:'Assistant'; font-weight:400; src:url('/fonts/assistant-400.ttf') format('truetype'); font-display:swap; }
-  @font-face{ font-family:'Assistant'; font-weight:600; src:url('/fonts/assistant-600.ttf') format('truetype'); font-display:swap; }
-  @font-face{ font-family:'Assistant'; font-weight:700; src:url('/fonts/assistant-700.ttf') format('truetype'); font-display:swap; }
-  @font-face{ font-family:'Assistant'; font-weight:800; src:url('/fonts/assistant-800.ttf') format('truetype'); font-display:swap; }
-  @font-face{ font-family:'Manrope'; font-weight:600; src:url('/fonts/manrope-600-latin.woff2') format('woff2'); font-display:swap; unicode-range:U+0020-007E, U+00A0, U+2013-2014, U+2019, U+201C-201D, U+2026; }
-  *{ box-sizing:border-box; }
-  html{ direction:rtl; scroll-behavior:smooth; }
-  html,body{ margin:0; padding:0; }
-  body{ background:#131C18; color:#F2F6F3; font-family:'Assistant',system-ui,sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
-  h1,h2,h3,p{ margin:0; }
-  a{ color:#BEEDD9; text-decoration:none; }
-  a:hover{ color:#7FCBAE; }
-  img,video{ display:block; max-width:100%; }
-  summary{ list-style:none; }
-  @media (max-width:760px){ [data-nav-secondary]{ display:none !important; } }
-  @media (max-width:700px){
-    input{ font-size:16px !important; }
-    [data-m="root"]{ padding-bottom:74px !important; }
-    [data-m="navcta"]{ padding:11px 20px !important; }
-    [data-m="hero"]{ min-height:0 !important; }
-    [data-m="hero-grid"]{ padding:16px 20px 0 !important; gap:0 !important; }
-    [data-m="hero-copy"]{ padding:6px 0 2px !important; }
-    [data-m="hero-art"]{ height:auto !important; min-height:0 !important; }
-    [data-m="hero-art"] img{ max-height:330px !important; }
-    [data-m="h1"]{ font-size:35px !important; line-height:1.08 !important; }
-    [data-m="lead"]{ font-size:16px !important; }
-    [data-m="cta"]{ flex:1 1 100% !important; }
-    [data-m="stats"]{ gap:8px 16px !important; font-size:13.5px !important; }
-    [data-m="row"]{ padding:26px 0 !important; gap:20px !important; }
-    [data-m="row-copy"]{ order:1 !important; }
-    [data-m="row-art"]{ order:2 !important; }
-    [data-m="band-img"]{ width:100% !important; margin-left:0 !important; -webkit-mask-image:linear-gradient(to top, transparent 1%, #000 22%) !important; mask-image:linear-gradient(to top, transparent 1%, #000 22%) !important; }
-    [data-m="band-scrim"]{ display:none !important; }
-    [data-m="band-copy"]{ position:relative !important; top:auto !important; right:auto !important; transform:none !important; max-width:none !important; padding:0 22px 26px !important; margin-top:-14px !important; }
-    [data-m="foot"]{ flex-direction:column !important; gap:18px !important; }
-    [data-m="dock"]{ display:flex !important; }
-  }
-  @media (prefers-reduced-motion:reduce){ *{ animation:none !important; } }
-  @keyframes svdrift{ from{ transform:translate(0,0); } to{ transform:translate(26px,-20px); } }
-  summary::-webkit-details-marker{ display:none; }
-  .faq-q{ cursor:pointer; padding:18px 20px; font-weight:700; font-size:17px; display:flex; justify-content:space-between; align-items:center; gap:12px; }
-  .faq-plus{ flex:0 0 auto; width:26px; height:26px; border-radius:99px; border:1px solid rgba(190,237,217,.32); display:grid; place-items:center; color:#BEEDD9; font-weight:400; transition:transform .2s; }
-  details[open] .faq-plus{ transform:rotate(45deg); }
-  .faq-a{ padding:0 20px 18px; color:#CBD6CF; font-size:15.5px; max-width:44em; }
-
-  </style>
+  <link rel="preload" href="/fonts/assistant-800.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/home.css">
   <script defer src="/t.js"></script>
 </head>
 <body>
-<div dir="rtl" data-m="root" style="position:relative; z-index:0; font-family:'Assistant',system-ui,sans-serif; font-size:17.5px; line-height:1.6; color:#F2F6F3; background:radial-gradient(100% 46% at 50% -6%, rgba(190,237,217,.13), transparent 62%), radial-gradient(70% 40% at 8% 30%, rgba(27,94,72,.28), transparent 60%), #131C18;">
-  <!-- Empty blend layer kept as the live page renders it (its background image never loaded: nested quotes in the original style attribute). Removing it shifts the blur/blend compositing. -->
-  <div style="position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:.2; mix-blend-mode:screen;"></div>
+<script>(function(d){d.classList.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('motion')}catch(e){}})(document.documentElement)</script>
+<a class="skip" href="#main">דילוג לתוכן</a>
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="/" aria-current="page"><span class="brand__mark"><img src="/img/home-mark.svg" alt="Simvy" width="22" height="22"></span><img class="brand__word" src="/img/home-wordmark.svg" alt="" width="70" height="20"></a>
+  <nav class="site-nav" aria-label="ניווט ראשי"><a href="/courses.html">קורסים</a><a href="/simulator.html">הסימולטור</a><a href="/pricing.html">תמחור</a><a href="/about.html">מי אנחנו</a></nav>
+  <a class="btn" href="#download">להורדה</a>
+</div></header>
 
-  <div data-m="dock" style="display:none; position:fixed; bottom:0; left:0; right:0; z-index:60; align-items:center; justify-content:space-between; gap:12px; padding:11px 16px calc(11px + env(safe-area-inset-bottom)); background:rgba(14,20,17,.93); backdrop-filter:blur(14px); border-top:1px solid rgba(190,237,217,.2);">
-    <span style="font-size:13px; color:#CBD6CF; line-height:1.3;">הקורס הראשון<br><b style="color:#BEEDD9; font-weight:700;">חינם</b></span>
-    <a href="https://apps.apple.com/il/app/id6797081307?pt=129081401&amp;ct=site-home-dock&amp;mt=8" data-m="dock-cta" style="flex:1 1 0; min-width:0; text-align:center; background:#BEEDD9; color:#07372A; font-weight:800; font-size:14.5px; border-radius:99px; padding:13px 8px; white-space:nowrap; box-shadow:0 0 26px rgba(190,237,217,.28);">App Store</a>
-    <a href="https://play.google.com/store/apps/details?id=com.simvy.app&amp;referrer=utm_source%3Dsimvy-site%26utm_medium%3Dweb%26utm_campaign%3Dsite-home-dock" data-m="dock-cta" style="flex:1 1 0; min-width:0; text-align:center; background:#BEEDD9; color:#07372A; font-weight:800; font-size:14.5px; border-radius:99px; padding:13px 8px; white-space:nowrap; box-shadow:0 0 26px rgba(190,237,217,.28);">Google Play</a>
+<nav class="dock" aria-label="המסלול בעמוד והורדה">
+  <ol class="dock__map" hidden></ol>
+  <div class="dock__row">
+    <span class="dock__free">הקורס הראשון<br><b>חינם</b></span>
+    <a class="btn dock__cta" href="https://apps.apple.com/il/app/id6797081307?pt=129081401&amp;ct=site-home-dock&amp;mt=8"><bdi>App Store</bdi></a>
+    <a class="btn dock__cta" href="https://play.google.com/store/apps/details?id=com.simvy.app&amp;referrer=utm_source%3Dsimvy-site%26utm_medium%3Dweb%26utm_campaign%3Dsite-home-dock"><bdi>Google Play</bdi></a>
   </div>
+</nav>
 
-  <header style="position:sticky; top:0; z-index:50; background:rgba(19,28,24,.85); backdrop-filter:blur(12px); border-bottom:1px solid rgba(190,237,217,.17);">
-    <div style="max-width:1080px; margin:0 auto; padding:12px 22px; display:flex; align-items:center; justify-content:space-between; gap:10px 16px; flex-wrap:wrap;">
-      <div style="display:flex; align-items:center; gap:11px;">
-        <span style="width:44px; height:44px; border-radius:13px; display:grid; place-items:center; background:linear-gradient(160deg,#16211C,#0B120F); border:1px solid rgba(190,237,217,.34); box-shadow:0 0 24px rgba(190,237,217,.16), inset 0 1px 0 rgba(255,255,255,.06);">
-          <img src="/img/home-mark.svg" alt="Simvy" style="width:24px; filter:drop-shadow(0 2px 6px rgba(0,0,0,.5));">
-        </span>
-        <img src="/img/home-wordmark.svg" alt="simvy" style="width:76px;">
-      </div>
-      <div style="display:flex; align-items:center; gap:10px 18px; flex-wrap:wrap; justify-content:flex-end; flex:1 1 auto;">
-        <nav data-nav-secondary="" style="display:flex; gap:8px 20px; font-size:15px; font-weight:600; flex-wrap:wrap;">
-          <a href="/about.html" style="color:#CBD6CF;">מי אנחנו</a>
-          <a href="/courses.html" style="color:#CBD6CF;">קורסים</a>
-          <a href="#sim" style="color:#CBD6CF;">סימולטור</a>
-          <a href="#faq" style="color:#CBD6CF;">שאלות</a>
-        </nav>
-        <span data-nav-secondary="" style="font-size:12px; color:#CBD6CF; border:1px solid rgba(190,237,217,.17); border-radius:99px; padding:5px 12px; white-space:nowrap;">חינוך פיננסי · לא ייעוץ</span>
-        <a href="#download" data-m="navcta" style="background:#BEEDD9; color:#07372A; font-weight:700; font-size:14.5px; border-radius:99px; padding:9px 20px; white-space:nowrap;">להורדה</a>
-      </div>
-    </div>
-  </header>
+<div class="traveler" aria-hidden="true" data-sc-verify-state=""><div class="traveler__body">
+  <img data-pose="glide" src="/img/av-glide.webp" alt="" width="325" height="420" decoding="async">
+  <img data-pose="a" src="/img/av-lean-a.webp" alt="" width="349" height="420" loading="lazy" decoding="async">
+  <img data-pose="b" src="/img/av-lean-b.webp" alt="" width="441" height="420" loading="lazy" decoding="async">
+  <img data-pose="scratch" src="/img/av-scratch.webp" alt="" width="196" height="420" loading="lazy" decoding="async">
+  <img data-pose="open" src="/img/av-openarms.webp" alt="" width="318" height="420" loading="lazy" decoding="async">
+</div></div>
 
-  <section data-m="hero" style="position:relative; overflow:hidden; min-height:min(760px,calc(100vh - 68px)); display:flex; align-items:stretch; background:radial-gradient(100% 62% at 76% 16%, rgba(27,94,72,.24), transparent 68%);">
-    <div style="position:absolute; inset:0; pointer-events:none;">
-      <div style="position:absolute; width:520px; height:520px; border-radius:99em; filter:blur(80px); opacity:.5; background:rgba(27,94,72,.7); top:-180px; left:-140px; animation:svdrift 16s ease-in-out infinite alternate;"></div>
-      <div style="position:absolute; width:360px; height:360px; border-radius:99em; filter:blur(80px); opacity:.4; background:rgba(190,237,217,.16); bottom:-140px; right:-90px; animation:svdrift 20s ease-in-out infinite alternate;"></div>
-    </div>
-    <div data-m="hero-grid" style="position:relative; width:100%; max-width:1180px; margin:0 auto; padding:26px 22px 0; display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); align-items:end; gap:8px 24px;">
-      <div data-m="hero-copy" style="padding:min(6vh,54px) 0 min(6vh,48px); align-self:center; order:1;">
-        
-        <img src="/img/home-wordmark.svg" alt="simvy" style="width:min(400px,72vw); margin-bottom:14px; filter:drop-shadow(0 10px 34px rgba(0,0,0,.5));"><h1 data-m="h1" style="font-size:clamp(32px,4.6vw,50px); font-weight:800; line-height:1.1; letter-spacing:-.02em; text-wrap:balance;">שוק ההון בגובה העיניים.<br><span style="color: rgb(190, 237, 217);">ידע מקצועי. חוויה פשוטה.</span></h1>
-        <div style="margin-top:14px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
-          <p data-m="lead" style="font-size:16.5px; color:#CBD6CF; max-width:24em; text-wrap:pretty; flex:1 1 260px;">שיעורים של 10 דקות בעברית, וסימולטור מסחר בכסף וירטואלי על נתוני שוק אמיתיים. מהיסודות ועד ניתוח טכני.</p>
-            <div dir="ltr" style="flex:0 0 auto; display:inline-flex; align-items:center; gap:8px; border:1px solid rgba(190,237,217,.32); border-radius:99px; padding:9px 18px; font-size:12.5px; color:#CBD6CF; background:rgba(11,18,15,.55);"><b style="color:#F2F6F3; font-weight:600;">App Store</b> · <b style="color:#F2F6F3; font-weight:600;">Google Play</b> · זמין עכשיו</div>
-        </div>
-        <div id="download" style="margin-top:24px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;"><a href="https://apps.apple.com/il/app/id6797081307?pt=129081401&amp;ct=site-home-hero&amp;mt=8" data-m="cta" style="display:inline-block; line-height:0;"><img src="/app-store-badge-he.svg" alt="הורדה מ-App Store" style="height:56px; width:auto; display:block;"></a><a href="https://play.google.com/store/apps/details?id=com.simvy.app&amp;referrer=utm_source%3Dsimvy-site%26utm_medium%3Dweb%26utm_campaign%3Dsite-home-hero" data-m="cta" style="display:inline-block; line-height:0;"><img src="/google-play-badge-he.png" alt="הורדה מ-Google Play" style="height:56px; width:auto; display:block;"></a><span style="font-size:14px; color:#CBD6CF; line-height:1.4;">הקורס הראשון חינם.<br>בלי כרטיס אשראי.</span></div>
-                <div data-m="stats" style="margin-top:20px; display:flex; flex-wrap:wrap; gap:6px 20px; font-size:14px; color:#CBD6CF;">
-          <span style="display:inline-flex; align-items:center; gap:7px;"><span style="width:5px; height:5px; border-radius:99px; background:#7FCBAE;"></span><b style="color:#BEEDD9; font-weight:700;">5</b> קורסים מלאים</span>
-          <span style="display:inline-flex; align-items:center; gap:7px;"><span style="width:5px; height:5px; border-radius:99px; background:#7FCBAE;"></span><b style="color:#BEEDD9; font-weight:700;">24</b> מבחני רמה</span>
-          <span style="display:inline-flex; align-items:center; gap:7px;"><span style="width:5px; height:5px; border-radius:99px; background:#7FCBAE;"></span>נתוני שוק אמיתיים</span>
-          <span style="display:inline-flex; align-items:center; gap:7px;"><span style="width:5px; height:5px; border-radius:99px; background:#7FCBAE;"></span><b style="color:#BEEDD9; font-weight:700;">100%</b> כסף וירטואלי</span>
-        </div>
-      </div>
-      <div data-m="hero-art" style="position:relative; order:2; align-self:end; height:min(74vh,660px); min-height:340px; display:flex; justify-content:center; overflow:hidden;">
-        <img src="/img/home-hero-avatar.webp" fetchpriority="high" alt="האווטר של Simvy מקבל אתכם בידיים פתוחות" style="height:100%; width:100%; object-fit:contain; object-position:50% 100%; -webkit-mask-image:linear-gradient(to top, transparent 0%, #000 16%); mask-image:linear-gradient(to top, transparent 0%, #000 16%);">
-      </div>
-    </div>
-  </section>
-  <section style="padding:46px 0 0; text-align:center;">
-    <div style="max-width:1080px; margin:0 auto; padding:0 22px;">
-      <h2 style="font-size:clamp(26px,4vw,36px); font-weight:800; letter-spacing:-.015em;">‏30 שניות של Simvy.</h2>
-      <p style="margin-top:10px; color:#CBD6CF; font-size:17px;">ככה זה נראה מבפנים: שיעור, סימולטור וחדשות.</p>
-      <div style="display:flex; justify-content:center; margin-top:28px;">
-        <div style="width:min(300px,78vw); border-radius:40px; padding:10px; background:#000; border:1px solid #2B302E; box-shadow:0 40px 100px rgba(0,0,0,.65), 0 0 80px rgba(190,237,217,.08);">
-          <div style="border-radius:31px; overflow:hidden; background:#0E1312;">
-            <video autoplay muted loop playsinline preload="metadata" poster="/promo-poster.jpg" src="/promo.mp4" style="width:100%; aspect-ratio:9/16; object-fit:contain; background:#0E1312;"></video>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<main id="main">
+<svg class="track" aria-hidden="true" focusable="false"></svg>
 
-  <section style="padding:44px 0 4px;">
-    <div style="max-width:1080px; margin:0 auto; padding:0 22px;">
-      <h2 style="font-size:clamp(26px,4vw,36px); font-weight:800; letter-spacing:-.015em;">ככה לומדים שוק הון באמת.</h2>
-      <p style="margin-top:10px; color:#CBD6CF; font-size:17px; max-width:34em;">לא הרצאות של שעה ולא "טיפים חמים": ארבעה כלים שעובדים יחד.</p>
-      <div style="margin-top:22px; display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:14px;">
-        <div style="border-radius:20px; padding:22px 20px; border:1px solid rgba(190,237,217,.17); background:linear-gradient(165deg, rgba(190,237,217,.06), rgba(190,237,217,0) 45%), #1B2622; display:flex; flex-direction:column; gap:10px;">
-          <div style="width:42px; height:42px; border-radius:13px; display:grid; place-items:center; background:rgba(190,237,217,.14); color:#BEEDD9;">
-            <svg width="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5.5A2.5 2.5 0 0 1 7.5 3H19v15H7.5A2.5 2.5 0 0 0 5 20.5z M19 18v3H7.5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"></path></svg>
-          </div>
-          <h3 style="font-size:18px; font-weight:700;">שיעורים קצרים בעברית</h3>
-          <p style="font-size:14.5px; color:#CBD6CF;">10 דקות, אינטראקטיבי, ניתן להאזין ולא לקרוא.</p>
+<!-- 1 start: the app itself, standing on the course -->
+<section class="start" id="top" data-sc-act="flow">
+  <div class="wrap start__copy">
+    <h1>שוק ההון בגובה העיניים.<br><span>ידע מקצועי. חוויה פשוטה.</span></h1>
+    <p class="lead">שיעורים של 10 דקות בעברית, וסימולטור מסחר בכסף וירטואלי על נתוני שוק אמיתיים. מהיסודות ועד ניתוח טכני.</p>
+    <p class="avail" dir="ltr"><b>App Store</b> · <b>Google Play</b> · זמין עכשיו</p>
+    <div class="badges">
+      <a href="https://apps.apple.com/il/app/id6797081307?pt=129081401&amp;ct=site-home-hero&amp;mt=8"><img src="/app-store-badge-he.svg" alt="הורדה מ-App Store" width="160" height="56"></a>
+      <a href="https://play.google.com/store/apps/details?id=com.simvy.app&amp;referrer=utm_source%3Dsimvy-site%26utm_medium%3Dweb%26utm_campaign%3Dsite-home-hero"><img src="/google-play-badge-he.png" alt="הורדה מ-Google Play" width="188" height="56"></a>
+      <p class="free-line">הקורס הראשון חינם.<br>בלי כרטיס אשראי.</p>
+    </div>
+  </div>
+  <div class="start__stage gate" data-gate data-side="end" data-perch="side" data-perch-m="top" data-name="מסך הבית" id="g-home">
+    <svg class="course-art" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMin slice" aria-hidden="true" focusable="false">
+      <path class="c1" d="M600 0 C 520 90, 330 120, 300 220 S 520 360, 610 420 S 860 470, 900 520"/>
+      <path class="c2" d="M606 0 C 526 90, 336 120, 306 220 S 526 360, 616 420 S 866 470, 906 520"/>
+    </svg>
+    <figure class="phone" data-gate-box><img src="/img/home-start-phone.webp" width="544" height="1112" fetchpriority="high" alt="מסך הבית באפליקציה: רמה 2, ההתקדמות לקראת מבחן רמה 3 וכפתור להמשך הלימוד"></figure>
+    <img class="perch" src="/img/av-glide.webp" alt="" width="325" height="420">
+  </div>
+</section>
+
+<!-- 2 inside: thirty seconds of the app -->
+<section class="inside" data-sc-act="flow">
+  <div class="wrap inside__grid">
+    <div class="inside__copy">
+      <h2>&rlm;30 שניות של Simvy.</h2>
+      <p>ככה זה נראה מבפנים: שיעור, סימולטור וחדשות.</p>
+      <ul class="spec">
+        <li><b>5</b> קורסים מלאים</li>
+        <li><b>24</b> מבחני רמה</li>
+        <li>נתוני שוק אמיתיים</li>
+        <li><b><bdi>100%</bdi></b> כסף וירטואלי</li>
+      </ul>
+    </div>
+    <figure class="reel gate" data-gate data-side="end" data-perch="side" data-name="סרטון" id="g-video">
+      <div class="reel__frame" data-gate-box><video muted loop playsinline controls preload="none" poster="/promo-poster.jpg" src="/promo.mp4" width="540" height="960" aria-label="סרטון של 30 שניות מתוך האפליקציה: שיעור, סימולטור וחדשות"></video></div>
+      <img class="perch" src="/img/av-lean-a.webp" alt="" width="349" height="420" loading="lazy" decoding="async">
+    </figure>
+  </div>
+</section>
+
+<!-- 3 why: education, not promises -->
+<section class="why" data-sc-act="flow">
+  <div class="wrap why__grid">
+    <div class="why__copy">
+      <h2>למה אצלנו אין "טיפים חמים"?</h2>
+      <p>כי אנחנו מלמדים, לא ממליצים. בלי איתותים, בלי "קנה עכשיו", בלי תיק מומלץ. כאן מקבלים את הידע להבין את השוק.</p>
+    </div>
+    <div class="why__line gate" data-gate data-side="end" data-perch="beside" data-pose="scratch" data-dwell="0.45" data-name="למה ללמוד" id="g-why">
+      <p class="big" data-gate-box>ההבטחות יקרות. <span>הידע זול.</span></p>
+      <img class="perch" src="/img/av-scratch.webp" alt="" width="196" height="420" loading="lazy" decoding="async">
+    </div>
+    <ul class="facts">
+      <li><b>כסף וירטואלי בלבד</b><span>האפליקציה לא מחוברת לשום חשבון מסחר אמיתי. אי-אפשר להפסיד כסף, רק ללמוד.</span></li>
+      <li><b>5 קורסים להכין אתכם לשוק</b><span>מבוא לשוק ההון, ניתוח טכני, ניתוח פונדמנטלי, ניהול סיכונים, פסיכולוגיה אישית וקבוצתית.</span></li>
+      <li><b>נתוני שוק אמיתיים, מתעדכנים בערך פעם בדקה</b><span>אנחנו כאן ללמד ולתרגל על השוק של היום</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 4 the run (peak): four gates -->
+<section class="run" data-sc-act="flow">
+  <div class="wrap">
+    <header class="run__head">
+      <h2>ככה לומדים שוק הון באמת.</h2>
+      <p>לא הרצאות של שעה ולא "טיפים חמים": ארבעה כלים שעובדים יחד.</p>
+      <ul class="tools">
+        <li><svg width="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5.5A2.5 2.5 0 0 1 7.5 3H19v15H7.5A2.5 2.5 0 0 0 5 20.5z M19 18v3H7.5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"></path></svg><h3>שיעורים קצרים בעברית</h3><p>10 דקות, אינטראקטיבי, ניתן להאזין ולא לקרוא.</p></li>
+        <li><svg width="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17l5-6 3.5 3.5L20 6M20 6h-5M20 6v5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg><h3>סימולטור בלי סיכון</h3><p>&rlm;$10,000 וירטואליים על מניות אמיתיות. הטעויות בחינם.</p></li>
+        <li><svg width="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="4.5" y="3.5" width="15" height="17" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.9"></rect><path d="M8.5 9h7M8.5 13h7M8.5 17h4.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"></path></svg><h3>יומן שמכיר אותך</h3><p>כל עסקה נרשמת, ומראה לך את הדפוסים של עצמך.</p></li>
+        <li><svg width="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5.5" fill="none" stroke="currentColor" stroke-width="1.9"></circle><path d="M8.5 13.5L7 21l5-2.6L17 21l-1.5-7.5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"></path></svg><h3>רמת סוחר ומבחנים</h3><p>עוברים מבחן, עולים רמה, רואים את ההתקדמות שחור על גבי מנטה.</p></li>
+      </ul>
+    </header>
+
+    <article class="leg leg--a" id="courses">
+      <figure class="leg__shot gate" data-gate data-side="start" data-perch="top" data-name="שיעורים" id="g-lesson">
+        <div class="bezel" data-gate-box><img src="/img/home-lesson.webp" width="640" height="1332" loading="lazy" decoding="async" alt="שיעור ניתוח טכני ב-Simvy: שרטוט קו מגמה על גרף אמיתי"></div>
+        <img class="perch" src="/img/av-glide.webp" alt="" width="325" height="420" loading="lazy" decoding="async">
+        <figcaption><span class="flag">שיעורים</span> שאלה מתוך שיעור בניתוח טכני.</figcaption>
+      </figure>
+      <div class="leg__copy">
+        <h3>ללמוד בעשייה,<br>לא בשינון.</h3>
+        <p>מסמנים על גרפים אמיתיים, עונים, טועים, ולומדים מהטעות. כל שיעור נגמר בתרגול, לא בסיכום. בלי התנשאות ובלי שאלות מטומטמות, כי אין דבר כזה.</p>
+        <a class="more" href="/courses.html">לכל 5 הקורסים <span aria-hidden="true">←</span></a>
+        <div class="taste">
+          <h2>טעימה מהשיעורים.</h2>
+          <p>ככה נשמע חינוך פיננסי בגובה העיניים:</p>
+          <ol>
+            <li><span class="tag">הבסיס</span><h3>מה זה בכלל מניה?</h3><p>חתיכה קטנה מחברה גדולה, והשאלה שכולם מתביישים לשאול.</p><span class="meta">מבוא · 10 דקות</span></li>
+            <li><span class="tag">גרפים</span><h3>איך קוראים נר יפני?</h3><p>גוף, פתילים, וכל מה שגרף מנסה להגיד לך בלי מילים.</p><span class="meta">ניתוח טכני · 10 דקות</span></li>
+            <li><span class="tag">מושגים</span><h3>מה זה אג"ח</h3><p>להלוות כסף למדינה או לחברה, ולקבל ריבית בלי להסתבך.</p><span class="meta">אג״ח · 10 דקות</span></li>
+          </ol>
         </div>
-        <div style="border-radius:20px; padding:22px 20px; border:1px solid rgba(190,237,217,.17); background:linear-gradient(165deg, rgba(190,237,217,.06), rgba(190,237,217,0) 45%), #1B2622; display:flex; flex-direction:column; gap:10px;">
-          <div style="width:42px; height:42px; border-radius:13px; display:grid; place-items:center; background:rgba(38,166,154,.14); color:#5ECFC4;">
-            <svg width="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17l5-6 3.5 3.5L20 6M20 6h-5M20 6v5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-          </div>
-          <h3 style="font-size:18px; font-weight:700;">סימולטור בלי סיכון</h3>
-          <p style="font-size:14.5px; color:#CBD6CF;">‏$10,000 וירטואליים על מניות אמיתיות. הטעויות בחינם.</p>
+      </div>
+    </article>
+
+    <article class="leg leg--b" id="sim">
+      <figure class="leg__shot gate" data-gate data-side="end" data-perch="top" data-name="סימולטור" id="g-sim">
+        <div class="plate" data-gate-box><img src="/img/home-simulator.webp" width="720" height="1280" loading="lazy" decoding="async" alt="הסימולטור של Simvy: גרף נרות של AAPL וכפתורי שורט וקנייה"></div>
+        <img class="perch" src="/img/av-lean-a.webp" alt="" width="349" height="420" loading="lazy" decoding="async">
+        <figcaption><span class="flag">סימולטור</span> מסך מניה בסימולטור.</figcaption>
+      </figure>
+      <div class="leg__copy">
+        <h3>לתרגל מסחר<br>בלי לסכן שקל.</h3>
+        <p>קנייה, שורט, סטופ ולימיט: על מניות אמיתיות, בכסף וירטואלי. פה מותר להפסיד: זה בדיוק הרעיון. בחוץ הטעויות עולות כסף; אצלנו הן שיעור.</p>
+        <p class="links"><a class="more" href="/simulator.html">לכל מה שהסימולטור עושה <span aria-hidden="true">←</span></a> <a class="more more--quiet" href="#download">להורדה <span aria-hidden="true">←</span></a></p>
+      </div>
+    </article>
+
+    <article class="leg leg--c">
+      <figure class="leg__shot gate" data-gate data-side="start" data-perch="top" data-name="התקדמות" id="g-progress">
+        <div class="plate" data-gate-box><img src="/img/home-progress.webp" width="720" height="1280" loading="lazy" decoding="async" alt="מסך הבית של Simvy: רמה 2 והתקדמות"></div>
+        <img class="perch" src="/img/av-glide.webp" alt="" width="325" height="420" loading="lazy" decoding="async">
+        <figcaption><span class="flag">התקדמות</span> הרמה וההתקדמות במסך הבית.</figcaption>
+      </figure>
+      <div class="leg__copy">
+        <h3>לראות את עצמך<br>מתקדם.</h3>
+        <p>רמת סוחר, מבחני מדרגה ורצף למידה יומי. המסע מסודר צעד-צעד, מהשיעור הראשון ועד תעודת הסיום, ואת הדרך רואים במספרים.</p>
+        <a class="more more--quiet" href="#download">להורדה <span aria-hidden="true">←</span></a>
+      </div>
+    </article>
+
+    <article class="leg leg--d">
+      <figure class="leg__shot gate" data-gate data-side="end" data-perch="top" data-name="חדשות" id="g-news">
+        <div class="plate" data-gate-box><img src="/img/home-news.webp" width="720" height="1280" loading="lazy" decoding="async" alt="Simvy News: חדשות השוק בעברית"></div>
+        <img class="perch" src="/img/av-lean-b.webp" alt="" width="441" height="420" loading="lazy" decoding="async">
+        <figcaption><span class="flag"><bdi>News</bdi></span> ראש מהדורת החדשות.</figcaption>
+      </figure>
+      <div class="leg__copy">
+        <h3>להבין מה קרה בשוק.<br>בגובה העיניים.</h3>
+        <p>מהדורת חדשות בעברית, פעמיים בשבוע: מה קרה, למה זה חשוב, ומה המספרים אומרים. עובדות בלבד: בלי המלצות, בלי דרמה.</p>
+        <a class="more more--quiet" href="#download">להורדה <span aria-hidden="true">←</span></a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 5 the path -->
+<section class="path" data-sc-act="flow">
+  <div class="wrap path__wrap gate" data-gate data-side="start" data-side-m="end" data-perch="side" data-perch-m="top" data-name="הדרך" id="g-path">
+    <h2 data-gate-box>מאפס לביטחון. בקצב שלך.</h2>
+    <p class="path__sub">אין קיצורי דרך בשוק ההון. יש דרך מסודרת.</p>
+    <ol class="stops">
+      <li><span class="when"><bdi>Week 1</bdi></span><h3>לומדים את היסודות</h3><p>מה זה מניה, איך קוראים גרף, מה ההבדל בין מדד לקרן, במילים של בני אדם.</p></li>
+      <li><span class="when"><bdi>Weeks 3–4</bdi></span><h3>מתרגלים בסימולטור</h3><p>עסקה ראשונה, סטופ ראשון, והטעות הראשונה שלא עולה שקל.</p></li>
+      <li><span class="when"><bdi>Month 2+</bdi></span><h3>רואים התקדמות</h3><p>הרמה עולה, היומן מתמלא, והשוק כבר לא נשמע כמו שפה זרה.</p></li>
+    </ol>
+    <img class="perch" src="/img/av-glide.webp" alt="" width="325" height="420" loading="lazy" decoding="async">
+  </div>
+</section>
+
+<!-- 6 the companion -->
+<section class="world" data-sc-act="flow" data-hide-traveler>
+  <div class="wrap world__grid">
+    <img class="world__img" src="/img/home-world.webp" width="880" height="480" loading="lazy" decoding="async" alt="האווטר של Simvy מציג טלפון עם גרף עולה (איור בסגנון המותג)">
+    <div class="world__copy">
+      <p class="world__label"><bdi>The Simvy World</bdi></p>
+      <h3>בונים ידע.<br>שיעור אחרי שיעור.</h3>
+      <p>הדמות שתלווה אותך בכל שיעור, תרגול ופרסומת, כי ללמוד לבד זה קשה, וללמוד עם מישהו זה כבר משהו אחר.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 7 free -->
+<section class="free" id="pricing" data-sc-act="flow">
+  <div class="wrap">
+    <h2>כמה זה עולה?</h2>
+    <p class="free__sub">מתחילים חינם. ממשיכים במחיר של קפה.</p>
+    <div class="plans">
+      <div class="plan plan--free gate" data-gate data-side="start" data-side-m="end" data-perch="top" data-perch-m="top" data-name="מה חינם" id="g-free">
+        <div class="plan__box" data-gate-box>
+          <p class="plan__name">מתחילים</p>
+          <p class="plan__price">חינם</p>
+          <p class="plan__note">בלי כרטיס אשראי</p>
+          <ul>
+            <li>קורס המבוא המלא (9 שיעורים ומבחן סיכום)</li>
+            <li>הסימולטור והיומן</li>
+            <li>חדשות השוק בעברית</li>
+          </ul>
         </div>
-        <div style="border-radius:20px; padding:22px 20px; border:1px solid rgba(190,237,217,.17); background:linear-gradient(165deg, rgba(190,237,217,.06), rgba(190,237,217,0) 45%), #1B2622; display:flex; flex-direction:column; gap:10px;">
-          <div style="width:42px; height:42px; border-radius:13px; display:grid; place-items:center; background:rgba(228,199,166,.13); color:#E4C7A6;">
-            <svg width="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="4.5" y="3.5" width="15" height="17" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.9"></rect><path d="M8.5 9h7M8.5 13h7M8.5 17h4.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"></path></svg>
-          </div>
-          <h3 style="font-size:18px; font-weight:700;">יומן שמכיר אותך</h3>
-          <p style="font-size:14.5px; color:#CBD6CF;">כל עסקה נרשמת, ומראה לך את הדפוסים של עצמך.</p>
-        </div>
-        <div style="border-radius:20px; padding:22px 20px; border:1px solid rgba(190,237,217,.17); background:linear-gradient(165deg, rgba(190,237,217,.06), rgba(190,237,217,0) 45%), #1B2622; display:flex; flex-direction:column; gap:10px;">
-          <div style="width:42px; height:42px; border-radius:13px; display:grid; place-items:center; background:rgba(27,94,72,.4); color:#7FCBAE;">
-            <svg width="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5.5" fill="none" stroke="currentColor" stroke-width="1.9"></circle><path d="M8.5 13.5L7 21l5-2.6L17 21l-1.5-7.5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"></path></svg>
-          </div>
-          <h3 style="font-size:18px; font-weight:700;">רמת סוחר ומבחנים</h3>
-          <p style="font-size:14.5px; color:#CBD6CF;">עוברים מבחן, עולים רמה, רואים את ההתקדמות שחור על גבי מנטה.</p>
-        </div>
+        <img class="perch" src="/img/av-glide.webp" alt="" width="325" height="420" loading="lazy" decoding="async">
+      </div>
+      <div class="plan plan--pro">
+        <p class="plan__name"><img src="/email-icon.png" alt="" width="22" height="22"><bdi>Simvy PRO</bdi></p>
+        <p class="plan__price"><span dir="ltr">19.90 ₪</span> לחודש</p>
+        <ul>
+          <li>כל הקורסים: 92 שיעורים נוספים</li>
+          <li>מבחני המדרגה ואזור התרגול</li>
+        </ul>
+        <p class="plan__note">המנוי נרכש בתוך האפליקציה</p>
       </div>
     </div>
-  </section>
-
-  <section style="padding:40px 0 0;">
-    <div style="max-width:1080px; margin:0 auto; padding:0 22px;">
-      <div id="courses" data-m="row" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:34px; align-items:center; padding:30px 0;">
-        <div data-m="row-copy">
-          <div style="font-family:'Manrope',sans-serif; font-weight:600; letter-spacing:.15em; text-transform:uppercase; font-size:11px; margin-bottom:10px; color:#BEEDD9;">שיעורים</div>
-          <h3 style="font-size:clamp(26px,3.6vw,34px); font-weight:800; line-height:1.15; letter-spacing:-.015em;">ללמוד בעשייה,<br>לא בשינון.</h3>
-          <p style="margin-top:12px; color:#CBD6CF; font-size:17px; max-width:26em; text-wrap:pretty;">מסמנים על גרפים אמיתיים, עונים, טועים, ולומדים מהטעות. כל שיעור נגמר בתרגול, לא בסיכום. בלי התנשאות ובלי שאלות מטומטמות, כי אין דבר כזה.</p>
-          <a href="/courses.html" style="display:inline-block; margin-top:16px; color:#BEEDD9; font-weight:700; font-size:15.5px;">לכל 5 הקורסים ←</a>
-        </div>
-        <div data-m="row-art" style="display:flex; justify-content:center;">
-          <div style="width:min(280px,74vw); border-radius:34px; padding:9px; background:#000; border:1px solid #2B302E; box-shadow:0 30px 80px rgba(0,0,0,.55);">
-            <div style="border-radius:26px; overflow:hidden; background:#0E1312;">
-              <img src="/img/home-lesson.webp" loading="lazy" decoding="async" alt="שיעור ניתוח טכני ב-Simvy: שרטוט קו מגמה על גרף אמיתי" style="width:100%; aspect-ratio:9/16; object-fit:contain; background:#0E1312;">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="sim" data-m="row" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:34px; align-items:center; padding:30px 0; border-top:1px solid rgba(190,237,217,.17);">
-        <div data-m="row-art" style="display:flex; justify-content:center;">
-          <div style="width:min(280px,74vw); border-radius:34px; padding:9px; background:#000; border:1px solid #2B302E; box-shadow:0 30px 80px rgba(0,0,0,.55);">
-            <div style="border-radius:26px; overflow:hidden; background:#0E1312;">
-              <img src="/img/home-simulator.webp" loading="lazy" decoding="async" alt="הסימולטור של Simvy: תיק וירטואלי של 10,000 דולר" style="width:100%; aspect-ratio:9/16; object-fit:contain; background:#0E1312;">
-            </div>
-          </div>
-        </div>
-        <div data-m="row-copy">
-          <div style="font-family:'Manrope',sans-serif; font-weight:600; letter-spacing:.15em; text-transform:uppercase; font-size:11px; margin-bottom:10px; color:#BEEDD9;">סימולטור</div>
-          <h3 style="font-size:clamp(26px,3.6vw,34px); font-weight:800; line-height:1.15; letter-spacing:-.015em;">לתרגל מסחר<br>בלי לסכן שקל.</h3>
-          <p style="margin-top:12px; color:#CBD6CF; font-size:17px; max-width:26em; text-wrap:pretty;">קנייה, שורט, סטופ ולימיט: על מניות אמיתיות, בכסף וירטואלי. פה מותר להפסיד: זה בדיוק הרעיון. בחוץ הטעויות עולות כסף; אצלנו הן שיעור.</p>
-          <a href="#download" style="display:inline-block; margin-top:16px; color:#BEEDD9; font-weight:700; font-size:15.5px;">להורדה ←</a>
-        </div>
-      </div>
-      <div data-m="row" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:34px; align-items:center; padding:30px 0; border-top:1px solid rgba(190,237,217,.17);">
-        <div data-m="row-copy">
-          <div style="font-family:'Manrope',sans-serif; font-weight:600; letter-spacing:.15em; text-transform:uppercase; font-size:11px; margin-bottom:10px; color:#BEEDD9;">התקדמות</div>
-          <h3 style="font-size:clamp(26px,3.6vw,34px); font-weight:800; line-height:1.15; letter-spacing:-.015em;">לראות את עצמך<br>מתקדם.</h3>
-          <p style="margin-top:12px; color:#CBD6CF; font-size:17px; max-width:26em; text-wrap:pretty;">רמת סוחר, מבחני מדרגה ורצף למידה יומי. המסע מסודר צעד-צעד, מהשיעור הראשון ועד תעודת הסיום, ואת הדרך רואים במספרים.</p>
-          <a href="#download" style="display:inline-block; margin-top:16px; color:#BEEDD9; font-weight:700; font-size:15.5px;">להורדה ←</a>
-        </div>
-        <div data-m="row-art" style="display:flex; justify-content:center;">
-          <div style="width:min(280px,74vw); border-radius:34px; padding:9px; background:#000; border:1px solid #2B302E; box-shadow:0 30px 80px rgba(0,0,0,.55);">
-            <div style="border-radius:26px; overflow:hidden; background:#0E1312;">
-              <img src="/img/home-progress.webp" loading="lazy" decoding="async" alt="מסך הבית של Simvy: רמה 2 והתקדמות" style="width:100%; aspect-ratio:9/16; object-fit:contain; background:#0E1312;">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div data-m="row" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:34px; align-items:center; padding:30px 0; border-top:1px solid rgba(190,237,217,.17);">
-        <div data-m="row-art" style="display:flex; justify-content:center;">
-          <div style="width:min(280px,74vw); border-radius:34px; padding:9px; background:#000; border:1px solid #2B302E; box-shadow:0 30px 80px rgba(0,0,0,.55);">
-            <div style="border-radius:26px; overflow:hidden; background:#0E1312;">
-              <img src="/img/home-news.webp" loading="lazy" decoding="async" alt="Simvy News: חדשות השוק בעברית" style="width:100%; aspect-ratio:9/16; object-fit:contain; background:#0E1312;">
-            </div>
-          </div>
-        </div>
-        <div data-m="row-copy">
-          <div style="font-family:'Manrope',sans-serif; font-weight:600; letter-spacing:.15em; text-transform:uppercase; font-size:11px; margin-bottom:10px; color:#BEEDD9;">News</div>
-          <h3 style="font-size:clamp(26px,3.6vw,34px); font-weight:800; line-height:1.15; letter-spacing:-.015em;">להבין מה קרה בשוק.<br>בגובה העיניים.</h3>
-          
-          <p style="margin-top:12px; color:#CBD6CF; font-size:17px; max-width:26em; text-wrap:pretty;">מהדורת חדשות בעברית, פעמיים בשבוע: מה קרה, למה זה חשוב, ומה המספרים אומרים. עובדות בלבד: בלי המלצות, בלי דרמה.</p><a href="#download" style="display:inline-block; margin-top:16px; color:#BEEDD9; font-weight:700; font-size:15.5px;">להורדה ←</a>
-        </div>
+    <div class="faq" id="faq">
+      <h2>שאלות ששואלים אותנו.</h2>
+      <div class="qa">
+        <div><h3>זה כסף אמיתי?</h3><p>לא, וזאת בדיוק הפואנטה. הסימולטור רץ על נתוני שוק אמיתיים, אבל הכסף וירטואלי לגמרי. טועים, לומדים, ולא משלמים על זה שקל.</p></div>
+        <div><h3>כמה זה עולה?</h3><p>הקורס הראשון: חינם לגמרי, בלי כרטיס אשראי. אחר כך <bdi>Simvy PRO</bdi>: 19.90 ש״ח לחודש.</p></div>
+        <div><h3>אתם נותנים המלצות השקעה?</h3><p>לא. Simvy מלמדת איך שוק ההון עובד. היא לא אומרת לך מה לקנות או למכור. בלי איתותים, בלי טיפים, בלי הבטחות. חינוך, לא ייעוץ.</p></div>
+        <div><h3>מתי אפשר להוריד?</h3><p>עכשיו. Simvy זמינה ב-App Store וב-Google Play. הקורס הראשון חינם, בלי כרטיס אשראי.</p></div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section style="padding:44px 0 0;">
-    <div style="max-width:1080px; margin:0 auto; padding:0 22px;">
-      <div style="position:relative; border-radius:26px; overflow:hidden; border:1px solid rgba(190,237,217,.32);">
-        <img src="/img/home-world.webp" data-m="band-img" alt="האווטר של Simvy מציג טלפון עם גרף עולה (איור בסגנון המותג)" style="width:118%; margin-left:-18%; max-width:none;">
-        <div data-m="band-scrim" style="position:absolute; inset:0; background:linear-gradient(to right, rgba(19,28,24,0), rgba(19,28,24,.72) 42%, rgba(19,28,24,.94) 62%);"></div>
-        <div data-m="band-copy" style="position:absolute; top:50%; transform:translateY(-50%); right:38px; max-width:44%; text-align:right;">
-          <div style="font-family:'Manrope',sans-serif; font-weight:600; letter-spacing:.15em; text-transform:uppercase; font-size:11px; color:#BEEDD9; margin-bottom:8px;">The Simvy World</div>
-          <h3 style="font-size:clamp(22px,3.4vw,32px); font-weight:800; line-height:1.15;">בונים ידע.<br>שיעור אחרי שיעור.</h3>
-          <p style="margin-top:8px; color:#CBD6CF; font-size:15.5px; text-wrap:pretty;">הדמות שתלווה אותך בכל שיעור, תרגול ופרסומת, כי ללמוד לבד זה קשה, וללמוד עם מישהו זה כבר משהו אחר.</p>
-        </div>
-      </div>
+<!-- 8 finish -->
+<section class="finish" id="download" data-sc-act="flow">
+  <div class="wrap finish__plate">
+    <div class="finish__line gate" data-gate data-gate-last data-side="start" data-perch="stand" data-pose="open" data-name="להורדה" id="g-finish">
+      <div class="finish__tape" data-gate-box></div>
+      <img class="perch" src="/img/av-openarms.webp" alt="" width="318" height="420" loading="lazy" decoding="async">
     </div>
-  </section>
-
-  <section style="margin-top:48px; background:linear-gradient(180deg, rgba(190,237,217,.05), rgba(190,237,217,0)), #1B2622; border-top:1px solid rgba(190,237,217,.17); border-bottom:1px solid rgba(190,237,217,.17); padding:44px 0;">
-    <div style="max-width:1080px; margin:0 auto; padding:0 22px;">
-      <h2 style="font-size:clamp(26px,4vw,36px); font-weight:800; letter-spacing:-.015em;">מאפס לביטחון. בקצב שלך.</h2>
-      <p style="margin-top:10px; color:#CBD6CF; font-size:17px; max-width:34em;">אין קיצורי דרך בשוק ההון. יש דרך מסודרת.</p>
-      <div style="margin-top:22px; display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px;">
-        <div style="border:1px solid rgba(190,237,217,.17); border-radius:20px; padding:24px 22px; background:#131C18;">
-          <div style="font-family:'Manrope',sans-serif; font-weight:600; letter-spacing:.15em; text-transform:uppercase; font-size:11.5px; color:#E4C7A6; margin-bottom:10px;">Week 1</div>
-          <h3 style="font-size:19px; font-weight:700;">לומדים את היסודות</h3>
-          <p style="margin-top:8px; font-size:15px; color:#CBD6CF;">מה זה מניה, איך קוראים גרף, מה ההבדל בין מדד לקרן, במילים של בני אדם.</p>
-        </div>
-        <div style="border:1px solid rgba(190,237,217,.17); border-radius:20px; padding:24px 22px; background:#131C18;">
-          <div style="font-family:'Manrope',sans-serif; font-weight:600; letter-spacing:.15em; text-transform:uppercase; font-size:11.5px; color:#E4C7A6; margin-bottom:10px;">Weeks 3–4</div>
-          <h3 style="font-size:19px; font-weight:700;">מתרגלים בסימולטור</h3>
-          <p style="margin-top:8px; font-size:15px; color:#CBD6CF;">עסקה ראשונה, סטופ ראשון, והטעות הראשונה שלא עולה שקל.</p>
-        </div>
-        <div style="border:1px solid rgba(190,237,217,.17); border-radius:20px; padding:24px 22px; background:#131C18;">
-          <div style="font-family:'Manrope',sans-serif; font-weight:600; letter-spacing:.15em; text-transform:uppercase; font-size:11.5px; color:#E4C7A6; margin-bottom:10px;">Month 2+</div>
-          <h3 style="font-size:19px; font-weight:700;">רואים התקדמות</h3>
-          <p style="margin-top:8px; font-size:15px; color:#CBD6CF;">הרמה עולה, היומן מתמלא, והשוק כבר לא נשמע כמו שפה זרה.</p>
-        </div>
-      </div>
+    <span class="finish__mark"><img src="/img/home-mark.svg" alt="Simvy" width="26" height="26"></span>
+    <h2><span>השוק אמיתי.</span> <span>הכסף וירטואלי.</span> <span>הניסיון שלך.</span></h2>
+    <div class="badges badges--center">
+      <a href="https://apps.apple.com/il/app/id6797081307?pt=129081401&amp;ct=site-home-closing&amp;mt=8"><img src="/app-store-badge-he.svg" alt="הורדה מ-App Store" width="160" height="56" loading="lazy"></a>
+      <a href="https://play.google.com/store/apps/details?id=com.simvy.app&amp;referrer=utm_source%3Dsimvy-site%26utm_medium%3Dweb%26utm_campaign%3Dsite-home-closing"><img src="/google-play-badge-he.png" alt="הורדה מ-Google Play" width="188" height="56" loading="lazy"></a>
     </div>
-  </section>
+    <p class="finish__free">הקורס הראשון חינם. בלי כרטיס אשראי.</p>
+  </div>
+</section>
+</main>
 
-  <section style="padding:48px 0 0;">
-    <div style="max-width:1080px; margin:0 auto; padding:0 22px;">
-      <div style="border:1px solid rgba(190,237,217,.32); border-radius:26px; padding:32px 28px; background:radial-gradient(80% 90% at 85% 0%, rgba(27,94,72,.28), transparent 60%), #1B2622;">
-        <h2 style="font-size:clamp(26px,4vw,36px); font-weight:800; letter-spacing:-.015em;">למה אצלנו אין "טיפים חמים"?</h2>
-        <p style="margin-top:10px; color:#CBD6CF; font-size:17px; max-width:34em; text-wrap:pretty;">כי אנחנו מלמדים, לא ממליצים. בלי איתותים, בלי "קנה עכשיו", בלי תיק מומלץ. כאן מקבלים את הידע להבין את השוק.</p>
-        <div style="margin-top:6px; font-size:clamp(26px,4vw,36px); font-weight:800; letter-spacing:-.015em;">ההבטחות יקרות. <span style="color:#E4C7A6;">הידע זול.</span></div>
-        <div style="margin-top:20px; display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px;">
-          <div style="border:1px solid rgba(190,237,217,.17); border-radius:16px; padding:18px; background:rgba(11,15,14,.5);">
-            <b style="display:block; font-size:16px; margin-bottom:5px;">כסף וירטואלי בלבד</b>
-            <span style="font-size:14px; color:#CBD6CF;">האפליקציה לא מחוברת לשום חשבון מסחר אמיתי. אי-אפשר להפסיד כסף, רק ללמוד.</span>
-          </div>
-          <div style="border:1px solid rgba(190,237,217,.17); border-radius:16px; padding:18px; background:rgba(11,15,14,.5);">
-            <b style="display:block; font-size:16px; margin-bottom:5px;">5 קורסים להכין אתכם לשוק</b>
-            <span style="font-size:14px; color:#CBD6CF;">מבוא לשוק ההון, ניתוח טכני, ניתוח פונדמנטלי, ניהול סיכונים, פסיכולוגיה אישית וקבוצתית.</span>
-          </div>
-          <div style="border:1px solid rgba(190,237,217,.17); border-radius:16px; padding:18px; background:rgba(11,15,14,.5);">
-            <b style="display:block; font-size:16px; margin-bottom:5px;">נתוני שוק אמיתיים, מתעדכנים בערך פעם בדקה</b>
-            <span style="font-size:14px; color:#CBD6CF;">אנחנו כאן ללמד ולתרגל על השוק של היום</span>
-          </div>
-        </div>
-      </div>
+<footer class="site-foot home-foot"><div class="wrap">
+  <div class="home-foot__top">
+    <a class="brand" href="/"><span class="brand__mark"><img src="/img/home-mark.svg" alt="" width="22" height="22"></span><img class="brand__word" src="/img/home-wordmark.svg" alt="simvy" width="70" height="20"></a>
+    <span class="head-note">חינוך פיננסי · לא ייעוץ</span>
+    <div class="home-foot__badges">
+      <a href="https://apps.apple.com/il/app/id6797081307?pt=129081401&amp;ct=site-home-footer&amp;mt=8"><img src="/app-store-badge-he.svg" alt="הורדה מ-App Store" width="123" height="43" loading="lazy"></a>
+      <a href="https://play.google.com/store/apps/details?id=com.simvy.app&amp;referrer=utm_source%3Dsimvy-site%26utm_medium%3Dweb%26utm_campaign%3Dsite-home-footer"><img src="/google-play-badge-he.png" alt="הורדה מ-Google Play" width="144" height="43" loading="lazy"></a>
     </div>
-  </section>
-
-  <section style="padding:48px 0 0;">
-    <div style="max-width:1080px; margin:0 auto; padding:0 22px;">
-      <h2 style="font-size:clamp(26px,4vw,36px); font-weight:800; letter-spacing:-.015em;">טעימה מהשיעורים.</h2>
-      <p style="margin-top:10px; color:#CBD6CF; font-size:17px;">ככה נשמע חינוך פיננסי בגובה העיניים:</p>
-      <div style="margin-top:22px; display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px;">
-        <div style="border:1px solid rgba(190,237,217,.17); border-radius:20px; padding:22px; background:#1B2622; display:flex; flex-direction:column; gap:8px; min-height:150px;">
-          <span style="font-family:'Manrope',sans-serif; font-weight:600; letter-spacing:.15em; text-transform:uppercase; font-size:11px; color:#BEEDD9;">הבסיס</span>
-          <h3 style="font-size:19px; font-weight:700;">מה זה בכלל מניה?</h3>
-          <p style="color:#CBD6CF; font-size:14.5px;">חתיכה קטנה מחברה גדולה, והשאלה שכולם מתביישים לשאול.</p>
-          <span style="margin-top:auto; font-size:13px; color:rgba(203,214,207,.62);">מבוא · 10 דקות</span>
-        </div>
-        <div style="border:1px solid rgba(190,237,217,.17); border-radius:20px; padding:22px; background:#1B2622; display:flex; flex-direction:column; gap:8px; min-height:150px;">
-          <span style="font-family:'Manrope',sans-serif; font-weight:600; letter-spacing:.15em; text-transform:uppercase; font-size:11px; color:#BEEDD9;">גרפים</span>
-          <h3 style="font-size:19px; font-weight:700;">איך קוראים נר יפני?</h3>
-          <p style="color:#CBD6CF; font-size:14.5px;">גוף, פתילים, וכל מה שגרף מנסה להגיד לך בלי מילים.</p>
-          <span style="margin-top:auto; font-size:13px; color:rgba(203,214,207,.62);">ניתוח טכני · 10 דקות</span>
-        </div>
-        <div style="border:1px solid rgba(190,237,217,.17); border-radius:20px; padding:22px; background:#1B2622; display:flex; flex-direction:column; gap:8px; min-height:150px;">
-          <span style="font-family:'Manrope',sans-serif; font-weight:600; letter-spacing:.15em; text-transform:uppercase; font-size:11px; color:#BEEDD9;">מושגים</span>
-          <h3 style="font-size:19px; font-weight:700;">מה זה אג"ח</h3>
-          <p style="color:#CBD6CF; font-size:14.5px;">להלוות כסף למדינה או לחברה, ולקבל ריבית בלי להסתבך.</p>
-          <span style="margin-top:auto; font-size:13px; color:rgba(203,214,207,.62);">אג״ח · 10 דקות</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="pricing" style="padding:48px 0 0;">
-    <div style="max-width:1080px; margin:0 auto; padding:0 22px;">
-      <h2 style="font-size:clamp(26px,4vw,36px); font-weight:800; letter-spacing:-.015em;">כמה זה עולה?</h2>
-      <p style="margin-top:10px; color:#CBD6CF; font-size:17px;">מתחילים חינם. ממשיכים במחיר של קפה.</p>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(255px,1fr)); gap:16px; margin-top:22px; max-width:720px;">
-        <div style="border:1px solid rgba(190,237,217,.28); border-radius:20px; padding:24px 22px; background:#1B2622;">
-          <div style="font-size:15px; font-weight:700; color:#CBD6CF;">מתחילים</div>
-          <div style="font-size:38px; font-weight:800; margin:6px 0 2px; letter-spacing:-.02em;">חינם</div>
-          <div style="font-size:13.5px; color:rgba(203,214,207,.62); margin-bottom:14px;">בלי כרטיס אשראי</div>
-          <div style="display:grid; gap:7px; font-size:14.5px; color:#CBD6CF;">
-            <span>✓ קורס המבוא המלא (9 שיעורים ומבחן סיכום)</span>
-            <span>✓ הסימולטור והיומן</span>
-            <span>✓ חדשות השוק בעברית</span>
-          </div>
-        </div>
-        <div style="border-radius:20px; padding:24px 22px; background:#BEEDD9; color:#07372A; box-shadow:0 18px 50px rgba(190,237,217,.18);">
-          <div style="display:flex; align-items:center; gap:9px;">
-            <img src="/email-icon.png" alt="" style="width:28px; height:28px; border-radius:8px;">
-            <span style="font-size:15px; font-weight:800; letter-spacing:.04em;">Simvy PRO</span>
-          </div>
-          <div style="font-size:38px; font-weight:800; margin:8px 0 14px; letter-spacing:-.02em;"><span dir="ltr">19.90 ₪</span> לחודש</div>
-          <div style="display:grid; gap:7px; font-size:14.5px; color:#0E3A2C;">
-            <span>✓ כל הקורסים: 92 שיעורים נוספים</span>
-            <span>✓ מבחני המדרגה ואזור התרגול</span>
-          </div>
-          <div style="margin-top:14px; font-size:12px; color:#155F45;">המנוי נרכש בתוך האפליקציה</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="faq" style="padding:48px 0 0;">
-    <div style="max-width:1080px; margin:0 auto; padding:0 22px;">
-      <h2 style="font-size:clamp(26px,4vw,36px); font-weight:800; letter-spacing:-.015em;">שאלות ששואלים אותנו.</h2>
-      <div style="margin-top:24px; display:grid; gap:10px; max-width:760px;">
-        <details name="faq" open style="border:1px solid rgba(190,237,217,.17); border-radius:16px; background:#1B2622; overflow:hidden;">
-            <summary class="faq-q"><span>זה כסף אמיתי?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
-            <div class="faq-a">לא, וזאת בדיוק הפואנטה. הסימולטור רץ על נתוני שוק אמיתיים, אבל הכסף וירטואלי לגמרי. טועים, לומדים, ולא משלמים על זה שקל.</div>
-          </details>
-          <details name="faq" style="border:1px solid rgba(190,237,217,.17); border-radius:16px; background:#1B2622; overflow:hidden;">
-            <summary class="faq-q"><span>כמה זה עולה?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
-            <div class="faq-a">הקורס הראשון: חינם לגמרי, בלי כרטיס אשראי. אחר כך Simvy PRO: 19.90 ש״ח לחודש.</div>
-          </details>
-          <details name="faq" style="border:1px solid rgba(190,237,217,.17); border-radius:16px; background:#1B2622; overflow:hidden;">
-            <summary class="faq-q"><span>אתם נותנים המלצות השקעה?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
-            <div class="faq-a">לא. Simvy מלמדת איך שוק ההון עובד. היא לא אומרת לך מה לקנות או למכור. בלי איתותים, בלי טיפים, בלי הבטחות. חינוך, לא ייעוץ.</div>
-          </details>
-          <details name="faq" style="border:1px solid rgba(190,237,217,.17); border-radius:16px; background:#1B2622; overflow:hidden;">
-            <summary class="faq-q"><span>מתי אפשר להוריד?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
-            <div class="faq-a">עכשיו. Simvy זמינה ב-App Store וב-Google Play. הקורס הראשון חינם, בלי כרטיס אשראי.</div>
-          </details>
-      </div>
-    </div>
-  </section>
-
-  <section style="padding:62px 0 46px; text-align:center; position:relative; overflow:hidden;">
-    <div style="position:absolute; width:520px; height:340px; border-radius:99em; background:rgba(27,94,72,.35); filter:blur(80px); left:50%; top:55%; transform:translate(-50%,-50%); pointer-events:none;"></div>
-    <div style="position:relative; max-width:1080px; margin:0 auto; padding:0 22px;">
-      <span style="width:92px; height:92px; border-radius:24px; margin:0 auto 20px; display:grid; place-items:center; background:linear-gradient(160deg,#16211C,#0B120F); border:1px solid rgba(190,237,217,.34); box-shadow:0 18px 50px rgba(0,0,0,.55), 0 0 46px rgba(190,237,217,.14), inset 0 1px 0 rgba(255,255,255,.06);"><img src="/img/home-mark.svg" alt="Simvy" style="width:52px;"></span>
-      <h2 style="font-size:clamp(30px,5vw,44px); font-weight:800; letter-spacing:-.02em;">השוק אמיתי. הכסף וירטואלי. הניסיון שלך.</h2>
-      <div style="margin-top:26px; display:flex; justify-content:center; align-items:center; gap:14px; flex-wrap:wrap;"><a href="https://apps.apple.com/il/app/id6797081307?pt=129081401&amp;ct=site-home-closing&amp;mt=8" style="display:inline-block; line-height:0;"><img src="/app-store-badge-he.svg" alt="הורדה מ-App Store" style="height:60px; width:auto; display:block;"></a><a href="https://play.google.com/store/apps/details?id=com.simvy.app&amp;referrer=utm_source%3Dsimvy-site%26utm_medium%3Dweb%26utm_campaign%3Dsite-home-closing" style="display:inline-block; line-height:0;"><img src="/google-play-badge-he.png" alt="הורדה מ-Google Play" style="height:60px; width:auto; display:block;"></a></div>
-      <div style="margin-top:12px; font-size:14px; color:#CBD6CF;">הקורס הראשון חינם. בלי כרטיס אשראי.</div>
-          </div>
-  </section>
-
-  <footer style="border-top:1px solid rgba(190,237,217,.17); padding:28px 0 36px;">
-    <div style="max-width:1080px; margin:0 auto; padding:0 22px;">
-      <div data-m="foot" style="display:flex; flex-wrap:wrap; gap:22px; justify-content:space-between; align-items:flex-start;">
-        <div style="display:flex; align-items:center; gap:10px;">
-          <span style="width:36px; height:36px; border-radius:11px; display:grid; place-items:center; background:linear-gradient(160deg,#16211C,#0B120F); border:1px solid rgba(190,237,217,.28);"><img src="/img/home-mark.svg" alt="" style="width:19px;"></span>
-          <img src="/img/home-wordmark.svg" alt="simvy" style="width:66px;">
-        </div>
-        <div style="display:flex; gap:9px;">
-          <a href="https://apps.apple.com/il/app/id6797081307?pt=129081401&amp;ct=site-home-footer&amp;mt=8" style="display:inline-block; line-height:0;"><img src="/app-store-badge-he.svg" alt="הורדה מ-App Store" style="height:40px; width:auto; display:block;"></a>
-          <a href="https://play.google.com/store/apps/details?id=com.simvy.app&amp;referrer=utm_source%3Dsimvy-site%26utm_medium%3Dweb%26utm_campaign%3Dsite-home-footer" style="display:inline-block; line-height:0;"><img src="/google-play-badge-he.png" alt="הורדה מ-Google Play" style="height:40px; width:auto; display:block;"></a>
-        </div>
-        <div style="display:flex; gap:18px; font-size:14px; flex-wrap:wrap;">
-          <a href="/about.html" style="color:#CBD6CF;">מי אנחנו</a>
-          <a href="/courses.html" style="color:#CBD6CF;">הקורסים</a>
-          <a href="/simulator.html" style="color:#CBD6CF;">הסימולטור</a>
-          <a href="/pricing.html" style="color:#CBD6CF;">תמחור</a>
-          <a href="/disclaimer.html" style="color:#CBD6CF;">גילוי נאות</a>
-          <a href="/accessibility.html" style="color:#CBD6CF;">הצהרת נגישות</a>
-          <a href="https://legal.simvy.app/privacy.html" style="color:#CBD6CF;">מדיניות פרטיות</a>
-          <a href="https://legal.simvy.app/terms.html" style="color:#CBD6CF;">תנאי שימוש</a>
-          <a href="mailto:simvysupport@gmail.com" style="color:#CBD6CF;">יצירת קשר</a>
-        </div>
-      </div>
-      <p style="margin-top:22px; font-size:12.5px; color:rgba(203,214,207,.62); max-width:56em; line-height:1.65;">Simvy היא אפליקציית חינוך פיננסי. התכנים אינם ייעוץ השקעות ואינם תחליף לייעוץ אישי בידי בעל רישיון; המסחר באפליקציה מתבצע בכסף וירטואלי בלבד, נתוני השוק מוצגים למטרות לימוד בלבד, וחלקם עשויים להיות מוצגים בהשהיה. השקעה בשוק ההון כרוכה בסיכון.</p>
-    </div>
-  </footer>
-</div>
+  </div>
+  <nav aria-label="קישורים">
+    <a href="/about.html">מי אנחנו</a>
+    <a href="/courses.html">הקורסים</a>
+    <a href="/simulator.html">הסימולטור</a>
+    <a href="/pricing.html">תמחור</a>
+    <a href="#faq">שאלות</a>
+    <a href="/disclaimer.html">גילוי נאות</a>
+    <a href="/accessibility.html">הצהרת נגישות</a>
+    <a href="https://legal.simvy.app/privacy.html">מדיניות פרטיות</a>
+    <a href="https://legal.simvy.app/terms.html">תנאי שימוש</a>
+    <a href="mailto:simvysupport@gmail.com">יצירת קשר</a>
+  </nav>
+  <p>Simvy היא אפליקציית חינוך פיננסי. התכנים אינם ייעוץ השקעות ואינם תחליף לייעוץ אישי בידי בעל רישיון; המסחר באפליקציה מתבצע בכסף וירטואלי בלבד, נתוני השוק מוצגים למטרות לימוד בלבד, וחלקם עשויים להיות מוצגים בהשהיה. השקעה בשוק ההון כרוכה בסיכון.</p>
+</div></footer>
+<script src="/js/home.js" defer></script>
 </body>
 </html>
