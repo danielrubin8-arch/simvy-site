@@ -143,14 +143,6 @@
 .landing .perch { inset-block-start: auto; inset-block-end: 0; inline-size: 140px; }
 .landing[data-side="start"] .perch { inset-inline-start: 0; }
 @media (max-width: 760px) { .landing { inline-size: 110px; block-size: 140px; margin-inline-start: auto; } .landing .perch { inline-size: 104px; } }
-/* phones: the unified nav drops to its own row under the logo and the download button
-   (candidate for site.css once every page carries the same header) */
-@media (max-width: 640px) {
-  .site-head .wrap { flex-wrap: wrap; row-gap: 0; }
-  .site-head .btn { margin-inline-start: auto; }
-  .site-head .site-nav { order: 3; flex-basis: 100%; justify-content: space-between; margin-inline-start: 0; gap: var(--s-2); border-block-start: 1px solid var(--line); padding-block: 2px; }
-  .site-head .site-nav a { padding-block: 10px; }
-}
 </style>
   <script defer src="/t.js"></script>
 </head>
