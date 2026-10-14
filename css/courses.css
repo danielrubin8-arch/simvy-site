@@ -27,8 +27,8 @@
   .motion .walk__stage { position: sticky; inset-block-start: 0; block-size: 100vh; block-size: 100svh; display: grid; align-items: center; padding-block: var(--s-6); overflow: clip; }
   .motion .walk__rail { overflow: clip; overflow-clip-margin: 24px; -webkit-mask-image: linear-gradient(to left, transparent, #000 9%, #000 91%, transparent); mask-image: linear-gradient(to left, transparent, #000 9%, #000 91%, transparent); padding-block: 12px; }
   .motion .walk__track { justify-content: flex-start; will-change: transform; }
-  .motion .frame { inline-size: min(300px, calc((100svh - 200px) / 2.08)); transform-origin: 50% 40%; will-change: transform, opacity; }
-  .motion .walk__list li { opacity: .38; }
+  .motion .frame { inline-size: min(300px, calc((100svh - 200px) / 2.08)); transform-origin: 50% 40%; will-change: transform; }
+  .motion .walk__list li { opacity: .6; }
   .motion .walk__list li.on { opacity: 1; border-inline-start-color: var(--accent); }
 }
 /* narrow: a native swipe rail, nothing pinned */
@@ -71,6 +71,7 @@
 .plate__head { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: var(--s-6); align-items: end; }
 .plate__head h2, .plate__head h3 { grid-column: 1; font-size: var(--t-2xl); font-weight: 800; line-height: 1.12; letter-spacing: var(--track-tight); text-wrap: balance; }
 .plate__head .count { grid-column: 1; margin-block-start: var(--s-2); font-size: var(--t-sm); font-weight: 800; color: var(--accent-2); }
+.plate__n::before { content: attr(data-n); } /* decoration (aria-hidden), not text content */
 .plate__n { grid-column: 2; grid-row: 1 / span 2; font-size: clamp(56px, 7vw, 104px); font-weight: 800; line-height: .84; letter-spacing: -.04em; color: var(--surface-2); -webkit-text-stroke: 1px var(--line-strong); font-variant-numeric: tabular-nums; }
 .tier { color: var(--ink-mute); font-weight: 700; font-size: .62em; letter-spacing: 0; white-space: nowrap; }
 .tier--free { color: var(--accent); }
@@ -81,7 +82,7 @@
 .lessons { margin: var(--s-6) 0 0; padding: 0; list-style: none; counter-reset: ls; columns: 2 18em; column-gap: clamp(28px, 4vw, 56px); }
 .lessons li { counter-increment: ls; break-inside: avoid; position: relative; padding-inline-start: 2.3em; padding-block: 9px; border-block-end: 1px solid var(--line); font-size: 16px; line-height: 1.4; color: var(--ink-soft); overflow-wrap: anywhere; }
 .lessons li::before { content: counter(ls); position: absolute; inset-inline-start: 0; inset-block-start: 11px; color: var(--ink-mute); font-variant-numeric: tabular-nums; font-weight: 700; font-size: 14px; }
-.sc-ready.motion .plate:not(.in) .lessons li { opacity: 0; transform: translateY(8px); }
+.sc-ready.motion .plate:not(.in) .lessons li { opacity: .6; transform: translateY(8px); }
 .sc-ready.motion .plate .lessons li { transition: opacity 320ms var(--ease-out), transform 420ms var(--ease-out); transition-delay: calc(var(--i, 0) * 28ms); }
 
 .ext { padding-block-start: var(--s-10); border-block-start: 1px solid var(--line-strong); scroll-margin-block-start: 24px; }

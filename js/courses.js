@@ -15,6 +15,9 @@
   var track = walk && walk.querySelector('.walk__track');
   var frames = walk ? [].slice.call(walk.querySelectorAll('.frame')) : [];
   var steps = walk ? [].slice.call(walk.querySelectorAll('.walk__list li')) : [];
+  // the phone dims to .38; its caption only to .78 so the text keeps 4.5:1 contrast
+  var phones = frames.map(function (f) { return f.querySelector('.frame__phone'); });
+  var caps = frames.map(function (f) { return f.querySelector('figcaption'); });
   var centers = [], railMid = 0, pinned = false, lastWalk = '';
   function measureWalk() {
     if (!track) return;
@@ -44,7 +47,8 @@
     for (var k = 0; k < frames.length; k++) {
       var d = Math.min(Math.abs(f - k), 1);
       frames[k].style.transform = 'scale(' + (1 - d * 0.14).toFixed(3) + ')';
-      frames[k].style.opacity = (1 - d * 0.62).toFixed(3);
+      if (phones[k]) phones[k].style.opacity = (1 - d * 0.62).toFixed(3);
+      if (caps[k]) caps[k].style.opacity = (1 - d * 0.22).toFixed(3);
     }
     var cur = Math.round(f);
     for (var s = 0; s < steps.length; s++) steps[s].classList.toggle('on', +steps[s].getAttribute('data-step') === cur);
