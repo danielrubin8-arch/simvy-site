@@ -1,7 +1,7 @@
 /* about page: typographic poster. Type is the imagery. Shared tokens come from /css/site.css. */
 
 /* ---------- hero: the name at composition scale ---------- */
-.a-hero { padding-block: clamp(40px, 6vw, 88px) clamp(56px, 8vw, 120px); background: var(--canvas); overflow: clip; }
+.a-hero { padding-block: clamp(40px, 6vw, 88px) clamp(48px, 6vw, var(--s-10)); background: var(--canvas); overflow: clip; }
 .a-hero h1 { display: grid; justify-items: start; font-weight: 800; line-height: .86; margin: 0; }
 .a-hero__pre { font-size: var(--t-2xl); letter-spacing: -.01em; color: var(--accent-2); margin-block-end: clamp(4px, 1vw, 14px); }
 .a-hero__name { font-size: clamp(88px, 21vw, 300px); letter-spacing: -.055em; color: var(--ink); margin-inline-start: -.04em; }

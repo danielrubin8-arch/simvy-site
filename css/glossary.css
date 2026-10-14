@@ -102,7 +102,7 @@
   .lex__grid { grid-template-columns: minmax(0, 1fr); }
   .lex__side { display: contents; }
   .find { margin-block-end: var(--s-5); }
-  .abc { position: sticky; inset-block-start: 0; z-index: 12; margin-inline: calc(-1 * var(--gutter)); margin-block-end: var(--s-6); background: rgba(15, 21, 19, .95); border-block: 1px solid var(--line); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+  .abc { position: sticky; inset-block-start: 0; z-index: 12; margin-inline: calc(-1 * var(--gutter)); margin-block-end: var(--s-6); background: var(--veil-2); border-block: 1px solid var(--line); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
   .abc ol { display: flex; overflow-x: auto; gap: 2px; padding-inline: var(--gutter); padding-block: 4px; scrollbar-width: none; }
   .abc ol::-webkit-scrollbar { display: none; }
   .abc li { flex: 0 0 auto; }

@@ -16,7 +16,7 @@
 .walk__rail { min-inline-size: 0; outline-offset: 6px; }
 .walk__track { display: flex; gap: clamp(16px, 2.4vw, 32px); justify-content: center; }
 .frame { margin: 0; flex: 0 0 auto; inline-size: clamp(170px, 17vw, 230px); }
-.frame__phone { border-radius: 30px; overflow: hidden; border: 1px solid #2B302E; background: #0E1312; box-shadow: var(--e3), 0 0 0 6px rgba(11, 15, 14, .6); }
+.frame__phone { border-radius: 30px; overflow: hidden; border: 1px solid var(--bezel-line); background: var(--bezel); box-shadow: var(--e3), 0 0 0 6px rgba(11, 15, 14, .35); }
 .frame__phone img { inline-size: 100%; block-size: auto; }
 .frame figcaption { margin-block-start: var(--s-4); font-size: var(--t-xs); line-height: 1.5; color: var(--ink-mute); text-wrap: pretty; }
 .frame figcaption b { color: var(--ink); font-size: var(--t-sm); }
@@ -100,7 +100,7 @@
 /* narrow: the index becomes a sticky tab strip */
 @media (max-width: 1099.98px) {
   .catalog__grid { grid-template-columns: minmax(0, 1fr); }
-  .index { inset-block-start: 0; z-index: 12; margin-inline: calc(-1 * var(--gutter)); margin-block-end: var(--s-7); background: rgba(15, 21, 19, .94); border-block: 1px solid var(--line); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+  .index { inset-block-start: 0; z-index: 12; margin-inline: calc(-1 * var(--gutter)); margin-block-end: var(--s-7); background: var(--veil-2); border-block: 1px solid var(--line); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
   .index__title { display: none; }
   .index ol { display: flex; gap: var(--s-5); overflow-x: auto; padding-inline: var(--gutter); scrollbar-width: none; }
   .index ol::-webkit-scrollbar { display: none; }
