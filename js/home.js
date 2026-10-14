@@ -138,11 +138,12 @@
     if (!map || !gates.length) return;
     map.innerHTML = ''; ticks = [];
     runOn = document.createElement('span'); runOn.className = 'run-on'; map.appendChild(runOn);
+    var list = document.createElement('ol'); map.appendChild(list);
     gates.forEach(function (g) {
       var li = document.createElement('li'), a = document.createElement('a'), sp = document.createElement('span');
       a.href = '#' + g.id; sp.textContent = g.name; a.appendChild(sp); li.appendChild(a);
       li.style.insetInlineStart = (frac(g.y) * 100).toFixed(2) + '%';
-      map.appendChild(li); ticks.push(a);
+      list.appendChild(li); ticks.push(a);
     });
     me = document.createElement('span'); me.className = 'me'; map.appendChild(me);
     map.hidden = false;

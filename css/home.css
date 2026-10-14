@@ -210,7 +210,8 @@ main > section > .wrap { position: relative; z-index: 2; }
 .dock__free { font-size: 13px; line-height: 1.3; color: var(--ink-soft); margin-inline-end: auto; }
 .dock__free b { color: var(--accent); }
 .dock .btn { min-height: 44px; padding: 10px 18px; font-size: 14.5px; box-shadow: none; }
-.dock__map { list-style: none; margin: 10px 26px 0; padding: 0; position: relative; block-size: 18px; }
+.dock__map { margin: 10px 26px 0; padding: 0; position: relative; block-size: 18px; }
+.dock__map ol { list-style: none; margin: 0; padding: 0; }
 .dock__map::before { content: ""; position: absolute; inset-inline: 0; inset-block-start: 8px; block-size: 2px; border-radius: 2px; background: var(--line-strong); }
 .dock__map .run-on { position: absolute; inset-inline-start: 0; inset-block-start: 8px; block-size: 2px; border-radius: 2px; background: var(--accent); inline-size: 0; }
 .dock__map li { position: absolute; inset-block-start: 0; transform: translateX(50%); }
