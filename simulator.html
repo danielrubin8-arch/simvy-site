@@ -123,9 +123,13 @@
   .motion .beats li { position: absolute; inset-inline: 0; inset-block-start: 0; opacity: 0; font-size: 17px; }
   .motion .beats li.on { opacity: 1; }
   .motion .beats li.done { opacity: 0; }
+  /* one beat at a time: the old one leaves at once, the new one rises in from .6 so it never reads below 4.5:1 */
+  .motion .beats li { transition: border-color 260ms var(--ease-out); }
+  .motion .beats li.on { animation: beat-in 260ms var(--ease-out); }
   .motion .peak__data { margin-block-start: var(--s-3); }
   .peak .peak__chart { order: 2; }
 }
+@keyframes beat-in { from { opacity: .6; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 
 /* grades */
 .grades__row { display: flex; justify-content: space-between; gap: var(--s-2); padding: var(--s-6) var(--s-5); border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--canvas); box-shadow: var(--e2); }
