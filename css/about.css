@@ -11,6 +11,21 @@
 .a-why { padding-block: var(--chapter-pad); background: var(--ground-2); border-block-start: 1px solid var(--line); }
 .a-why__grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--s-7) clamp(32px, 6vw, 96px); align-items: start; }
 .a-why h2 { font-size: var(--t-sm); font-weight: 700; color: var(--accent-2); letter-spacing: .01em; padding-block-start: 10px; }
+/* the pool: the chapter's own image, drawn from its sentence about learning to swim with floats */
+.a-why__side { position: sticky; inset-block-start: 96px; }
+.pool { margin: var(--s-7) 0 0; inline-size: min(100%, 300px); }
+.pool svg { inline-size: 100%; block-size: auto; overflow: visible; }
+.pool image { filter: drop-shadow(0 12px 14px rgba(0, 0, 0, .4)); }
+.pool__water { fill: var(--ground-2); opacity: .9; }
+.pool .buoy { fill: none; stroke: var(--accent); stroke-width: 15; stroke-linecap: round; }
+.pool .buoy__stripe { fill: none; stroke: var(--stop); stroke-width: 15; stroke-dasharray: 14 22; }
+.pool .buoy--back { opacity: .82; }
+.pool .wave { fill: none; stroke: var(--accent-2); stroke-linecap: round; }
+.pool .w1 { stroke-width: 1.6; opacity: .6; }
+.pool .w2 { stroke-width: 1.1; opacity: .3; }
+.pool .w3 { stroke-width: 1.3; opacity: .3; }
+.pool .w4 { stroke-width: 1.1; opacity: .18; }
+.motion .pool__float { transform: translateY(calc(var(--bob, 0) * 1px)); }
 .a-why__text p { color: var(--ink-soft); font-size: var(--t-lg); line-height: 1.7; max-width: 34em; margin-block-end: var(--s-6); text-wrap: pretty; overflow-wrap: anywhere; }
 .a-why__text .say { display: block; margin-block: var(--s-8) var(--s-5); font-size: clamp(30px, 4vw, 52px); font-weight: 800; line-height: 1.08; letter-spacing: var(--track-tight); color: var(--ink); max-width: 14em; text-wrap: balance; }
 
@@ -77,6 +92,9 @@
 
 @media (max-width: 899.98px) {
   .a-why__grid, .a-contact__grid { grid-template-columns: minmax(0, 1fr); }
+  .a-why__side { position: static; display: flex; align-items: flex-end; justify-content: space-between; gap: var(--s-5); }
+  .a-why__side h2 { padding-block-end: var(--s-2); }
+  .pool { margin: 0; inline-size: 132px; flex: none; }
   .a-build__grid { grid-template-columns: minmax(0, 1fr) 84px; gap: var(--s-4); }
   .rings { inset-block-start: 16px; max-inline-size: 84px; grid-column: 2; grid-row: 1; }
   .rings__mark { inline-size: 18px; }
