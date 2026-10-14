@@ -47,8 +47,18 @@
     if (grid) grid.classList.toggle('done', all);
   }
 
+  /* the pool: the avatar and his float ride the water gently as the chapter passes */
+  var pool = document.querySelector('.pool'), why = document.querySelector('.a-why');
+  function applyPool() {
+    if (!pool || !why) return;
+    var r = why.getBoundingClientRect();
+    if (r.bottom < 0 || r.top > vh) return;
+    var p = (vh - r.top) / (vh + r.height);
+    pool.style.setProperty('--bob', (Math.sin(p * Math.PI * 4) * 4).toFixed(2));
+  }
+
   var ticking = false;
-  function frame() { ticking = false; applyLine(); applyRings(); }
+  function frame() { ticking = false; applyLine(); applyRings(); applyPool(); }
   function onScroll() { if (!ticking) { ticking = true; raf(frame); } }
   function init() {
     doc.classList.add('sc-ready');

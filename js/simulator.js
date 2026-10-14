@@ -156,7 +156,7 @@
 
   /* ---------- signature: the avatar slalom ---------- */
   var tv = document.querySelector('.traveler');
-  var gates = [], baseLeft = 0, tw = 0, th = 0, mobile = false;
+  var gates = [], baseLeft = 0, tw = 0, th = 0, mobile = false, headroom = 10;
   var poses = tv ? { glide: tv.querySelector('[data-pose="glide"]'), a: tv.querySelector('[data-pose="a"]'),
     b: tv.querySelector('[data-pose="b"]'), open: tv.querySelector('[data-pose="open"]') } : {};
   var curPose = '';
@@ -167,9 +167,12 @@
     var tr = tv.getBoundingClientRect();
     baseLeft = tr.left; tw = tr.width; th = tr.height;
     gates = [].slice.call(document.querySelectorAll('[data-gate]')).map(function (g) {
+      var media = g.closest('.spread__media');
       return { el: g.querySelector('[data-gate-box]') || g, side: g.getAttribute('data-side'),
-        perch: g.getAttribute('data-perch') || 'top', last: g.hasAttribute('data-gate-last') };
+        perch: g.getAttribute('data-perch') || 'top', last: g.hasAttribute('data-gate-last'), media: media };
     });
+    var bar = document.querySelector('.folio-mini');
+    headroom = (bar && getComputedStyle(bar).display !== 'none' ? bar.offsetHeight : 0) + 10;
   }
   // where the avatar sits on a gate right now (viewport coords, live: sticky media moves)
   function perchOf(g) {
@@ -179,6 +182,12 @@
       var out = mobile ? 0.22 : g.side === 'start' ? 0.8 : 0.5; // how far outside the gate edge
       x = g.side === 'start' ? r.right - tw * (1 - out) : r.left - tw * out;
       y = g.perch === 'side' ? r.top + r.height * 0.42 - th / 2 : r.top - th * (mobile ? 0.62 : 0.72);
+      // a figure pinned near the top of the screen (sticky media) leaves less room above it than the avatar is tall:
+      // never perch him where his head would be cut off by the viewport or the chapter bar
+      if (g.perch !== 'side' && g.media && getComputedStyle(g.media).position === 'sticky') {
+        var pinTop = (parseFloat(getComputedStyle(g.media).top) || 0) + (r.top - g.media.getBoundingClientRect().top);
+        y = Math.max(y, headroom - Math.max(0, pinTop - r.top)); // once the figure scrolls on, he leaves with it
+      }
     }
     return { x: clamp(x, 4, vw - tw - 4), y: y };
   }
@@ -223,6 +232,58 @@
     tv.style.opacity = vis.toFixed(3);
   }
 
+  // how far a figure's story has been read: while its media is pinned beside the text, the whole spread;
+  // in one column (media in the flow), the figure's own pass through the screen
+  function readP(fig, spread) {
+    var media = fig.closest('.spread__media');
+    if (media && spread && getComputedStyle(media).position === 'sticky') {
+      var r = spread.getBoundingClientRect();
+      return clamp((vh * 0.6 - r.top) / Math.max(1, r.height - vh * 0.1), 0, 1);
+    }
+    var f = fig.getBoundingClientRect();
+    return clamp((vh * 0.92 - f.top) / Math.max(1, vh * 0.62), 0, 1);
+  }
+
+  /* ---------- the portfolio card: an illustration in virtual money that moves as the chapter is read ---------- */
+  var pfChart = document.querySelector('.pf__chart');
+  var pf = pfChart ? {
+    series: JSON.parse(pfChart.getAttribute('data-series')), min: +pfChart.getAttribute('data-min'), max: +pfChart.getAttribute('data-max'),
+    lines: pfChart.querySelectorAll('.pf__line'), value: document.querySelector('.pf__value'),
+    pct: document.querySelector('.pf__pct'), chg: document.querySelector('.pf__chg'), spread: pfChart.closest('.spread'), last: ''
+  } : null;
+  function pfPath(k) {
+    var S = pf.series, n = S.length, W = 400, H = 120, PAD = 6, d = '', i0 = Math.floor(k), f = k - i0;
+    var Y = function (v) { return PAD + (pf.max - v) / (pf.max - pf.min) * (H - 2 * PAD); };
+    for (var i = 0; i <= i0 && i < n; i++) d += (i ? 'L' : 'M') + (i / (n - 1) * W).toFixed(1) + ' ' + Y(S[i]).toFixed(1);
+    if (f > 0 && i0 + 1 < n) d += 'L' + ((i0 + f) / (n - 1) * W).toFixed(1) + ' ' + Y(S[i0] + (S[i0 + 1] - S[i0]) * f).toFixed(1);
+    return d;
+  }
+  function applyPortfolio() {
+    if (!pf || !pf.spread) return;
+    var n = pf.series.length, k = readP(pfChart, pf.spread) * (n - 1), sig = k.toFixed(2);
+    if (sig === pf.last) return;
+    pf.last = sig;
+    var i0 = Math.floor(k), v = i0 + 1 < n ? pf.series[i0] + (pf.series[i0 + 1] - pf.series[i0]) * (k - i0) : pf.series[n - 1];
+    var d = pfPath(k);
+    for (var i = 0; i < pf.lines.length; i++) pf.lines[i].setAttribute('d', d);
+    var pc = (v - 10000) / 100;
+    pf.value.textContent = '$' + Math.round(v).toLocaleString('en-US');
+    pf.pct.textContent = (pc < 0 ? '-' : '+') + Math.abs(pc).toFixed(1) + '%';
+    pf.chg.classList.toggle('is-down', pc < 0);
+  }
+
+  /* ---------- the journal grades: one letter at a time, A down to F ---------- */
+  var gradeRow = document.querySelector('.grades__row');
+  var grades = gradeRow ? gradeRow.querySelectorAll('span') : [], gradeSpread = gradeRow && gradeRow.closest('.spread'), lastG = -1;
+  function applyGrades() {
+    if (!gradeRow || !gradeSpread) return;
+    var g = Math.floor(Math.min(readP(gradeRow, gradeSpread), 0.9999) * grades.length);
+    if (g === lastG) return;
+    lastG = g;
+    gradeRow.classList.add('live');
+    for (var i = 0; i < grades.length; i++) grades[i].classList.toggle('on', i === g);
+  }
+
   /* ---------- hero depth: three planes at three rates ---------- */
   var trace = document.querySelector('.title-stage .trace'), phone = document.querySelector('.title-stage .phone');
 
@@ -241,7 +302,7 @@
       if (trace) trace.style.transform = 'translate3d(0,' + (s * 0.22).toFixed(1) + 'px,0)';
       if (phone) phone.style.transform = 'translate3d(0,' + (s * -0.06).toFixed(1) + 'px,0)';
     }
-    if (motion) placeTraveler(s);
+    if (motion) { applyPortfolio(); applyGrades(); placeTraveler(s); }
     setChapter(currentChapter());
   }
   function onScroll() { if (!ticking) { ticking = true; raf(frame); } }

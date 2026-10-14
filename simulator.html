@@ -49,8 +49,19 @@
 .spread--flip > .spread__media { order: -1; }
 .spread--solo { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
 @media (max-width: 899.98px) { .spread--flip, .spread--solo { grid-template-columns: minmax(0, 1fr); } .spread--flip > .spread__media { order: 0; } }
-.card-shot { border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--e3); border: 1px solid var(--line); }
-.card-shot img { inline-size: 100%; block-size: auto; }
+/* the portfolio card, rebuilt from the app's card so its numbers can move (an illustration in virtual money) */
+.pf { border-radius: var(--r-lg); border: 1px solid #2B302E; background: linear-gradient(180deg, #121916, #0D1210); box-shadow: var(--e3), inset 0 1px 0 rgba(190, 237, 217, .08); padding: var(--s-6) var(--s-6) var(--s-5); }
+.pf__top { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--s-4); }
+.pf__label { font-size: var(--t-xs); font-weight: 700; letter-spacing: .08em; color: var(--ink-mute); }
+.pf__value { margin-block-start: var(--s-1); font-size: clamp(30px, 3.2vw, 40px); font-weight: 400; line-height: 1.1; color: var(--ink); font-variant-numeric: tabular-nums; text-align: end; letter-spacing: .01em; }
+.pf__chg { font-size: var(--t-sm); font-weight: 700; color: var(--up); padding-block-end: 6px; white-space: nowrap; }
+.pf__chg.is-down { color: var(--down); }
+.pf__pct { font-variant-numeric: tabular-nums; }
+.pf__chart { display: block; inline-size: 100%; block-size: 96px; margin-block-start: var(--s-4); overflow: visible; }
+.pf__base { stroke: rgba(190, 237, 217, .18); stroke-width: 1; stroke-dasharray: 3 5; vector-effect: non-scaling-stroke; }
+.pf__line { fill: none; stroke-width: 2.4; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.pf__line--up { stroke: var(--up); }
+.pf__line--dn { stroke: var(--down); }
 .news-shot { border-radius: 38px 38px 0 0; overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 100%); mask-image: linear-gradient(to bottom, #000 72%, transparent 100%); max-inline-size: 420px; margin-inline: auto; }
 .news-shot img { inline-size: 100%; block-size: auto; }
 
@@ -133,9 +144,15 @@
 
 /* grades */
 .grades__row { display: flex; justify-content: space-between; gap: var(--s-2); padding: var(--s-6) var(--s-5); border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--canvas); box-shadow: var(--e2); }
-.grades__row span { font-size: clamp(44px, 6vw, 72px); font-weight: 800; line-height: 1; color: var(--accent); letter-spacing: -.02em; }
-.grades__row span:nth-child(2) { opacity: .8; } .grades__row span:nth-child(3) { opacity: .62; } .grades__row span:nth-child(4) { opacity: .46; }
-.grades__row .f { color: var(--down); }
+/* each grade in its own colour; with motion, one grade at a time takes the light as the chapter scrolls, A down to F */
+.grades__row { --g-ab: var(--up); --g-c: #F2A541; --g-df: var(--down); }
+.grades__row span { font-size: clamp(44px, 6vw, 72px); font-weight: 800; line-height: 1; letter-spacing: -.02em; transition: color 280ms var(--ease-out), transform 320ms var(--ease-out); }
+.grades__row .g-a, .grades__row .g-b { color: var(--g-ab); }
+.grades__row .g-c { color: var(--g-c); }
+.grades__row .g-d, .grades__row .g-f { color: var(--g-df); }
+/* dimmed, each still above 3:1 on the card for large text */
+.motion .grades__row.live span:not(.on) { color: #5C6D65; transform: scale(.92); }
+.motion .grades__row.live span.on { transform: scale(1.08); }
 .grades figcaption { font-size: var(--t-base); color: var(--ink-soft); font-weight: 700; }
 
 .limits { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-8) clamp(32px, 6vw, 96px); }
@@ -219,10 +236,20 @@
         <p>אין ניירות ערך מהבורסה בתל אביב, ואין אופציות.</p>
       </div>
       <aside class="spread__media">
-        <figure class="fig gate" data-gate data-side="start">
-          <div class="card-shot" data-gate-box><img src="/img/sim-portfolio-card.webp" width="800" height="291" loading="lazy" decoding="async" alt="כרטיס התיק בסימולטור במסך הבית של האפליקציה: $10,000 בתחילת הדרך"></div>
-          <img class="perch" src="/img/av-lean-a.webp" alt="" width="349" height="420" loading="lazy" decoding="async">
-          <figcaption>כרטיס התיק בסימולטור, כפי שהוא מופיע במסך הבית של האפליקציה.</figcaption>
+        <figure class="fig pf-fig">
+          <div class="pf" role="img" aria-label="כרטיס התיק בסימולטור, המחשה: התיק מתחיל ב-$10,000 וירטואליים, עולה, נסוג מעט ועולה שוב">
+            <div class="pf__top" aria-hidden="true">
+              <div><p class="pf__label">התיק שלך · סימולטור</p><p class="pf__value" dir="ltr">$10,462</p></div>
+              <p class="pf__chg"><span class="pf__pct" dir="ltr">+4.6%</span> מתחילת הדרך</p>
+            </div>
+            <svg class="pf__chart" viewBox="0 0 400 120" preserveAspectRatio="none" aria-hidden="true" focusable="false" data-series="[10000,9997,9979,9946,9950,9938,9941,9953,9994,10002,10005,10019,10067,10097,10144,10195,10236,10233,10246,10283,10318,10339,10372,10393,10371,10326,10289,10249,10200,10184,10191,10186,10162,10162,10166,10177,10193,10248,10291,10318,10319,10346,10359,10380,10401,10448,10453,10462]" data-min="9900" data-max="10500">
+              <defs><clipPath id="pf-up"><rect x="0" y="0" width="400" height="96.0"/></clipPath><clipPath id="pf-dn"><rect x="0" y="96.0" width="400" height="24.0"/></clipPath></defs>
+              <line class="pf__base" x1="0" x2="400" y1="96.0" y2="96.0"/>
+              <path class="pf__line pf__line--up" clip-path="url(#pf-up)" d="M0.0 96.0 L8.5 96.5 L17.0 99.8 L25.5 105.7 L34.0 105.0 L42.6 107.2 L51.1 106.6 L59.6 104.5 L68.1 97.1 L76.6 95.6 L85.1 95.1 L93.6 92.6 L102.1 83.9 L110.6 78.5 L119.1 70.1 L127.7 60.9 L136.2 53.5 L144.7 54.1 L153.2 51.7 L161.7 45.1 L170.2 38.8 L178.7 35.0 L187.2 29.0 L195.7 25.3 L204.3 29.2 L212.8 37.3 L221.3 44.0 L229.8 51.2 L238.3 60.0 L246.8 62.9 L255.3 61.6 L263.8 62.5 L272.3 66.8 L280.9 66.8 L289.4 66.1 L297.9 64.1 L306.4 61.3 L314.9 51.4 L323.4 43.6 L331.9 38.8 L340.4 38.6 L348.9 33.7 L357.4 31.4 L366.0 27.6 L374.5 23.8 L383.0 15.4 L391.5 14.5 L400.0 12.8"/>
+              <path class="pf__line pf__line--dn" clip-path="url(#pf-dn)" d="M0.0 96.0 L8.5 96.5 L17.0 99.8 L25.5 105.7 L34.0 105.0 L42.6 107.2 L51.1 106.6 L59.6 104.5 L68.1 97.1 L76.6 95.6 L85.1 95.1 L93.6 92.6 L102.1 83.9 L110.6 78.5 L119.1 70.1 L127.7 60.9 L136.2 53.5 L144.7 54.1 L153.2 51.7 L161.7 45.1 L170.2 38.8 L178.7 35.0 L187.2 29.0 L195.7 25.3 L204.3 29.2 L212.8 37.3 L221.3 44.0 L229.8 51.2 L238.3 60.0 L246.8 62.9 L255.3 61.6 L263.8 62.5 L272.3 66.8 L280.9 66.8 L289.4 66.1 L297.9 64.1 L306.4 61.3 L314.9 51.4 L323.4 43.6 L331.9 38.8 L340.4 38.6 L348.9 33.7 L357.4 31.4 L366.0 27.6 L374.5 23.8 L383.0 15.4 L391.5 14.5 L400.0 12.8"/>
+            </svg>
+          </div>
+          <figcaption>כרטיס התיק בסימולטור, כפי שהוא מופיע במסך הבית של האפליקציה. המחשה בכסף וירטואלי.</figcaption>
         </figure>
       </aside>
     </div>
@@ -341,9 +368,8 @@
         <p>כל הניתוחים מחושבים מעסקאות שנסגרו. פוזיציה פתוחה נכנסת לחישובים רק אחרי שהיא נסגרת.</p>
       </div>
       <aside class="spread__media">
-        <figure class="fig grades gate" data-gate data-side="start">
-          <div class="grades__row" data-gate-box dir="ltr" aria-hidden="true"><span>A</span><span>B</span><span>C</span><span>D</span><span class="f">F</span></div>
-          <img class="perch" src="/img/av-glide.webp" alt="" width="325" height="420" loading="lazy" decoding="async">
+        <figure class="fig grades">
+          <div class="grades__row" dir="ltr" aria-hidden="true"><span class="g-a">A</span><span class="g-b">B</span><span class="g-c">C</span><span class="g-d">D</span><span class="g-f">F</span></div>
           <figcaption>הציון בודק את התוכנית ואת הביצוע, לא את הרווח.</figcaption>
         </figure>
       </aside>
