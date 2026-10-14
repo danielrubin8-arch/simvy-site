@@ -123,6 +123,7 @@
   var chapters = [].slice.call(document.querySelectorAll('[data-folio]'));
   var folio = document.querySelector('.folio'), mini = document.querySelector('.folio-mini');
   var fNo = document.getElementById('fm-no'), fName = document.getElementById('fm-name');
+  var papers = [].slice.call(document.querySelectorAll('.ch--paper'));
   function setChapter(sec) {
     var id = sec ? sec.id : '';
     if (folio) {
@@ -130,7 +131,14 @@
       for (var i = 0; i < as.length; i++) {
         if (as[i].getAttribute('href') === '#' + id) as[i].setAttribute('aria-current', 'true'); else as[i].removeAttribute('aria-current');
       }
-      folio.classList.toggle('is-paper', !!sec && sec.classList.contains('ch--paper'));
+      // each link takes the colour of the ground it actually sits on: the folio is centred on the
+      // viewport while the chapter test runs at 40%, so a paper edge can cross the folio mid-list
+      var pr = papers.map(function (p) { return p.getBoundingClientRect(); });
+      for (var j = 0; j < as.length; j++) {
+        var r = as[j].getBoundingClientRect(), cy = r.top + r.height / 2, on = false;
+        for (var k = 0; k < pr.length; k++) if (pr[k].top <= cy && pr[k].bottom > cy) { on = true; break; }
+        as[j].classList.toggle('is-paper', on);
+      }
     }
     if (mini) {
       mini.classList.toggle('on', !!sec);
