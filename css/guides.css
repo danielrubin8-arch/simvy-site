@@ -26,7 +26,7 @@
 /* the running answer: the current chapter's short answer stays in the margin */
 .toc__gist { display: none; }
 .js .toc li.on .toc__gist { display: block; padding-inline-start: var(--s-4); padding-block: 2px var(--s-3); color: var(--ink-soft); font-size: 14px; line-height: 1.5; text-wrap: pretty; animation: gist-in 260ms var(--ease-out); }
-@keyframes gist-in { from { opacity: 0; transform: translateY(-3px); } to { opacity: 1; transform: none; } }
+@keyframes gist-in { from { opacity: .6; transform: translateY(-3px); } to { opacity: 1; transform: none; } }
 
 .article { max-width: 40em; min-inline-size: 0; }
 .chap { scroll-margin-block-start: 24px; }

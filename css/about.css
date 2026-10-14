@@ -25,7 +25,7 @@
   .motion .a-line { block-size: 220vh; }
   .motion .a-line__stage { position: sticky; inset-block-start: 0; block-size: 100vh; block-size: 100svh; display: grid; align-items: center; padding-block: var(--s-7); overflow: clip; }
   .motion .line__a { transform-origin: 100% 100%; transform: translateY(calc(var(--k, 0) * 6%)) scale(calc(1 - var(--k, 0) * .58)); opacity: calc(1 - var(--k, 0) * .55); color: var(--ink); }
-  .motion .line__b { transform-origin: 100% 0; transform: translateY(calc((1 - var(--k, 0)) * 10%)) scale(calc(.42 + var(--k, 0) * .58)); opacity: calc(.35 + var(--k, 0) * .65); }
+  .motion .line__b { transform-origin: 100% 0; transform: translateY(calc((1 - var(--k, 0)) * 10%)) scale(calc(.42 + var(--k, 0) * .58)); opacity: calc(.42 + var(--k, 0) * .58); }
 }
 
 /* ---------- how a lesson is built ---------- */
