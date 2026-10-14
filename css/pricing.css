@@ -10,7 +10,7 @@
 .split__rule { position: relative; align-self: stretch; }
 .split__rule::before { content: ""; position: absolute; inset-block: 0; inset-inline-start: 50%; inline-size: 1px; background: var(--line-strong); }
 
-.dbar { position: sticky; inset-block-start: 0; z-index: 14; background: rgba(11, 15, 14, .9); border-block-end: 1px solid var(--line); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+.dbar { position: sticky; inset-block-start: 0; z-index: 14; background: var(--veil); border-block-end: 1px solid var(--line); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
 .dbar__grid { display: grid; grid-template-columns: minmax(0, 1fr) 128px minmax(0, 1fr); align-items: center; min-block-size: 52px; }
 .dbar__side { font-size: var(--t-sm); font-weight: 700; color: var(--ink-soft); display: flex; gap: 6px; align-items: baseline; white-space: nowrap; }
 .dbar__side b { color: var(--accent); font-size: var(--t-lg); font-weight: 800; }

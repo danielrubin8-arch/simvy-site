@@ -4,7 +4,7 @@
    RTL first, logical properties only. Never edit site.css from here; page tokens live below. */
 
 :root {
-  --gap-leg: clamp(120px, 14vw, 200px);  /* the gap between the four app screens */
+  --gap-leg: clamp(var(--s-9), 6vw, var(--s-10));  /* the gap between the four app screens (no skier crosses it any more) */
 }
 
 main { position: relative; }
@@ -43,8 +43,8 @@ main > section > .wrap { position: relative; z-index: 2; }
 .course-art .c2 { stroke: var(--accent-2); stroke-width: 1.1; opacity: .28; }
 .start .phone {
   position: relative; z-index: 1; margin: 0 auto; inline-size: min(330px, 66vw); block-size: 100%; overflow: hidden;
-  border-radius: 44px 44px 0 0; border: 1px solid #2B302E; border-block-end: 0; background: #0E1312;
-  box-shadow: var(--e3), 0 0 0 8px rgba(11, 15, 14, .6);
+  border-radius: 44px 44px 0 0; border: 1px solid var(--bezel-line); border-block-end: 0; background: var(--bezel);
+  box-shadow: var(--e3), 0 0 0 8px rgba(11, 15, 14, .35);
   -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 100%); mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
 }
 .start .phone img { inline-size: 100%; block-size: auto; }
@@ -59,7 +59,7 @@ main > section > .wrap { position: relative; z-index: 2; }
 .spec li:nth-child(odd) { padding-inline-end: var(--s-4); }
 .spec b { color: var(--accent); font-weight: 800; font-size: var(--t-xl); font-variant-numeric: tabular-nums; margin-inline-end: 4px; }
 .reel { margin: 0; justify-self: center; }
-.reel__frame { inline-size: min(290px, 64vw); aspect-ratio: 9 / 16; border-radius: 34px; overflow: hidden; border: 1px solid #2B302E; background: #0E1312; box-shadow: var(--e3), 0 0 0 7px rgba(11, 15, 14, .6); }
+.reel__frame { inline-size: min(290px, 64vw); aspect-ratio: 9 / 16; border-radius: 34px; overflow: hidden; border: 1px solid var(--bezel-line); background: var(--bezel); box-shadow: var(--e3), 0 0 0 7px rgba(11, 15, 14, .35); }
 .reel video { inline-size: 100%; block-size: 100%; object-fit: cover; }
 .gate.reel .perch { inset-block-start: 38%; inset-inline-end: calc(-1 * clamp(70px, 8vw, 120px)); }
 
@@ -91,8 +91,8 @@ main > section > .wrap { position: relative; z-index: 2; }
 .leg { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--s-8) clamp(40px, 7vw, 112px); align-items: start; margin-block-start: var(--gap-leg); }
 .leg--b, .leg--d { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
 .leg--b .leg__shot, .leg--d .leg__shot { order: 2; }
-.leg__copy { padding-block-start: clamp(24px, 6vw, 96px); }
-.leg--c .leg__copy, .leg--d .leg__copy { padding-block-start: clamp(48px, 10vw, 160px); }
+.leg__copy { padding-block-start: clamp(var(--s-4), 3vw, var(--s-8)); }
+.leg--c .leg__copy, .leg--d .leg__copy { padding-block-start: clamp(var(--s-6), 5vw, var(--s-10)); }
 .leg__copy h3 { font-size: var(--t-2xl); font-weight: 800; line-height: 1.08; letter-spacing: var(--track-tight); }
 .leg__copy > p { margin-block-start: var(--s-5); color: var(--ink-soft); max-inline-size: 30em; text-wrap: pretty; }
 .leg__shot { margin: 0; position: relative; }
@@ -100,9 +100,9 @@ main > section > .wrap { position: relative; z-index: 2; }
 .leg--b .leg__shot { inline-size: min(100%, 380px); justify-self: end; }
 .leg--c .leg__shot { inline-size: min(100%, 360px); }
 .leg--d .leg__shot { inline-size: min(100%, 360px); justify-self: end; }
-.bezel { border-radius: 38px; padding: 9px; background: #0E1312; border: 1px solid #2B302E; box-shadow: var(--e3); }
+.bezel { border-radius: 38px; padding: 9px; background: var(--bezel); border: 1px solid var(--bezel-line); box-shadow: var(--e3); }
 .bezel img { border-radius: 30px; inline-size: 100%; block-size: auto; }
-.plate { border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--e3); background: #0E1312; }
+.plate { border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--e3); background: var(--bezel); }
 .plate img { inline-size: 100%; block-size: auto; }
 .leg__shot figcaption { margin-block-start: var(--s-3); font-size: var(--t-xs); line-height: 1.5; color: var(--ink-mute); }
 .flag { display: inline-block; margin-inline-end: var(--s-2); padding: 1px 9px; border-radius: var(--r-pill); border: 1px solid var(--line-strong); color: var(--accent); font-weight: 700; }
@@ -161,7 +161,7 @@ main > section > .wrap { position: relative; z-index: 2; }
 .plan li { position: relative; padding-inline-start: 28px; color: var(--ink-soft); }
 .plan li::before { content: ""; position: absolute; inset-inline-start: 2px; inset-block-start: .5em; inline-size: 12px; block-size: 7px; border-inline-end: 2px solid var(--accent); border-block-end: 2px solid var(--accent); transform: rotate(-45deg); }
 .plan--pro .plan__note { margin-block-start: var(--s-6); }
-.faq { margin-block-start: var(--s-11); }
+.faq { margin-block-start: var(--s-10); }
 .faq > h2 { font-size: var(--t-2xl); font-weight: 800; line-height: 1.1; margin-block-end: var(--s-6); }
 
 /* ---------- 8 finish ---------- */
@@ -170,7 +170,7 @@ main > section > .wrap { position: relative; z-index: 2; }
 .finish__tape { block-size: 2px; margin-inline: auto; inline-size: min(560px, 80%); background: repeating-linear-gradient(90deg, var(--accent) 0 14px, transparent 14px 24px); opacity: .8; }
 .gate.finish__line .perch { inset-block-start: auto; inset-block-end: -2px; inset-inline-start: 50%; transform: translateX(50%); inline-size: clamp(90px, 9vw, 124px); }
 .finish__plate { position: relative; }
-.finish__mark { display: inline-grid; place-items: center; inline-size: 48px; block-size: 48px; border-radius: 14px; background: linear-gradient(160deg, #16211C, #0B120F); border: 1px solid var(--line-strong); }
+.finish__mark { display: inline-grid; place-items: center; inline-size: 48px; block-size: 48px; border-radius: 14px; background: linear-gradient(160deg, #1F2C27, #131B18); border: 1px solid var(--line-strong); }
 .finish h2 span { display: block; }
 .finish h2 span:nth-child(2) { color: var(--accent); }
 .finish h2 { margin: var(--s-6) auto 0; max-inline-size: 14em; font-size: var(--t-3xl); font-weight: 800; line-height: var(--lh-tight); letter-spacing: var(--track-tight); text-wrap: balance; }
@@ -194,7 +194,7 @@ main > section > .wrap { position: relative; z-index: 2; }
   transform: translateY(calc(100% + 24px)); transition: transform 260ms var(--ease-out); pointer-events: none;
 }
 .js .dock.on { transform: none; pointer-events: auto; }
-.dock { background: rgba(11, 15, 14, .94); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--e2); }
+.dock { background: var(--veil); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--e2); }
 .dock__row { display: flex; align-items: center; gap: var(--s-3); padding: 8px 12px 10px; padding-inline-start: 18px; }
 .dock__free { font-size: 13px; line-height: 1.3; color: var(--ink-soft); margin-inline-end: auto; }
 .dock__free b { color: var(--accent); }
@@ -210,7 +210,7 @@ main > section > .wrap { position: relative; z-index: 2; }
 .dock__map a:hover::after { border-color: var(--accent); }
 .dock__map a span { position: absolute; inset-block-end: 22px; inset-inline-start: 50%; transform: translateX(50%); white-space: nowrap; font-size: 12px; font-weight: 700; color: var(--ink); background: var(--surface-2); padding: 2px 8px; border-radius: 6px; opacity: 0; pointer-events: none; transition: opacity 140ms var(--ease-out); }
 .dock__map a:hover span, .dock__map a:focus-visible span { opacity: 1; }
-.dock__map .me { position: absolute; inset-block-start: 1px; inline-size: 16px; block-size: 16px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px rgba(11, 15, 14, .9); transform: translateX(50%); pointer-events: none; }
+.dock__map .me { position: absolute; inset-block-start: 1px; inline-size: 16px; block-size: 16px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px var(--veil); transform: translateX(50%); pointer-events: none; }
 @media (max-width: 700px) {
   .js .dock { inset-block-end: 0; inline-size: 100%; }
   .dock { border-radius: 0; border-inline: 0; border-block-end: 0; box-shadow: none; }
