@@ -122,6 +122,7 @@ main { overflow-x: clip; }
 .site-nav { display: flex; gap: var(--s-5); margin-inline-start: auto; font-size: var(--t-sm); font-weight: 700; }
 .site-nav a { color: var(--ink-soft); text-decoration: none; padding-block: var(--s-2); }
 .site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--accent); }
+.site-nav .site-nav__web { color: var(--accent); }
 .site-head .btn { min-height: 40px; padding: 8px 18px; font-size: 14.5px; box-shadow: none; }
 @media (max-width: 420px) { .brand__word { display: none; } .site-nav { gap: var(--s-3); } }
 /* phones: the unified nav drops to its own row under the logo and the download button */
