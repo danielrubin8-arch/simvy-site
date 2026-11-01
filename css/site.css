@@ -123,6 +123,20 @@ main { overflow-x: clip; }
 .site-nav a { color: var(--ink-soft); text-decoration: none; padding-block: var(--s-2); }
 .site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--accent); }
 .site-nav .site-nav__web { color: var(--accent); }
+/* From 900px the web link stands out of the row as an outlined pill beside "להורדה" (direction B, 2.11). Same <a>, same text. */
+@media (min-width: 900px) {
+  .site-head .site-nav .site-nav__web {
+    display: inline-flex; align-items: center; gap: var(--s-2); margin-inline-start: var(--s-1);
+    min-height: 40px; padding: 7px 16px; border-radius: var(--r-pill); border: 1px solid var(--line-strong);
+    background: rgba(190, 237, 217, .04); font-weight: 800; font-size: 14.5px; line-height: 1.2;
+  }
+  .site-head .site-nav .site-nav__web::before {
+    content: ""; inline-size: 18px; block-size: 18px; background: currentColor; flex: none;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='5' width='16' height='11' rx='2'/%3E%3Cpath d='M2 19h20'/%3E%3C/svg%3E") center / contain no-repeat;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='5' width='16' height='11' rx='2'/%3E%3Cpath d='M2 19h20'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+  .site-head .site-nav .site-nav__web:hover { background: rgba(190, 237, 217, .1); color: var(--accent); }
+}
 .site-head .btn { min-height: 40px; padding: 8px 18px; font-size: 14.5px; box-shadow: none; }
 @media (max-width: 420px) { .brand__word { display: none; } .site-nav { gap: var(--s-3); } }
 /* phones: the unified nav drops to its own row under the logo and the download button */
