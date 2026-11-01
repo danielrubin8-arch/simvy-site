@@ -113,6 +113,8 @@
    * the click label ("app-store:site-home-hero") splits the clicks by spot,
    * the same split the stores report for installs. A link without a token
    * still counts, as plain "app-store" / "google-play".
+   * Links to the web app (app.simvy.app, "לפתוח בדפדפן") count the same way,
+   * as "web:site-web-nav"; before this they were not counted at all.
    */
   function campaignOf(href) {
     var m = /[?&]ct=([a-z0-9-]+)/.exec(href) || /utm_campaign%3D([a-z0-9-]+)/.exec(href);
@@ -126,6 +128,7 @@
     var href = (el.getAttribute && el.getAttribute('href')) || '';
     if (/apps\.apple\.com|itunes\.apple\.com/.test(href)) return ('app-store' + campaignOf(href)).slice(0, 40);
     if (/play\.google\.com/.test(href)) return ('google-play' + campaignOf(href)).slice(0, 40);
+    if (/\/\/app\.simvy\.app/.test(href)) return ('web' + campaignOf(href)).slice(0, 40);
 
     if (el.closest && el.closest('form')) return 'waitlist-submit';
     return null;
