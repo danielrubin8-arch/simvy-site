@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simvy · להורדה</title>
+<meta name="description" content="Simvy: לומדים מסחר בעברית, עם סימולטור בכסף וירטואלי.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!--
+  simvy.app/ig: the one link in the simvy_il Instagram bio.
+  1. Adds ct=ig-bio to the address before /t.js runs, so the page view is
+     recorded as /ig/?ct=ig-bio (t.js keeps ct and utm_* from the query string).
+  2. After ~300ms, "clicks" the store button that matches the phone. t.js counts
+     the click by its data-sv label, then the link opens the store.
+     Anything that is not iOS or Android goes to the home page with ct=ig-bio.
+  3. The two buttons stay visible, for Instagram's in-app browser in case the
+     automatic step does not go through.
+  Not in sitemap.xml on purpose.
+-->
+<script>
+(function () {
+  try {
+    var p = new URLSearchParams(location.search);
+    if (!p.get('ct')) { p.set('ct', 'ig-bio'); history.replaceState(null, '', location.pathname + '?' + p.toString() + location.hash); }
+  } catch (e) {}
+})();
+</script>
+<script defer src="/t.js"></script>
+<style>
+@font-face { font-family:'Assistant'; font-weight:400; src:url('/fonts/assistant-400.ttf') format('truetype'); font-display:swap; }
+@font-face { font-family:'Assistant'; font-weight:800; src:url('/fonts/assistant-800.ttf') format('truetype'); font-display:swap; }
+*{ box-sizing:border-box; margin:0; padding:0; }
+body{
+  background: radial-gradient(100% 40% at 50% -6%, rgba(190,237,217,.12), transparent 60%), #131C18;
+  color:#F2F6F3; font-family:'Assistant',system-ui,sans-serif; font-size:17.5px; line-height:1.6;
+  -webkit-font-smoothing:antialiased; min-height:100vh; display:flex; align-items:center; justify-content:center;
+  padding:32px 16px; text-align:center;
+}
+main{ max-width:420px; width:100%; }
+.logo{ width:72px; height:72px; border-radius:18px; margin-bottom:18px; }
+h1{ font-size:28px; font-weight:800; line-height:1.2; margin-bottom:8px; }
+p{ color:#CBD6CF; margin-bottom:26px; }
+.stores{ display:flex; flex-wrap:wrap; gap:12px; justify-content:center; }
+.stores img{ display:block; height:56px; width:auto; }
+.home{ display:inline-block; margin-top:26px; color:#BEEDD9; font-size:15px; text-decoration:none; }
+</style>
+</head>
+<body>
+<main>
+  <img class="logo" src="/email-icon.png" alt="Simvy" width="72" height="72">
+  <h1>Simvy</h1>
+  <p id="msg">לומדים מסחר בעברית, ומתרגלים בסימולטור בכסף וירטואלי. מעבירים אתכם לחנות…</p>
+  <div class="stores">
+    <a id="ios" data-sv="app-store:ig-bio" href="https://apps.apple.com/il/app/id6797081307?pt=129081401&amp;ct=ig_bio&amp;mt=8"><img src="/app-store-badge-he.svg" alt="הורדה מ-App Store" width="160" height="56"></a>
+    <a id="android" data-sv="google-play:ig-bio" href="https://play.google.com/store/apps/details?id=com.simvy.app&amp;referrer=utm_source%3Dinstagram%26utm_medium%3Dbio%26utm_campaign%3Dig_bio"><img src="/google-play-badge-he.png" alt="הורדה מ-Google Play" width="188" height="56"></a>
+  </div>
+  <a class="home" data-sv="home:ig-bio" href="/?ct=ig-bio">לאתר של Simvy</a>
+</main>
+<script>
+(function () {
+  var ua = navigator.userAgent || '';
+  var uad = navigator.userAgentData;
+  var platform = (uad && uad.platform) || '';
+  var isAndroid = /android/i.test(platform) || /android/i.test(ua);
+  // iPadOS 13+ reports itself as a Mac; a touch screen tells them apart.
+  var isIOS = !isAndroid && (/iphone|ipad|ipod/i.test(ua) || (/macintosh/i.test(ua) && navigator.maxTouchPoints > 1));
+  var target = isIOS ? document.getElementById('ios') : isAndroid ? document.getElementById('android') : null;
+
+  if (!target) document.getElementById('msg').textContent = 'לומדים מסחר בעברית, ומתרגלים בסימולטור בכסף וירטואלי. מעבירים אתכם לאתר…';
+
+  setTimeout(function () {
+    try {
+      if (target) target.click();           // counted by t.js, then opens the store
+      else location.replace('/?ct=ig-bio');
+    } catch (e) {}
+  }, 300);
+})();
+</script>
+</body>
+</html>
