@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="apple-itunes-app" content="app-id=6797081307">
+<title>מי מאמן את ה-AI בחינם? על מה מאמנים מודל, ולמה דאטה הפכה לנכס | מאחורי הצ׳אט 3 · Simvy</title>
+<meta name="description" content="מודל AI יודע רק מה שקרא, ואת הפוסטים שלכם הוא קרא. על מה מאמנים בינה מלאכותית, למה איכות הדאטה קובעת את איכות המודל, ואיך דאטה הפכה לנכס שמוכרים. פרק 3 של ״מאחורי הצ׳אט״. תוכן חינוכי, לא ייעוץ.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://simvy.app/guides/behind-the-chat-03-training-data.html">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:title" content="מי מאמן את ה-AI בחינם? על מה מאמנים מודל, ולמה דאטה הפכה לנכס">
+<meta property="og:description" content="מודל AI יודע רק מה שקרא, ואת הפוסטים שלכם הוא קרא. על מה מאמנים בינה מלאכותית, למה איכות הדאטה קובעת את איכות המודל, ואיך דאטה הפכה לנכס שמוכרים. פרק 3 של ״מאחורי הצ׳אט״. תוכן חינוכי, לא ייעוץ.">
+<meta property="og:image" content="https://simvy.app/img/guides/btc-ep03.jpg">
+<meta property="og:url" content="https://simvy.app/guides/behind-the-chat-03-training-data.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="he_IL">
+<meta property="article:published_time" content="2026-11-12">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://simvy.app/#org","name":"Simvy","url":"https://simvy.app/","logo":"https://simvy.app/logo-email.png","email":"simvysupport@gmail.com","sameAs":["https://apps.apple.com/il/app/id6797081307","https://play.google.com/store/apps/details?id=com.simvy.app"]},{"@type":"MobileApplication","@id":"https://simvy.app/#app","name":"Simvy","url":"https://simvy.app/","operatingSystem":"iOS, Android","applicationCategory":"EducationalApplication","inLanguage":"he","description":"שיעורים קצרים בעברית על שוק ההון וסימולטור מסחר בכסף וירטואלי.","installUrl":["https://apps.apple.com/il/app/id6797081307","https://play.google.com/store/apps/details?id=com.simvy.app"],"sameAs":["https://apps.apple.com/il/app/id6797081307","https://play.google.com/store/apps/details?id=com.simvy.app"],"publisher":{"@id":"https://simvy.app/#org"},"offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://simvy.app/guides/behind-the-chat-03-training-data.html#article","headline":"מי מאמן את ה-AI בחינם? על מה מאמנים מודל, ולמה דאטה הפכה לנכס","alternativeHeadline":"מאחורי הצ׳אט · פרק 3 מתוך 20: הדאטה","description":"מודל AI יודע רק מה שקרא, ואת הפוסטים שלכם הוא קרא. על מה מאמנים בינה מלאכותית, למה איכות הדאטה קובעת את איכות המודל, ואיך דאטה הפכה לנכס שמוכרים. פרק 3 של ״מאחורי הצ׳אט״. תוכן חינוכי, לא ייעוץ.","inLanguage":"he","datePublished":"2026-11-12","dateModified":"2026-11-12","url":"https://simvy.app/guides/behind-the-chat-03-training-data.html","mainEntityOfPage":"https://simvy.app/guides/behind-the-chat-03-training-data.html","image":"https://simvy.app/img/guides/btc-ep03.jpg","author":{"@id":"https://simvy.app/#org"},"publisher":{"@id":"https://simvy.app/#org"},"about":{"@id":"https://simvy.app/#app"},"isPartOf":{"@type":"CreativeWorkSeries","@id":"https://simvy.app/guides/#series","name":"מאחורי הצ׳אט","url":"https://simvy.app/guides/"},"position":3,"keywords":"בינה מלאכותית, דאטה, נתוני אימון, איכות דאטה, רישיון לתוכן, Epoch AI, שרשרת ה-AI, שבבים, שוק ההון, מאחורי הצ׳אט"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Simvy","item":"https://simvy.app/"},{"@type":"ListItem","position":2,"name":"מדריכים","item":"https://simvy.app/guides.html"},{"@type":"ListItem","position":3,"name":"מאחורי הצ׳אט","item":"https://simvy.app/guides/"},{"@type":"ListItem","position":4,"name":"הדאטה","item":"https://simvy.app/guides/behind-the-chat-03-training-data.html"}]}]}</script>
+<link rel="preload" href="/fonts/assistant-800.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="/css/site.css">
+<link rel="stylesheet" href="/css/guides.css">
+<link rel="stylesheet" href="/css/guides-series.css">
+  <script defer src="/t.js"></script>
+</head>
+<body>
+<script>(function(d){d.classList.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('motion')}catch(e){}})(document.documentElement)</script>
+<a class="skip" href="#main">דילוג לתוכן</a>
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="/"><span class="brand__mark"><img src="/img/home-mark.svg" alt="Simvy" width="22" height="22"></span><img class="brand__word" src="/img/home-wordmark.svg" alt="" width="70" height="20"></a>
+  <nav class="site-nav" aria-label="ניווט ראשי"><a href="/courses.html">קורסים</a><a href="/simulator.html">הסימולטור</a><a href="/pricing.html">תמחור</a><a href="/about.html">מי אנחנו</a><a class="site-nav__web" href="https://app.simvy.app/?ct=site-web-nav">לפתוח בדפדפן</a></nav>
+  <a class="btn" href="#download">להורדה</a>
+</div></header>
+
+<main id="main">
+<section class="a-title" data-sc-act="flow">
+  <div class="wrap">
+    <p class="crumbs"><a href="/guides.html">מדריכים</a> · <a href="/guides/">מאחורי הצ׳אט</a> · פרק <bdi>3</bdi> מתוך <bdi>20</bdi></p>
+    <h1>מי מאמן את ה-<bdi>AI</bdi> בחינם? על מה מאמנים מודל, ולמה דאטה הפכה לנכס</h1>
+    <p class="lede">מודל <bdi>AI</bdi> יודע רק מה שקרא. ואת הפוסטים שלכם, הוא קרא.<br>כמו תלמיד לפני בגרות: מה שלמד זה מה שיכתוב במבחן. מודל טוב בדיוק כמו הדאטה שלו, ולכן בני אדם עדיין מדרגים ומתקנים את התשובות שלו.<br>הספרייה לא אינסופית, והדאטה הפכה למשאב שמשלמים עליו. דאטה, שבבים, מודל: כל חוליה היא תעשייה בשוק ההון.</p>
+    <p class="dateline">מאחורי הצ׳אט · פרק <bdi>3</bdi> · טיוטה, לפרסום ב-<time datetime="2026-11-12">12.11.2026</time> · נכון ל-<time datetime="2026-11-12">12.11.2026</time> · תוכן חינוכי, לא ייעוץ השקעות.</p>
+  </div>
+</section>
+
+<section class="ep-reel" data-sc-act="flow">
+  <div class="wrap ep-reel__grid">
+    <figure class="reel reel--soon"><img src="/img/guides/btc-ep03.jpg" alt="כריכת פרק 3: ״מי מאמן את ה-AI בחינם?״, פיד פוסטים שנשאב לבועת AI ליד מטבע של 0 שקלים, וסמל Simvy" width="540" height="960" loading="lazy" decoding="async"><figcaption>הריל עולה ב-<time datetime="2026-11-12">12.11.2026</time>. עד אז, הסיכום בכתב למטה.</figcaption></figure>
+    <div class="ep-reel__side">
+      <p class="toc__h">מה יש בדף הזה</p>
+      <p>הריל של פרק <bdi>3</bdi> באורך של כדקה, ולידו הסיכום בכתב: שלוש הנקודות של הפרק, התמלול, החברות שהוזכרו ולפי איזה תפקיד, והמקורות לכל מספר.</p>
+      <p class="ep-reel__fine">תוכן חינוכי, לא ייעוץ השקעות. אין כאן הערכה של חברה, מחיר או תחזית.</p>
+    </div>
+  </div>
+</section>
+
+<section class="read" data-sc-act="flow">
+  <div class="wrap read__grid">
+    <nav class="toc" aria-label="בעמוד הזה">
+      <p class="toc__h">בעמוד הזה</p>
+      <ol><li><a href="#s-1">תלמיד לפני בגרות</a><p class="toc__gist" aria-hidden="true">מה שלמד, זה מה שיכתוב במבחן.</p></li><li><a href="#s-2">הספרייה לא אינסופית</a><p class="toc__gist" aria-hidden="true">לפי הערכה של מכון המחקר <bdi>Epoch AI</bdi> משנת <bdi>2024,</bdi> הטקסט האיכותי ברשת עלול להיגמר בשנים הקרובות.</p></li><li><a href="#s-3">דאטה, שבבים, מודל</a><p class="toc__gist" aria-hidden="true">בפרק הקודם ראינו מי בונה את השבבים לאימון.</p></li><li><a href="#s-co">החברות שהוזכרו</a><p class="toc__gist" aria-hidden="true">לפי תפקיד בשרשרת, כפי שנאמר בפרק.</p></li><li><a href="#s-tr">מה נאמר בפרק</a><p class="toc__gist" aria-hidden="true">התמלול, כמו בסרטון.</p></li><li><a href="#s-src">מקורות ו״נכון ל-״</a><p class="toc__gist" aria-hidden="true">הערכת <bdi>Epoch AI</bdi> וסכום ההסכם של <bdi>Reddit</bdi> נכונים ל-<bdi>2024</bdi> ועשויים להשתנות. שמות החברות ותפקידיהן נכונים למועד ההקלטה.</p></li></ol>
+    </nav>
+    <article class="article">
+<section class="chap" id="s-1" aria-labelledby="s-1-h">
+<h2 id="s-1-h">תלמיד לפני בגרות</h2>
+<p>מה שלמד, זה מה שיכתוב במבחן. למודל, חומר הלימוד הוא דאטה: הרשת, ספרים, קוד ותמונות. וכאן הכלל: מודל טוב בדיוק כמו הדאטה שלו. למדת מסיכומים גרועים? תכתוב תשובות גרועות. לכן בני אדם מדרגים ומתקנים תשובות, כמו מורה במבחן.</p>
+</section>
+<section class="chap" id="s-2" aria-labelledby="s-2-h">
+<h2 id="s-2-h">הספרייה לא אינסופית</h2>
+<p>לפי הערכה של מכון המחקר <bdi>Epoch AI</bdi> משנת <bdi>2024,</bdi> הטקסט האיכותי ברשת עלול להיגמר בשנים הקרובות. כשמשאב נגמר, הוא מקבל מחיר: לפי דיווחים מ-<bdi>2024,</bdi> <bdi>Reddit</bdi> מקבלת מ-<bdi>Google</bdi> כ-<bdi>60</bdi> מיליון דולר בשנה על גישה לתוכן של המשתמשים שלה.</p>
+</section>
+<section class="chap" id="s-3" aria-labelledby="s-3-h">
+<h2 id="s-3-h">דאטה, שבבים, מודל</h2>
+<p>בפרק הקודם ראינו מי בונה את השבבים לאימון. השבבים מריצים את האימון, והדאטה היא מה שלומדים ממנו. וככה הכול מתחבר: דאטה, שבבים, מודל. כל חוליה כזאת היא תעשייה בשוק ההון. זה הסבר על התעשייה, לא ייעוץ השקעות.</p>
+</section>
+<section class="chap" id="s-co" aria-labelledby="s-co-h">
+<h2 id="s-co-h">החברות שהוזכרו בפרק</h2>
+<p class="gist"><b>בקצרה:</b> לפי תפקיד בשרשרת, כמה יחד, כפי שנאמר בפרק. נכון ל-<time datetime="2026-11-12">12.11.2026</time>.</p>
+<ul>
+<li><b>חוליית הדאטה: מחזיקות או מוכרות חומר לימוד:</b> <bdi>Google</bdi> (חיפוש, <bdi>YouTube</bdi>, <bdi>Gmail</bdi>), <bdi>Meta</bdi> (<bdi>Facebook</bdi>, <bdi>Instagram</bdi>, <bdi>WhatsApp</bdi>), <bdi>Reddit</bdi> (רישיון לתוכן המשתמשים).</li>
+<li><b>חוליית השבבים: בונות שבבים לאימון (מפרק 2):</b> <bdi>NVIDIA</bdi>, <bdi>AMD</bdi>, <bdi>Broadcom</bdi>.</li>
+</ul>
+<p>החברות מוזכרות בפרק לפי התפקיד שלהן בשרשרת, כמה יחד, בלי מחיר ובלי תחזית. סכום ההסכם בין <bdi>Reddit</bdi> ל-<bdi>Google</bdi> הוא לפי דיווחים מפברואר <bdi>2024,</bdi> והחברות אישרו את ההסכם אבל לא את הסכום. אין כאן הערכה של אף חברה, אין מחיר ואין תחזית. תוכן חינוכי, לא ייעוץ השקעות.</p>
+</section>
+<section class="chap" id="s-tr" aria-labelledby="s-tr-h">
+<h2 id="s-tr-h">מה נאמר בפרק</h2>
+<p class="gist"><b>התמלול,</b> כמו שנאמר בסרטון. בלי תוספות.</p>
+<p><b>ההוק.</b> אתם עובדים בשביל ה-<bdi>AI.</bdi> ולא קיבלתם על זה שקל.</p>
+<p><b>התשובה להוק.</b> כי מודל <bdi>AI</bdi> יודע רק מה שקרא. ואת הפוסטים שלכם, הוא קרא.</p>
+<p><b>תלמיד לפני בגרות.</b> תחשבו על תלמיד לפני בגרות. מה שלמד, זה מה שיכתוב במבחן. למודל, חומר הלימוד הוא דאטה: הרשת, ספרים, קוד ותמונות. וכאן הכלל: מודל טוב בדיוק כמו הדאטה שלו. למדת מסיכומים גרועים? תכתוב תשובות גרועות. לכן בני אדם מדרגים ומתקנים תשובות, כמו מורה במבחן.</p>
+<p><b>הדאטה מוגבלת.</b> אבל הספרייה לא אינסופית. לפי הערכה של <bdi>Epoch AI</bdi>, טקסט איכותי ברשת עלול להיגמר בשנים הקרובות.</p>
+<p><b>החיבור לפרק הקודם ולבורסה.</b> בפרק הקודם ראינו מי בונה את השבבים לאימון: אנבידיה, <bdi>AMD</bdi> וברודקום. השבבים מריצים את האימון, והדאטה היא מה שלומדים ממנו. ומי מחזיק בחומר הלימוד? גוגל, מטא ורדיט, למשל. לפי הדיווחים, רדיט מקבלת מגוגל כשישים מיליון דולר בשנה.</p>
+<p><b>השרשרת.</b> וככה הכל מתחבר: דאטה, שבבים, מודל. וכל חוליה כזאת היא תעשייה בבורסה. זה הסבר על התעשייה, לא ייעוץ השקעות.</p>
+<p><b>בפרק הבא.</b> בפרק הבא: איך המודל מנחש את המילה הבאה.</p>
+</section>
+<section class="chap" id="s-src" aria-labelledby="s-src-h">
+<h2 id="s-src-h">מקורות, ו״נכון ל-״</h2>
+<p class="gist"><b>רגישות לזמן:</b> הערכת <bdi>Epoch AI</bdi> וסכום ההסכם של <bdi>Reddit</bdi> נכונים ל-<bdi>2024</bdi> ועשויים להשתנות. שמות החברות ותפקידיהן נכונים למועד ההקלטה.</p>
+<ul>
+<li><bdi>Epoch AI</bdi>, <bdi>2024,</bdi> ״<bdi>Will</bdi> <bdi>we</bdi> <bdi>run</bdi> <bdi>out</bdi> <bdi>of</bdi> <bdi>data</bdi>?״: מלאי של כ-<bdi>300</bdi> טריליון טוקנים של טקסט אנושי ציבורי, שעלול להיות מנוצל בין <bdi>2026</bdi> ל-<bdi>2032</bdi> אם המגמות יימשכו.</li>
+<li><bdi>Reuters</bdi>, פברואר <bdi>2024</bdi>: לפי מקורות, <bdi>Reddit</bdi> חתמה עם <bdi>Google</bdi> על הסכם רישיון לתוכן בשווי של כ-<bdi>60</bdi> מיליון דולר בשנה.</li>
+<li>למידה מפידבק אנושי (<bdi>RLHF</bdi>): תהליך מקובל שבו בני אדם מדרגים ומתקנים תשובות של המודל.</li>
+</ul>
+<p>הדף נכון ל-<time datetime="2026-11-12">12.11.2026</time>. מספרים על חברות נקובות מובאים בדיעבד ועם תאריך, כפי שנאמרו בפרק.</p>
+</section>
+    </article>
+  </div>
+</section>
+
+<section class="more" data-sc-act="flow">
+  <div class="wrap">
+    <h2 class="more__h">להתחיל מהבסיס</h2>
+    <p class="more__lead">״כל חוליה כזאת היא תעשייה בבורסה.״ איך בכלל חברה הופכת למניה, ומה קורה כשלוחצים ״קנייה״? את זה לומדים בשיעורים הראשונים.</p>
+    <a class="next" href="/guides/learn-stock-market-free-hebrew.html">
+      <span class="next__k">ללמוד את שוק ההון בחינם, בעברית</span>
+      <span class="next__t">קורס המבוא של <bdi>Simvy</bdi> פתוח בלי תשלום</span>
+      <span class="next__d">מה זה מניה, איך עובדת בורסה ומה ההבדל בין מדד לקרן. <bdi>9</bdi> שיעורים של כ-<bdi>10</bdi> דקות ומבחן סיכום, בעברית, בלי כרטיס אשראי.</span>
+    </a>
+    <p class="more__also">הפרק הבא: המנחש של המילה הבאה (עולה בהמשך)</p>
+    <p class="more__also">הפרק הקודם: <a href="/guides/behind-the-chat-02-how-ai-learns.html">הצ׳אט באמת חושב? איך מודל <bdi>AI</bdi> לומד, בלי מתמטיקה</a></p>
+    <p class="more__gl"><a href="/guides/">כל הפרקים של מאחורי הצ׳אט</a> · <a href="/glossary.html">מילון המונחים</a></p>
+  </div>
+</section>
+
+<section class="colophon a-close" id="download" data-sc-act="flow">
+  <div class="wrap colophon__grid">
+    <div>
+      <p class="colophon__line">שיעורים קצרים בעברית על שוק ההון, וסימולטור מסחר בכסף וירטואלי.</p>
+      <div class="colophon__links">
+        <a class="btn" href="https://apps.apple.com/il/app/id6797081307?pt=129081401&amp;ct=site-guide-btc03&amp;mt=8">להורדה מ-App Store</a>
+        <a class="btn" href="https://play.google.com/store/apps/details?id=com.simvy.app&amp;referrer=utm_source%3Dsimvy-site%26utm_medium%3Dweb%26utm_campaign%3Dsite-guide-btc03">להורדה מ-Google Play</a>
+      </div>
+      <p class="fine"><em>Simvy היא אפליקציית חינוך פיננסי. התכנים אינם ייעוץ השקעות ואינם תחליף לייעוץ אישי בידי בעל רישיון; המסחר באפליקציה מתבצע בכסף וירטואלי בלבד.</em></p>
+    </div>
+    <img class="a-close__av" src="/img/av-pointing.webp" alt="" width="344" height="420" loading="lazy" decoding="async">
+  </div>
+</section>
+</main>
+
+<footer class="site-foot"><div class="wrap">
+  <nav aria-label="קישורים">
+    <a href="/">דף הבית</a>
+    <a href="/about.html">מי אנחנו</a>
+    <a href="/courses.html">הקורסים</a>
+    <a href="/glossary.html">מילון מונחים</a>
+    <a href="/guides.html">מדריכים</a>
+    <a href="/simulator.html">הסימולטור</a>
+    <a href="/pricing.html">תמחור</a>
+    <a href="https://app.simvy.app/?ct=site-web-nav">לפתוח בדפדפן</a>
+    <a href="/disclaimer.html">גילוי נאות</a>
+    <a href="/accessibility.html">הצהרת נגישות</a>
+    <a href="https://legal.simvy.app/privacy.html">מדיניות פרטיות</a>
+    <a href="https://legal.simvy.app/terms.html">תנאי שימוש</a>
+    <a href="mailto:simvysupport@gmail.com">יצירת קשר</a>
+  </nav>
+  Simvy היא אפליקציית חינוך פיננסי. התכנים אינם ייעוץ השקעות; המסחר באפליקציה מתבצע בכסף וירטואלי בלבד.
+</div></footer>
+<script src="/js/guides.js" defer></script>
+</body>
+</html>
