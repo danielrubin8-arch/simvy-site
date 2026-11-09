@@ -3,6 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+/* simvy.app/i/CODE (an invite typed or shared in its short form) is not a file
+   on GitHub Pages, so it lands here: forward it to the invite page, which reads
+   ?c=. Anything else stays a normal 404. */
+(function () {
+  var m = /^\/i\/([A-Za-z0-9-]{4,12})\/?$/.exec(location.pathname);
+  if (m) location.replace('/i/?c=' + encodeURIComponent(m[1]));
+})();
+</script>
 <title>הדף לא נמצא · Simvy</title>
 <meta name="description" content="העמוד שחיפשת לא נמצא.">
 <link rel="canonical" href="https://simvy.app/404.html">

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>קיבלת הזמנה ל-Simvy</title>
+<meta name="description" content="נרשמים ל-Simvy עם הקוד של החבר שלך, ושניכם מקבלים 3 ימי PRO. לומדים שוק ההון בעברית, בשיעורים קצרים.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="קיבלת הזמנה ל-Simvy">
+<meta property="og:description" content="נרשמים עם הקוד של החבר שלך, ושניכם מקבלים 3 ימי PRO. לומדים שוק ההון בעברית.">
+<meta property="og:image" content="https://simvy.app/og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!--
+  simvy.app/i/?c=CODE: the page a friend's invite link opens ("הזמן חבר",
+  app gallery v67, simvy-app feat/invite-friend-referral).
+  - Shows the code big and says where to type it: at the end of signup, in the
+    row "יש לך קוד מחבר?". A deferred deep link through the store is not
+    reliable on iPhone, so the code itself is the thread.
+  - Two store buttons (App Store with ct=invite, Play with utm_campaign=invite),
+    the one for this phone first. NO automatic jump to the store: the friend
+    has to see the code before leaving.
+  - "כבר יש לי את האפליקציה" opens simvy://i/CODE, which keeps the code in the
+    app so the field opens pre-filled.
+  - The code is read from ?c= (or from /i/CODE, which 404.html forwards here)
+    and accepted only in the app's alphabet (6 characters, no 0/O/1/I/L).
+    t.js records ct=invite and drops the code: it keeps only ct and utm_*.
+  The inviter's name is never shown: looking it up would expose a name to
+  anyone holding a link. Not in sitemap.xml on purpose.
+-->
+<script>
+(function () {
+  try {
+    var p = new URLSearchParams(location.search);
+    if (!p.get('ct')) { p.set('ct', 'invite'); history.replaceState(null, '', location.pathname + '?' + p.toString() + location.hash); }
+  } catch (e) {}
+})();
+</script>
+<script defer src="/t.js"></script>
+<style>
+@font-face { font-family:'Assistant'; font-weight:400; src:url('/fonts/assistant-400.ttf') format('truetype'); font-display:swap; }
+@font-face { font-family:'Assistant'; font-weight:700; src:url('/fonts/assistant-700.ttf') format('truetype'); font-display:swap; }
+@font-face { font-family:'Assistant'; font-weight:800; src:url('/fonts/assistant-800.ttf') format('truetype'); font-display:swap; }
+*{ box-sizing:border-box; margin:0; padding:0; }
+body{
+  background: radial-gradient(100% 40% at 50% -6%, rgba(190,237,217,.12), transparent 60%), #131C18;
+  color:#F2F6F3; font-family:'Assistant',system-ui,sans-serif; font-size:17.5px; line-height:1.6;
+  -webkit-font-smoothing:antialiased; min-height:100vh; display:flex; align-items:center; justify-content:center;
+  padding:32px 16px; text-align:center;
+}
+main{ max-width:440px; width:100%; }
+.logo{ width:64px; height:64px; border-radius:16px; margin-bottom:14px; }
+h1{ font-size:27px; font-weight:800; line-height:1.25; margin-bottom:8px; text-wrap:balance; }
+h1 em{ font-style:normal; color:#BEEDD9; }
+p{ color:#CBD6CF; margin-bottom:18px; }
+.code{ margin:6px 0 10px; padding:18px 14px 14px; border-radius:20px; background:#1B2622; border:1px solid rgba(190,237,217,.22); }
+.code .k{ font-size:13px; font-weight:700; color:#7FCBAE; }
+.code .v{ direction:ltr; unicode-bidi:isolate; font-family:'Assistant',system-ui,sans-serif; font-weight:800; font-size:40px; letter-spacing:8px; color:#F2F6F3; margin:2px 0 8px; user-select:all; }
+.code button{ font:inherit; font-size:14px; font-weight:700; color:#BEEDD9; background:rgba(190,237,217,.10); border:0; border-radius:99px; padding:8px 18px; min-height:44px; cursor:pointer; }
+.code button:focus-visible, a:focus-visible{ outline:2px solid #BEEDD9; outline-offset:3px; }
+.where{ font-size:15px; color:#CBD6CF; margin:12px 0 20px; }
+.where b{ color:#F2F6F3; }
+.stores{ display:flex; flex-wrap:wrap; gap:12px; justify-content:center; }
+.stores img{ display:block; height:56px; width:auto; }
+.open{ display:inline-block; margin-top:20px; color:#BEEDD9; font-size:15px; font-weight:700; text-decoration:none; min-height:44px; line-height:44px; }
+.fine{ font-size:13px; color:rgba(203,214,207,.62); margin:14px 0 0; }
+.nocode .code, .nocode .where, .nocode .open{ display:none; }
+</style>
+</head>
+<body>
+<main id="main">
+  <img class="logo" src="/email-icon.png" alt="Simvy" width="64" height="64">
+  <h1>קיבלת הזמנה: <em>3 ימי PRO</em> לך ולחבר שלך</h1>
+  <p>לומדים שוק ההון בעברית, בשיעורים קצרים, ומתרגלים בסימולטור בכסף וירטואלי. קורס המבוא פתוח בלי תשלום.</p>
+  <div class="code">
+    <div class="k">הקוד מהחבר שלך</div>
+    <div class="v" id="code" aria-live="polite"></div>
+    <button type="button" id="copy">העתקת הקוד</button>
+  </div>
+  <p class="where">מתקינים, פותחים חשבון (לא כאורח), ובסוף ההרשמה לוחצים על <b>"יש לך קוד מחבר?"</b> ומקלידים אותו.</p>
+  <div class="stores" id="stores">
+    <a id="ios" data-sv="app-store:invite" href="https://apps.apple.com/il/app/id6797081307?pt=129081401&amp;ct=invite&amp;mt=8"><img src="/app-store-badge-he.svg" alt="הורדה מ-App Store" width="160" height="56"></a>
+    <a id="android" data-sv="google-play:invite" href="https://play.google.com/store/apps/details?id=com.simvy.app&amp;referrer=utm_source%3Dfriend%26utm_medium%3Dinvite%26utm_campaign%3Dinvite"><img src="/google-play-badge-he.png" alt="הורדה מ-Google Play" width="188" height="56"></a>
+  </div>
+  <a class="open" id="open" data-sv="open-app:invite" href="simvy://i/">כבר יש לי את האפליקציה</a>
+  <p class="fine">גיל 16 ומעלה. בלי מנוי ובלי חיוב, וכשהימים נגמרים שום דבר לא מתחדש לבד. התוכן לימודי בלבד ואינו ייעוץ השקעות.</p>
+</main>
+<script>
+(function () {
+  var RE = /^[ABCDEFGHJKMNPQRSTUVWXYZ23456789]{6}$/;
+  var raw = '';
+  try { raw = new URLSearchParams(location.search).get('c') || ''; } catch (e) {}
+  var code = raw.replace(/[\s-]/g, '').toUpperCase();
+  var main = document.getElementById('main');
+  if (!RE.test(code)) {
+    // No usable code: still a real page, the stores stay.
+    main.classList.add('nocode');
+    return;
+  }
+  document.getElementById('code').textContent = code;
+  document.getElementById('open').setAttribute('href', 'simvy://i/' + code);
+
+  var btn = document.getElementById('copy');
+  btn.addEventListener('click', function () {
+    function done() { btn.textContent = 'הקוד הועתק'; }
+    try {
+      navigator.clipboard.writeText(code).then(done, select);
+    } catch (e) { select(); }
+    function select() {
+      var r = document.createRange();
+      r.selectNodeContents(document.getElementById('code'));
+      var s = window.getSelection();
+      s.removeAllRanges();
+      s.addRange(r);
+    }
+  });
+
+  // The store for this phone first (the other one stays, for a shared link).
+  var ua = navigator.userAgent || '';
+  var uad = navigator.userAgentData;
+  var platform = (uad && uad.platform) || '';
+  var isAndroid = /android/i.test(platform) || /android/i.test(ua);
+  if (isAndroid) {
+    var stores = document.getElementById('stores');
+    stores.insertBefore(document.getElementById('android'), stores.firstChild);
+  }
+})();
+</script>
+</body>
+</html>
