@@ -2,25 +2,29 @@
 <html lang="he" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>קיבלת הזמנה ל-Simvy</title>
 <meta name="description" content="נרשמים ל-Simvy עם הקוד של החבר שלך, ושניכם מקבלים 3 ימי PRO. לומדים שוק ההון בעברית, בשיעורים קצרים.">
 <meta name="robots" content="noindex">
+<meta name="theme-color" content="#E8F1EC">
 <meta property="og:title" content="קיבלת הזמנה ל-Simvy">
 <meta property="og:description" content="נרשמים עם הקוד של החבר שלך, ושניכם מקבלים 3 ימי PRO. לומדים שוק ההון בעברית.">
 <meta property="og:image" content="https://simvy.app/og-image.jpg">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/img/invite-handoff.webp" as="image" fetchpriority="high">
 <!--
   simvy.app/i/?c=CODE: the page a friend's invite link opens ("הזמן חבר",
-  app gallery v67, simvy-app feat/invite-friend-referral).
-  - Shows the code big and says where to type it: at the end of signup, in the
-    row "יש לך קוד מחבר?". A deferred deep link through the store is not
-    reliable on iPhone, so the code itself is the thread.
-  - Two store buttons (App Store with ct=invite, Play with utm_campaign=invite),
-    the one for this phone first. NO automatic jump to the store: the friend
-    has to see the code before leaving.
+  app gallery v67 / page galleries GALLERY_invite-page_v1+v2 in simvy-app,
+  Daniel's pick 9.11.2026: paper ground, ticket, copy "3 ימי PRO" only).
+  - The Simvy character hands a gift to a friend (img/invite-handoff.webp,
+    generated from the brand avatar; the friend is a new character), then one
+    ticket that holds both the value ("3 ימי PRO") and the code, then three
+    numbered steps. The code is what the friend has to carry into the app: a
+    deferred deep link through the store is not reliable on iPhone.
+  - One primary store button for this phone, the other store as a text link.
+    NO automatic jump to the store: the friend has to see the code before leaving.
   - "כבר יש לי את האפליקציה" opens simvy://i/CODE, which keeps the code in the
     app so the field opens pre-filled.
   - The code is read from ?c= (or from /i/CODE, which 404.html forwards here)
@@ -42,49 +46,121 @@
 @font-face { font-family:'Assistant'; font-weight:400; src:url('/fonts/assistant-400.ttf') format('truetype'); font-display:swap; }
 @font-face { font-family:'Assistant'; font-weight:700; src:url('/fonts/assistant-700.ttf') format('truetype'); font-display:swap; }
 @font-face { font-family:'Assistant'; font-weight:800; src:url('/fonts/assistant-800.ttf') format('truetype'); font-display:swap; }
-*{ box-sizing:border-box; margin:0; padding:0; }
-body{
-  background: radial-gradient(100% 40% at 50% -6%, rgba(190,237,217,.12), transparent 60%), #131C18;
-  color:#F2F6F3; font-family:'Assistant',system-ui,sans-serif; font-size:17.5px; line-height:1.6;
-  -webkit-font-smoothing:antialiased; min-height:100vh; display:flex; align-items:center; justify-content:center;
-  padding:32px 16px; text-align:center;
+:root{
+  /* the site's paper chapter (css/site.css --paper) with the light-theme accents */
+  --paper:#E8F1EC; --card:#FFFFFF; --ink:#0F2A21; --soft:#2F4A40; --mute:#5B7268;
+  --accent:#17573F; --accent-2:#1F8F75; --accent-ink:#EAF6EE;
+  --line:rgba(15,42,33,.12); --line-strong:rgba(15,42,33,.26);
+  --shadow:0 10px 26px rgba(30,60,45,.12), 0 1px 2px rgba(30,60,45,.08);
 }
-main{ max-width:440px; width:100%; }
-.logo{ width:64px; height:64px; border-radius:16px; margin-bottom:14px; }
-h1{ font-size:27px; font-weight:800; line-height:1.25; margin-bottom:8px; text-wrap:balance; }
-h1 em{ font-style:normal; color:#BEEDD9; }
-p{ color:#CBD6CF; margin-bottom:18px; }
-.code{ margin:6px 0 10px; padding:18px 14px 14px; border-radius:20px; background:#1B2622; border:1px solid rgba(190,237,217,.22); }
-.code .k{ font-size:13px; font-weight:700; color:#7FCBAE; }
-.code .v{ direction:ltr; unicode-bidi:isolate; font-family:'Assistant',system-ui,sans-serif; font-weight:800; font-size:40px; letter-spacing:8px; color:#F2F6F3; margin:2px 0 8px; user-select:all; }
-.code button{ font:inherit; font-size:14px; font-weight:700; color:#BEEDD9; background:rgba(190,237,217,.10); border:0; border-radius:99px; padding:8px 18px; min-height:44px; cursor:pointer; }
-.code button:focus-visible, a:focus-visible{ outline:2px solid #BEEDD9; outline-offset:3px; }
-.where{ font-size:15px; color:#CBD6CF; margin:12px 0 20px; }
-.where b{ color:#F2F6F3; }
-.stores{ display:flex; flex-wrap:wrap; gap:12px; justify-content:center; }
-.stores img{ display:block; height:56px; width:auto; }
-.open{ display:inline-block; margin-top:20px; color:#BEEDD9; font-size:15px; font-weight:700; text-decoration:none; min-height:44px; line-height:44px; }
-.fine{ font-size:13px; color:rgba(203,214,207,.62); margin:14px 0 0; }
-.nocode .code, .nocode .where, .nocode .open{ display:none; }
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ -webkit-text-size-adjust:100%; }
+body{
+  background: radial-gradient(90% 30% at 50% -4%, rgba(190,237,217,.6), transparent 70%), var(--paper);
+  color:var(--ink); font-family:'Assistant',system-ui,sans-serif; font-size:17px; line-height:1.55;
+  -webkit-font-smoothing:antialiased; min-height:100vh; min-height:100dvh;
+  display:flex; align-items:center; justify-content:center;
+  padding:max(16px, env(safe-area-inset-top)) 16px max(24px, env(safe-area-inset-bottom));
+}
+main{ max-width:420px; width:100%; display:flex; flex-direction:column; align-items:stretch; }
+img, svg{ display:block; max-width:100%; }
+a:focus-visible, button:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:6px; }
+
+.badge{ align-self:center; display:inline-flex; align-items:center; gap:7px; font-size:13.5px; font-weight:800; color:var(--accent);
+  background:rgba(23,87,63,.08); border:1px solid var(--line-strong); border-radius:999px; padding:6px 13px; }
+.badge img{ inline-size:18px; block-size:auto; }
+
+.hero{ position:relative; margin-block-start:10px; display:flex; justify-content:center; align-items:flex-end; block-size:clamp(170px, 56vw, 240px); }
+.hero::before{ content:""; position:absolute; inset-inline:12%; inset-block-end:4px; block-size:22px; border-radius:50%;
+  background:radial-gradient(50% 50% at 50% 50%, rgba(23,87,63,.18), transparent 70%); }
+/* The illustration was drawn with Simvy on the left; flipped, Simvy stands at the start (right) and hands the gift toward the reading direction. */
+.hero img{ position:relative; block-size:100%; inline-size:auto; transform:scaleX(-1); filter:drop-shadow(0 12px 22px rgba(23,87,63,.22)); }
+
+h1{ margin-block-start:6px; text-align:center; font-size:clamp(26px, 7.4vw, 30px); font-weight:800; line-height:1.2; letter-spacing:-.4px; text-wrap:balance; }
+h1 em{ font-style:normal; color:var(--accent); }
+
+.ticket{ position:relative; margin-block-start:16px; display:flex; align-items:center; gap:12px; padding:14px 16px;
+  border-radius:18px; background:var(--card); border:1px solid var(--line); box-shadow:var(--shadow); }
+.ticket::before, .ticket::after{ content:""; position:absolute; inset-block-start:50%; inline-size:20px; block-size:20px; border-radius:50%;
+  background:var(--paper); transform:translateY(-50%); }
+.ticket::before{ inset-inline-start:-11px; } .ticket::after{ inset-inline-end:-11px; }
+.stub{ flex:none; inline-size:78px; display:flex; flex-direction:column; align-items:center; gap:0; padding-inline-end:12px; border-inline-end:1px dashed var(--line-strong); }
+.stub b{ font-size:36px; font-weight:800; line-height:1; color:var(--accent); font-variant-numeric:tabular-nums; }
+.stub span{ font-size:13px; font-weight:700; color:var(--soft); line-height:1.2; margin-block-start:3px; white-space:nowrap; }
+.tbody{ flex:1; min-inline-size:0; text-align:start; }
+.tbody .k{ font-size:12.5px; font-weight:700; color:var(--accent); }
+.tbody .v{ direction:ltr; unicode-bidi:isolate; text-align:start; font-weight:800; font-size:clamp(26px, 7.2vw, 30px); letter-spacing:5px; line-height:1.15; color:var(--ink); user-select:all; margin-inline-start:-2px; }
+.tbody .from{ display:flex; align-items:center; gap:6px; margin-block-start:5px; font-size:12.5px; color:var(--soft); line-height:1.3; }
+.tbody .from i{ flex:none; inline-size:22px; block-size:22px; border-radius:50%; overflow:hidden; background:#F3F8F5; }
+.tbody .from i img{ inline-size:100%; block-size:100%; object-fit:cover; object-position:50% 0; }
+.copy{ flex:none; inline-size:42px; block-size:42px; border:0; border-radius:12px; background:rgba(23,87,63,.10); color:var(--accent); cursor:pointer; display:grid; place-items:center; font:inherit; }
+.copy svg{ inline-size:20px; block-size:20px; }
+.copy.done{ background:var(--accent); color:var(--accent-ink); }
+.copied{ display:none; text-align:center; font-size:13px; font-weight:700; color:var(--accent); margin-block-start:8px; }
+.copied.on{ display:block; }
+
+.steps{ margin-block-start:16px; display:flex; flex-direction:column; gap:8px; list-style:none; }
+.steps li{ display:flex; align-items:center; gap:10px; font-size:15px; color:var(--soft); line-height:1.35; }
+.steps li b{ color:var(--ink); }
+.steps li::before{ counter-increment:step; content:counter(step); flex:none; inline-size:24px; block-size:24px; border-radius:50%;
+  background:rgba(23,87,63,.10); color:var(--accent); font-weight:800; font-size:13px; display:grid; place-items:center; }
+.steps{ counter-reset:step; }
+
+.actions{ margin-block-start:22px; display:flex; flex-direction:column; gap:10px; }
+.cta{ display:flex; align-items:center; justify-content:center; gap:8px; min-block-size:54px; border-radius:999px; background:var(--accent); color:var(--accent-ink);
+  font-weight:800; font-size:17px; text-decoration:none; box-shadow:0 10px 24px rgba(23,87,63,.28); }
+.cta svg{ inline-size:20px; block-size:20px; }
+.cta:active{ transform:translateY(1px); }
+.other{ display:flex; align-items:center; justify-content:center; gap:7px; min-block-size:44px; color:var(--accent); font-weight:700; font-size:15px; text-decoration:none; }
+.other svg{ inline-size:18px; block-size:18px; }
+.other bdi{ unicode-bidi:isolate; }
+.open{ display:block; text-align:center; color:var(--accent); font-size:15px; font-weight:700; text-decoration:none; min-block-size:44px; line-height:44px; }
+.fine{ margin-block-start:10px; text-align:center; font-size:12.5px; line-height:1.5; color:var(--mute); text-wrap:pretty; }
+
+/* No usable code in the address: a real page, but nothing that refers to a code. */
+.nocode .ticket, .nocode .copied, .nocode .steps, .nocode .open{ display:none; }
+.nocode h1{ margin-block-end:4px; }
 </style>
 </head>
 <body>
 <main id="main">
-  <img class="logo" src="/email-icon.png" alt="Simvy" width="64" height="64">
-  <h1>קיבלת הזמנה: <em>3 ימי PRO</em> לך ולחבר שלך</h1>
-  <p>לומדים שוק ההון בעברית, בשיעורים קצרים, ומתרגלים בסימולטור בכסף וירטואלי. קורס המבוא פתוח בלי תשלום.</p>
-  <div class="code">
-    <div class="k">הקוד מהחבר שלך</div>
-    <div class="v" id="code" aria-live="polite"></div>
-    <button type="button" id="copy">העתקת הקוד</button>
+  <span class="badge"><img src="/img/invite-gift.webp" alt="" width="240" height="293">הזמנה מחבר</span>
+  <div class="hero">
+    <img src="/img/invite-handoff.webp" width="760" height="639" alt="הדמות של Simvy מושיטה קופסת מתנה לחברה" fetchpriority="high">
   </div>
-  <p class="where">מתקינים, פותחים חשבון (לא כאורח), ובסוף ההרשמה לוחצים על <b>"יש לך קוד מחבר?"</b> ומקלידים אותו.</p>
-  <div class="stores" id="stores">
-    <a id="ios" data-sv="app-store:invite" href="https://apps.apple.com/il/app/id6797081307?pt=129081401&amp;ct=invite&amp;mt=8"><img src="/app-store-badge-he.svg" alt="הורדה מ-App Store" width="160" height="56"></a>
-    <a id="android" data-sv="google-play:invite" href="https://play.google.com/store/apps/details?id=com.simvy.app&amp;referrer=utm_source%3Dfriend%26utm_medium%3Dinvite%26utm_campaign%3Dinvite"><img src="/google-play-badge-he.png" alt="הורדה מ-Google Play" width="188" height="56"></a>
+  <h1>מתנה אחת, <em>לשניכם</em></h1>
+
+  <div class="ticket">
+    <div class="stub"><b>3</b><span>ימי PRO</span></div>
+    <div class="tbody">
+      <div class="k">הקוד מהחבר שלך</div>
+      <div class="v" id="code" aria-live="polite"></div>
+      <div class="from"><i><img src="/img/invite-friend.webp" alt="" width="220" height="335"></i>מי שהזמין אותך מקבל גם 3 ימים</div>
+    </div>
+    <button type="button" class="copy" id="copy" aria-label="העתקת הקוד">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+    </button>
+  </div>
+  <p class="copied" id="copied">הקוד הועתק</p>
+
+  <ol class="steps">
+    <li>מורידים ופותחים חשבון, לא כאורח</li>
+    <li><span>בסוף ההרשמה: <b>"יש לך קוד מחבר?"</b></span></li>
+    <li>מקלידים את הקוד, ושניכם מקבלים 3 ימים</li>
+  </ol>
+
+  <div class="actions" id="stores">
+    <a id="ios" class="cta" data-sv="app-store:invite" href="https://apps.apple.com/il/app/id6797081307?pt=129081401&amp;ct=invite&amp;mt=8">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.9-.8-3.1-.8-1.6 0-3 .9-3.9 2.4-1.7 2.9-.4 7.2 1.2 9.5.8 1.2 1.7 2.4 3 2.4 1.2 0 1.6-.8 3.1-.8 1.4 0 1.8.8 3.1.8 1.3 0 2.1-1.2 2.9-2.3.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.7-1-2.7-4.1zM14.1 5.9c.6-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.6 2.8-1.4z"/></svg>
+      <span>הורדה מ-<bdi>App Store</bdi></span>
+    </a>
+    <a id="android" class="other" data-sv="google-play:invite" href="https://play.google.com/store/apps/details?id=com.simvy.app&amp;referrer=utm_source%3Dfriend%26utm_medium%3Dinvite%26utm_campaign%3Dinvite">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 3.5v17c0 .4.4.6.7.4L15 12 4.7 3.1c-.3-.2-.7 0-.7.4zM16.5 10.6l-2.4 2.4 2.4 2.4 3.3-1.9c.5-.3.5-.9 0-1.2l-3.3-1.7zM6.3 2.9l8.2 8.2 1.9-1.9z"/></svg>
+      <span>יש לי אנדרואיד · <bdi>Google Play</bdi></span>
+    </a>
   </div>
   <a class="open" id="open" data-sv="open-app:invite" href="simvy://i/">כבר יש לי את האפליקציה</a>
-  <p class="fine">גיל 16 ומעלה. בלי מנוי ובלי חיוב, וכשהימים נגמרים שום דבר לא מתחדש לבד. התוכן לימודי בלבד ואינו ייעוץ השקעות.</p>
+  <p class="fine">הקוד תקף עד 7 ימים מפתיחת החשבון, עד 10 חברים למזמין. בלי מנוי ובלי חיוב, וכשהימים נגמרים שום דבר לא מתחדש לבד. גיל 16 ומעלה. התוכן לימודי בלבד ואינו ייעוץ השקעות.</p>
 </main>
 <script>
 (function () {
@@ -93,6 +169,21 @@ p{ color:#CBD6CF; margin-bottom:18px; }
   try { raw = new URLSearchParams(location.search).get('c') || ''; } catch (e) {}
   var code = raw.replace(/[\s-]/g, '').toUpperCase();
   var main = document.getElementById('main');
+
+  // The store for this phone is the big button, the other one the text line
+  // (the other stays, for a link shared to a group). Same detection as before.
+  var ua = navigator.userAgent || '';
+  var uad = navigator.userAgentData;
+  var platform = (uad && uad.platform) || '';
+  var isAndroid = /android/i.test(platform) || /android/i.test(ua);
+  if (isAndroid) {
+    var ios = document.getElementById('ios'), android = document.getElementById('android');
+    ios.className = 'other'; android.className = 'cta';
+    ios.querySelector('span').innerHTML = 'יש לי אייפון · <bdi>App Store</bdi>';
+    android.querySelector('span').innerHTML = 'הורדה מ-<bdi>Google Play</bdi>';
+    android.parentNode.insertBefore(android, ios);
+  }
+
   if (!RE.test(code)) {
     // No usable code: still a real page, the stores stay.
     main.classList.add('nocode');
@@ -102,11 +193,8 @@ p{ color:#CBD6CF; margin-bottom:18px; }
   document.getElementById('open').setAttribute('href', 'simvy://i/' + code);
 
   var btn = document.getElementById('copy');
-  btn.addEventListener('click', function () {
-    function done() { btn.textContent = 'הקוד הועתק'; }
-    try {
-      navigator.clipboard.writeText(code).then(done, select);
-    } catch (e) { select(); }
+  function copy() {
+    function done() { btn.classList.add('done'); document.getElementById('copied').classList.add('on'); }
     function select() {
       var r = document.createRange();
       r.selectNodeContents(document.getElementById('code'));
@@ -114,17 +202,10 @@ p{ color:#CBD6CF; margin-bottom:18px; }
       s.removeAllRanges();
       s.addRange(r);
     }
-  });
-
-  // The store for this phone first (the other one stays, for a shared link).
-  var ua = navigator.userAgent || '';
-  var uad = navigator.userAgentData;
-  var platform = (uad && uad.platform) || '';
-  var isAndroid = /android/i.test(platform) || /android/i.test(ua);
-  if (isAndroid) {
-    var stores = document.getElementById('stores');
-    stores.insertBefore(document.getElementById('android'), stores.firstChild);
+    try { navigator.clipboard.writeText(code).then(done, select); } catch (e) { select(); }
   }
+  btn.addEventListener('click', copy);
+  document.getElementById('code').addEventListener('click', copy);
 })();
 </script>
 </body>
