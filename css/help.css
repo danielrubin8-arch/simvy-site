@@ -1,0 +1,29 @@
+/* /help/ — the help center pages (tools/help/build_help.py). Site tokens only. */
+.help-crumb { font-size: var(--t-sm); color: var(--ink-mute); margin-block-end: var(--s-3); }
+.help-crumb a { color: var(--accent); text-decoration: none; }
+
+.help-body { max-width: 44em; padding-block: var(--s-6) var(--s-8); }
+.help-body h2 { font-size: var(--t-lg); font-weight: 800; margin-block: var(--s-7) var(--s-3); }
+.help-body p, .help-body li { color: var(--ink-soft); line-height: 1.7; }
+.help-body p { margin-block-end: var(--s-4); }
+.help-body ol, .help-body ul { padding-inline-start: 1.4em; margin-block-end: var(--s-5); }
+.help-body li { margin-block-end: var(--s-2); }
+.help-body b { color: var(--ink); }
+
+.help-note { border: 1px solid var(--line-strong); border-radius: 14px; padding: var(--s-4) var(--s-5); }
+.help-note--warn { border-color: var(--accent); }
+.help-goto { font-size: var(--t-sm); color: var(--ink-mute); }
+.help-link { margin-block-end: var(--s-2); }
+.help-link a { color: var(--accent); font-weight: 700; text-decoration: none; }
+.help-link a:hover { text-decoration: underline; }
+.help-platform { border-inline-start: 2px solid var(--line-strong); padding-inline-start: var(--s-4); margin-block-end: var(--s-4); }
+.help-platform__k { font-weight: 800; color: var(--ink); margin-block-end: var(--s-2); }
+
+.help-topic { padding-block: var(--s-6); border-block-start: 1px solid var(--line-strong); }
+.help-topic h2 { font-size: var(--t-xl); font-weight: 800; margin-block-end: var(--s-4); }
+.help-list { list-style: none; padding: 0; margin: 0; }
+.help-list li { border-block-end: 1px solid var(--line); }
+.help-list a { display: block; padding-block: var(--s-4); color: var(--ink); text-decoration: none; }
+.help-list h3 { font-size: var(--t-base); font-weight: 800; }
+.help-list p { color: var(--ink-soft); font-size: var(--t-sm); margin-block-start: var(--s-1); }
+.help-list a:hover h3 { color: var(--accent); }
