@@ -111,3 +111,15 @@ grep -c '—' *.html
 
 ולוודא שבכל קישור לאפל יש `pt=129081401&ct=site-...&mt=8`, ובכל קישור ל-Play יש
 `referrer=`.
+
+## מרכז העזרה (`/help/`)
+
+`help/*.html`, `css/help.css` והשורות בין `<!-- HELP:BEGIN -->` ל-`<!-- HELP:END -->` ב-`sitemap.xml` **נוצרים בסקריפט**, לא עורכים אותם ביד:
+
+```bash
+python tools/help/build_help.py --from-file ../simvy-app/src/content/help/seed.json
+# או מהשרת, כשהטבלה public.help_articles בפרוד:
+SUPABASE_URL=... SUPABASE_ANON_KEY=... python tools/help/build_help.py --from-api
+```
+
+המקור הוא `content/help/*.json` בריפו האפליקציה (אותם מאמרים שמופיעים באפליקציה). שינוי בתוכן: מעדכנים שם, מריצים את `scripts/help/build.mjs`, ואז את הסקריפט הזה. אחרי מיזוג: IndexNow לדפים שהשתנו.
