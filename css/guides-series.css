@@ -1,0 +1,38 @@
+/* guides-series: the "behind the chat" episode pages (scripts/guides/build.mjs).
+   Adds the reel block and the small series bits on top of /css/guides.css. Edit here, not the HTML. */
+
+/* ---------- reel + side note ---------- */
+.ep-reel { padding-block: var(--s-8) 0; }
+.ep-reel__grid { display: grid; grid-template-columns: minmax(240px, 300px) minmax(0, 1fr); gap: var(--s-6) clamp(32px, 5vw, 72px); align-items: start; }
+.ep-reel__side { max-width: 34em; }
+.ep-reel__side p { color: var(--ink-soft); margin-block-end: var(--s-4); text-wrap: pretty; }
+.ep-reel__fine { font-size: var(--t-xs); color: var(--ink-mute); }
+
+.reel { position: relative; display: block; inline-size: 100%; aspect-ratio: 9 / 16; border-radius: 18px; overflow: hidden; background: var(--ground-2); border: 1px solid var(--line-strong); margin: 0; }
+.reel img { display: block; inline-size: 100%; block-size: 100%; object-fit: cover; }
+.reel--link { text-decoration: none; color: #fff; }
+.reel--link img { transition: transform 400ms var(--ease-out); }
+.motion .reel--link:hover img { transform: scale(1.03); }
+.reel__play { position: absolute; inset: 0; margin: auto; inline-size: 64px; block-size: 64px; border-radius: 50%; background: rgba(0, 0, 0, .55); box-shadow: 0 10px 30px rgba(0, 0, 0, .35); }
+.reel__play::after { content: ""; position: absolute; inset: 0; margin: auto; inline-size: 0; block-size: 0; border-block: 12px solid transparent; border-inline-start: 20px solid #fff; transform: translateX(-3px); }
+.reel__dur { position: absolute; inset-block-start: 12px; inset-inline-end: 12px; font-size: var(--t-xs); font-weight: 700; padding: 3px 8px; border-radius: 999px; background: rgba(0, 0, 0, .55); color: #fff; direction: ltr; }
+.reel__cta { position: absolute; inset-inline: 0; inset-block-end: 0; padding: 40px 16px 16px; font-weight: 800; font-size: var(--t-sm); background: linear-gradient(to top, rgba(0, 0, 0, .7), transparent); text-align: center; }
+.reel--yt iframe { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; border: 0; }
+.reel--ig { aspect-ratio: auto; border: 0; background: transparent; }
+.reel--ig .instagram-media { margin: 0 !important; min-inline-size: 0 !important; }
+.reel--soon figcaption { position: absolute; inset-inline: 0; inset-block-end: 0; padding: 40px 16px 16px; color: #fff; font-size: var(--t-sm); font-weight: 700; background: linear-gradient(to top, rgba(0, 0, 0, .75), transparent); text-align: center; }
+
+/* ---------- lede as three lines ---------- */
+.a-title .lede br { display: block; content: ""; margin-block-end: .35em; }
+
+/* ---------- keep reading: the lead sentence before the CTA card ---------- */
+.more__lead { color: var(--ink-soft); max-width: 40em; margin-block-end: var(--s-5); text-wrap: pretty; }
+
+/* ---------- series index ---------- */
+.guides__k { grid-column: 1; font-size: var(--t-xs); font-weight: 700; color: var(--ink-mute); }
+.guides__empty { padding-block: var(--s-7); color: var(--ink-soft); }
+
+@media (max-width: 760px) {
+  .ep-reel__grid { grid-template-columns: minmax(0, 1fr); }
+  .reel { max-inline-size: 300px; margin-inline: auto; }
+}
